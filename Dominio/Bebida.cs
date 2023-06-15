@@ -16,7 +16,7 @@ namespace Dominio
         public decimal ContenidoNeto { get; set; }
         public bool Estado { get; set; }
         public string UrlImg { get; set; }
-        public int IdMarca { get; set; }
-        public int IdCategoria { get; set; }
+        public Marca IdMarca { get; set; }
+        public Categoria IdCategoria { get; set; }
     }
 }
