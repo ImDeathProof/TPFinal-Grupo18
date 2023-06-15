@@ -19,7 +19,7 @@ go
 create table Usuarios(
 Id int primary key identity(1,1),
 NombreUsuario varchar(50) not null,
-Contraseña varchar(50) not null,
+ContraseÃ±a varchar(50) not null,
 IdTipoUsser int foreign key references TipoUsuario(Id),
 Nombre varchar(50) not null,
 Apellido varchar(50) not null,

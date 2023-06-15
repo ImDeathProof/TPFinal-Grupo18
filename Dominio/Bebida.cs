@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    internal class Bebida
+    public class Bebida
     {
         public int Id { get; set; }
         public string Codigo { get; set; }
@@ -16,7 +16,7 @@ namespace Dominio
         public decimal ContenidoNeto { get; set; }
         public bool Estado { get; set; }
         public string UrlImg { get; set; }
-        public Marca IdMarca { get; set; }
-        public Categoria IdCategoria { get; set; }
+        public Marca Marca { get; set; }
+        public Categoria Categoria { get; set; }
     }
 }
