@@ -1,0 +1,6 @@
+S:\UTN\Segundo año\Programación 3\Trabajos Practicos\TPFinal-Grupo18\Dominio\bin\Debug\Dominio.dll
+S:\UTN\Segundo año\Programación 3\Trabajos Practicos\TPFinal-Grupo18\Dominio\bin\Debug\Dominio.pdb
+S:\UTN\Segundo año\Programación 3\Trabajos Practicos\TPFinal-Grupo18\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+S:\UTN\Segundo año\Programación 3\Trabajos Practicos\TPFinal-Grupo18\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+S:\UTN\Segundo año\Programación 3\Trabajos Practicos\TPFinal-Grupo18\Dominio\obj\Debug\Dominio.dll
+S:\UTN\Segundo año\Programación 3\Trabajos Practicos\TPFinal-Grupo18\Dominio\obj\Debug\Dominio.pdb
