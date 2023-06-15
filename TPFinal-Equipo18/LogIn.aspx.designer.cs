@@ -11,7 +11,7 @@ namespace TPFinal_Equipo18
 {
 
 
-    public partial class WebForm1
+    public partial class LogIn
     {
     }
 }
