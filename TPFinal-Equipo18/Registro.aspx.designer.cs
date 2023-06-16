@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace TPFinal_Equipo18
+namespace TPFinal_Equipo18.LogIn
 {
 
 
-    public partial class Login
+    public partial class Registro
     {
     }
 }
