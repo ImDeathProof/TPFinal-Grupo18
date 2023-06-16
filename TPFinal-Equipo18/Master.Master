@@ -53,13 +53,68 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/LogIn.aspx">Log-In</a>
                             </li>
+                            <li>
+                                <a type="button" href="/Carrito.aspx" class="btn btn-dark">Carrito</a>
+                            </li>
+                            
                         </ul>
                     </div>
                 </div>
             </nav>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-            <footer>Este es el footer</footer>
+         <footer class="footer bg-footer text-white p-3">
+            <div class="row">
+                <div class="col border-end">
+                    <ul>
+                        <li>
+                            <h5>Mapa de Sitio:</h5>
+                        </li>
+                        <li>
+                            <a class="footer-item" href="Default.aspx">Inicio</a>
+                        </li>
+                        <li>
+                            <a class="footer-item" href="Carrito.aspx">Carrito</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col border-end">
+                    <ul>
+                        <li>
+                            <h5>Ayuda:</h5>
+                        </li>
+                        <li>
+                            <a class="footer-item" href="#">Centro de ayuda</a>
+                        </li>
+                        <li>
+                            <a class="footer-item" href="#">Contactanos</a>
+                        </li>
+                        <li>
+                            <a class="footer-item" href="#">Más info</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <ul>
+                        <li>
+                            <h5>Nosotros:</h5>
+                        </li>
+                        <li>
+                            <a class="footer-item" href="#">Brian Galeano</a>
+                        </li>
+                        <li>
+                            <a class="footer-item" href="#">Elias Garcia</a>
+                        </li>
+                        <li>
+                            <a class="footer-item" href="#">Joaquin Gigena</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <p>Copyright ©&nbsp;2023 por Grupo 18</p>
+                </div>
+            </div>
+        </footer>
         </div>
     </form>
 </body>

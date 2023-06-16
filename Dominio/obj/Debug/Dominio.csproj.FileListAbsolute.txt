@@ -16,3 +16,12 @@ C:\TpFinal-Prog3-3\TPFinal-Grupo18\Dominio\obj\Debug\Dominio.csproj.CoreCompileI
 C:\TpFinal-Prog3-3\TPFinal-Grupo18\Dominio\obj\Debug\Dominio.csproj.CopyComplete
 C:\TpFinal-Prog3-3\TPFinal-Grupo18\Dominio\obj\Debug\Dominio.dll
 C:\TpFinal-Prog3-3\TPFinal-Grupo18\Dominio\obj\Debug\Dominio.pdb
+C:\Users\BRIAN\OneDrive\Documentos\PROGRAMACION\UTN\SEGUNDO AÑO\Primer Cuatrimestre\Prog. 3\TPFinal-Grupo18\Dominio\bin\Debug\Dominio.dll
+C:\Users\BRIAN\OneDrive\Documentos\PROGRAMACION\UTN\SEGUNDO AÑO\Primer Cuatrimestre\Prog. 3\TPFinal-Grupo18\Dominio\bin\Debug\Dominio.pdb
+C:\Users\BRIAN\OneDrive\Documentos\PROGRAMACION\UTN\SEGUNDO AÑO\Primer Cuatrimestre\Prog. 3\TPFinal-Grupo18\Dominio\bin\Debug\AccesoDatos.dll
+C:\Users\BRIAN\OneDrive\Documentos\PROGRAMACION\UTN\SEGUNDO AÑO\Primer Cuatrimestre\Prog. 3\TPFinal-Grupo18\Dominio\bin\Debug\AccesoDatos.pdb
+C:\Users\BRIAN\OneDrive\Documentos\PROGRAMACION\UTN\SEGUNDO AÑO\Primer Cuatrimestre\Prog. 3\TPFinal-Grupo18\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\BRIAN\OneDrive\Documentos\PROGRAMACION\UTN\SEGUNDO AÑO\Primer Cuatrimestre\Prog. 3\TPFinal-Grupo18\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\BRIAN\OneDrive\Documentos\PROGRAMACION\UTN\SEGUNDO AÑO\Primer Cuatrimestre\Prog. 3\TPFinal-Grupo18\Dominio\obj\Debug\Dominio.csproj.CopyComplete
+C:\Users\BRIAN\OneDrive\Documentos\PROGRAMACION\UTN\SEGUNDO AÑO\Primer Cuatrimestre\Prog. 3\TPFinal-Grupo18\Dominio\obj\Debug\Dominio.dll
+C:\Users\BRIAN\OneDrive\Documentos\PROGRAMACION\UTN\SEGUNDO AÑO\Primer Cuatrimestre\Prog. 3\TPFinal-Grupo18\Dominio\obj\Debug\Dominio.pdb
