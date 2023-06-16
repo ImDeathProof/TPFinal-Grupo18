@@ -18,3 +18,14 @@ S:\UTN\Segundo año\Programación 3\Trabajos Practicos\TP CUATRIMESTRAL\TPFinal-
 S:\UTN\Segundo año\Programación 3\Trabajos Practicos\TP CUATRIMESTRAL\TPFinal-Equipo18\Negocio\obj\Debug\Negocio.pdb
 S:\UTN\Segundo año\Programación 3\Trabajos Practicos\TPFinal-Grupo18\Negocio\bin\Debug\AccesoDatos.dll
 S:\UTN\Segundo año\Programación 3\Trabajos Practicos\TPFinal-Grupo18\Negocio\bin\Debug\AccesoDatos.pdb
+C:\TpFinal-Prog3-3\TPFinal-Grupo18\Negocio\bin\Debug\Negocio.dll
+C:\TpFinal-Prog3-3\TPFinal-Grupo18\Negocio\bin\Debug\Negocio.pdb
+C:\TpFinal-Prog3-3\TPFinal-Grupo18\Negocio\bin\Debug\AccesoDatos.dll
+C:\TpFinal-Prog3-3\TPFinal-Grupo18\Negocio\bin\Debug\Dominio.dll
+C:\TpFinal-Prog3-3\TPFinal-Grupo18\Negocio\bin\Debug\AccesoDatos.pdb
+C:\TpFinal-Prog3-3\TPFinal-Grupo18\Negocio\bin\Debug\Dominio.pdb
+C:\TpFinal-Prog3-3\TPFinal-Grupo18\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\TpFinal-Prog3-3\TPFinal-Grupo18\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\TpFinal-Prog3-3\TPFinal-Grupo18\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\TpFinal-Prog3-3\TPFinal-Grupo18\Negocio\obj\Debug\Negocio.dll
+C:\TpFinal-Prog3-3\TPFinal-Grupo18\Negocio\obj\Debug\Negocio.pdb

@@ -29,6 +29,7 @@ namespace Negocio
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.ContenidoNeto = (decimal)datos.Lector["ContenidoNeto"];
                     aux.Estado = (bool)datos.Lector["Estado"];
+                    aux.UrlImg = (string)datos.Lector["UrlImg"];
                     aux.Marca = new Marca();
                     if (datos.Lector["Marca"] is DBNull)
                     {
