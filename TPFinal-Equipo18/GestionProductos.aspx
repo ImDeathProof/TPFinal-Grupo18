@@ -10,7 +10,8 @@
         <div class="row">
             <div class="col-8">
                 <a href="AgregarProducto.aspx" class="btn btn-primary">Agregar producto </a>
-                <asp:GridView ID="dgvProductos" runat="server" AutoGenerateColumns="false" CssClass="table table-dark table-striped">
+                <asp:GridView ID="dgvProductos" runat="server" AutoGenerateColumns="false" 
+                    CssClass="table table-dark table-striped" DataKeyNames="Id" OnSelectedIndexChanged="dgvProductos_SelectedIndexChanged">
                     <Columns>
                         <asp:BoundField HeaderText="Codigo" DataField="Codigo" />
                         <asp:BoundField HeaderText="Nombre" DataField="Nombre" />

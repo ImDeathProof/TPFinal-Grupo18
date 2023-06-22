@@ -20,6 +20,13 @@ namespace TPFinal_Equipo18
                 dgvProductos.DataSource = negocio.Listar();
                 dgvProductos.DataBind();
             }
+
+        }
+
+        protected void dgvProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string Id = dgvProductos.SelectedDataKey.Value.ToString();
+            Response.Redirect("AgregarProducto.aspx?Id=" + Id);
         }
     }
 }

@@ -76,6 +76,14 @@
 
         </div>
 
+        <div class="row">
+            <div class="6">
+                <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click"/>
+                <a href="GestionProductos.aspx" class="btn btn-secondary">Cancelar</a>
+            </div>
+
+        </div>
+
     </div>
 
 
