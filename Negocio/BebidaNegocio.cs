@@ -37,7 +37,7 @@ namespace Negocio
                     }
                     else
                     {
-                        aux.Marca.Nombre = (string)datos.Lector["Categoria"];
+                        aux.Marca.Nombre = (string)datos.Lector["Marca"];
                     }
                     aux.Categoria = new Categoria();
                     if (datos.Lector["Categoria"] is DBNull)
