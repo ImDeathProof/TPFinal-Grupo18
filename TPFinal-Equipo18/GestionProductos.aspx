@@ -10,8 +10,23 @@
         <div class="row">
             <div class="col-6">
                 <a href="AgregarProducto.aspx" class="btn btn-primary">Agregar producto </a>
+                <asp:Button ID="btnAgregarMarca" runat="server" Text="Agregar marca" CssClass="btn btn-primary" OnClick="btnAgregarMarca_Click" />
+               
+                <a href="AgregarCategoria.aspx" class="btn btn-primary">Agregar categoria </a>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-6" id="divAgregarMarca" runat="server">
+                <asp:Label ID="lblMarca" runat="server" CssClass="label-control" Text="Ingresar nombre de la marca"></asp:Label>
+                <asp:TextBox ID="txtMarca"  CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:Button ID="btnAgregar" CssClass="btn btn-secondary"  runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
+
+            </div>
+        </div>
+
+
+        <%--Desplegable de bebidas,marcas y categorias--%>
         <div class="row">
             <div class="col-6">
                 <asp:DropDownList ID="ddlListado" runat="server" CssClass="form-control" AutoPostBack="true">
@@ -23,6 +38,7 @@
         </div>
         <%--Grilla de bebidas--%>
 
+        <%--Pregunto que esta seleccionado en el desplegable--%>
         <%if (ddlListado.Text == "Listado de bebidas")
             {
 
@@ -52,7 +68,7 @@
             {
 
         %>
-        <%--Grillas de marcas--%>
+        <%--Grillas de categorias--%>
         <div class="row">
             <div class="col-8">
                 <asp:GridView ID="dgvCategorias" runat="server" AutoGenerateColumns="false"
@@ -70,6 +86,7 @@
         <%}
             else
             {  %>
+        <%--grilla de marcas--%>
          <div class="row">
             <div class="col-8">
                 <asp:GridView ID="dgvMarcas" runat="server" AutoGenerateColumns="false"

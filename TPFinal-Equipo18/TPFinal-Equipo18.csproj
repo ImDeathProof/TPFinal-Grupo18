@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AgregarCategoria.aspx" />
+    <Content Include="AgregarMarca.aspx" />
     <Content Include="AgregarProducto.aspx" />
     <Content Include="Carrito.aspx" />
     <Content Include="GestionProductos.aspx" />
@@ -79,6 +81,20 @@
     <Content Include="Default.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarCategoria.aspx.cs">
+      <DependentUpon>AgregarCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarCategoria.aspx.designer.cs">
+      <DependentUpon>AgregarCategoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarMarca.aspx.cs">
+      <DependentUpon>AgregarMarca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarMarca.aspx.designer.cs">
+      <DependentUpon>AgregarMarca.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AgregarProducto.aspx.cs">
       <DependentUpon>AgregarProducto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

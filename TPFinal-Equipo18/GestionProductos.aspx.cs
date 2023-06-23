@@ -31,6 +31,8 @@ namespace TPFinal_Equipo18
 
                 dgvMarcas.DataSource= marcaNegocio.listar();
                 dgvMarcas.DataBind();
+
+                divAgregarMarca.Visible= false;
             }
 
         }
@@ -39,6 +41,31 @@ namespace TPFinal_Equipo18
         {
             string Id = dgvProductos.SelectedDataKey.Value.ToString();
             Response.Redirect("AgregarProducto.aspx?Id=" + Id);
+        }
+
+        protected void btnAgregarMarca_Click(object sender, EventArgs e)
+        {
+            divAgregarMarca.Visible = true;
+        }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MarcaNegocio negocio= new MarcaNegocio();
+                Marca nueva=new Marca();
+                nueva.Nombre=txtMarca.Text;
+
+                negocio.agregar(nueva);
+                Response.Redirect("GestionProductos.aspx", false);
+
+            }
+            catch (Exception ex)
+            {
+
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
+            }
         }
     }
 }
