@@ -15,10 +15,22 @@ namespace TPFinal_Equipo18
         {
             if(!IsPostBack)
             {
+                ddlListado.Items.Insert(0, "Listado de bebidas");
+                ddlListado.Items.Insert(1, "Listado de marcas");
+                ddlListado.Items.Insert(2, "Listado de categorias");
+
                 BebidaNegocio negocio= new BebidaNegocio();
+                MarcaNegocio marcaNegocio= new MarcaNegocio();
+                CategoriaNegocio categoriaNegocio=new CategoriaNegocio();
 
                 dgvProductos.DataSource = negocio.Listar();
                 dgvProductos.DataBind();
+
+                dgvCategorias.DataSource= categoriaNegocio.listar();
+                dgvCategorias.DataBind();
+
+                dgvMarcas.DataSource= marcaNegocio.listar();
+                dgvMarcas.DataBind();
             }
 
         }
