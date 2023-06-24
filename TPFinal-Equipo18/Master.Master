@@ -30,7 +30,7 @@
                                 <a class="nav-link" href="/Novedades.aspx">Novedades</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/GestionProductos">Gestion de productos</a>
+                                <a class="nav-link" href="/GestionProductos.aspx">Gestion de productos</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos
