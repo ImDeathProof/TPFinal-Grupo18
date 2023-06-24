@@ -15,6 +15,15 @@ namespace TPFinal_Equipo18
     {
 
         /// <summary>
+        /// Control ScriptManager1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
         /// Control btnAgregarMarca.
         /// </summary>
         /// <remarks>
@@ -60,6 +69,15 @@ namespace TPFinal_Equipo18
         protected global::System.Web.UI.WebControls.TextBox txtMarca;
 
         /// <summary>
+        /// Control lblAlertaNombreMarca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAlertaNombreMarca;
+
+        /// <summary>
         /// Control btnAgregar_Marca.
         /// </summary>
         /// <remarks>
@@ -103,6 +121,15 @@ namespace TPFinal_Equipo18
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCategoria;
+
+        /// <summary>
+        /// Control lblAlertaNombreCategoria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAlertaNombreCategoria;
 
         /// <summary>
         /// Control btnAgregar_Categoria.

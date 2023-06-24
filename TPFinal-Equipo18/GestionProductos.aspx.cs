@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using Dominio;
+using System.Diagnostics.Eventing.Reader;
 
 namespace TPFinal_Equipo18
 {
@@ -23,9 +24,11 @@ namespace TPFinal_Equipo18
                 MarcaNegocio marcaNegocio = new MarcaNegocio();
                 CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
-                dgvProductos.DataSource = negocio.Listar();
-                dgvProductos.DataBind();
 
+                List<Bebida> list = negocio.Listar();
+                dgvProductos.DataSource = list;
+                dgvProductos.DataBind();
+                
                 dgvCategorias.DataSource = categoriaNegocio.listar();
                 dgvCategorias.DataBind();
 
@@ -35,7 +38,6 @@ namespace TPFinal_Equipo18
                 divAgregarMarca.Visible = false;
                 divAgregarCategoria.Visible = false;
             }
-
         }
 
         protected void dgvProductos_SelectedIndexChanged(object sender, EventArgs e)
@@ -49,23 +51,30 @@ namespace TPFinal_Equipo18
             if (divAgregarCategoria.Visible == true)
             {
                 divAgregarCategoria.Visible = false;
+                lblAlertaNombreCategoria.Visible = false;
                 divAgregarMarca.Visible = true;
+                lblAlertaNombreMarca.Visible = false;
             }
             else
             {
                 divAgregarMarca.Visible = true;
+                lblAlertaNombreMarca.Visible = false;
             }
         }
         protected void btnAgregarCategoria_Click(object sender, EventArgs e)
         {
             if (divAgregarMarca.Visible == true)
             {
-                divAgregarMarca.Visible=false;
+                divAgregarMarca.Visible = false;
+                lblAlertaNombreMarca.Visible = false;
                 divAgregarCategoria.Visible = true;
+                lblAlertaNombreCategoria.Visible = false;
             }
             else
             {
                 divAgregarCategoria.Visible = true;
+                lblAlertaNombreCategoria.Visible = false;
+
             }
         }
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -76,48 +85,87 @@ namespace TPFinal_Equipo18
             }
             else
             {
-                divAgregarCategoria.Visible=false;
+                divAgregarCategoria.Visible = false;
             }
         }
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             if (divAgregarMarca.Visible == true)
             {
-                try
+                if (string.IsNullOrWhiteSpace(txtMarca.Text))
                 {
-                    MarcaNegocio negocio = new MarcaNegocio();
-                    Marca nueva = new Marca();
-                    nueva.Nombre = txtMarca.Text;
-
-                    negocio.agregar(nueva);
-                    Response.Redirect("GestionProductos.aspx", false);
-
+                    lblAlertaNombreMarca.Visible = true;
                 }
-                catch (Exception ex)
-                {
+                else
+                    try
+                    {
+                        MarcaNegocio negocio = new MarcaNegocio();
+                        Marca nueva = new Marca();
+                        nueva.Nombre = txtMarca.Text;
 
-                    Session.Add("Error", ex.ToString());
-                    Response.Redirect("Error.aspx", false);
+                        negocio.agregar(nueva);
+                        Response.Redirect("GestionProductos.aspx", false);
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Session.Add("Error", ex.ToString());
+                        Response.Redirect("Error.aspx", false);
+                    }
+                {
                 }
             }
             else if (divAgregarCategoria.Visible == true)
             {
-                try
+                if (string.IsNullOrWhiteSpace(txtCategoria.Text))
                 {
-                    CategoriaNegocio negocio = new CategoriaNegocio();
-                    Categoria nueva = new Categoria();
-                    nueva.Nombre = txtCategoria.Text;
-
-                    negocio.agregar(nueva);
-                    Response.Redirect("GestionProductos.aspx", false);
+                    lblAlertaNombreCategoria.Visible = true;
                 }
-                catch (Exception ex)
+                else
                 {
-                    Session.Add("Error", ex.ToString());
-                    Response.Redirect("Error.aspx", false);
-                    throw;
+
+                    try
+                    {
+                        CategoriaNegocio negocio = new CategoriaNegocio();
+                        Categoria nueva = new Categoria();
+                        nueva.Nombre = txtCategoria.Text;
+
+                        negocio.agregar(nueva);
+                        Response.Redirect("GestionProductos.aspx", false);
+                    }
+                    catch (Exception ex)
+                    {
+                        Session.Add("Error", ex.ToString());
+                        Response.Redirect("Error.aspx", false);
+                        throw;
+                    }
                 }
             }
         }
+      
+        //FUNCION PARA ELIMINAR USANDO EL LINKBUTTON PERO NO FUNCIONA, LO REVISO DESPUES
+        //protected void dgvProductos_RowCommand(object sender, GridViewCommandEventArgs e)
+        //{
+        //    try
+        //    {
+        //        int index = Convert.ToInt32(e.CommandArgument);
+        //        GridViewRow row = dgvProductos.Rows[index];
+
+        //        BebidaNegocio negocio = new BebidaNegocio();
+        //        List<Bebida> lista = new List<Bebida>();
+        //        lista = negocio.Listar();
+        //        negocio.eliminar(13);
+
+        //        dgvProductos.DataSource = lista;
+        //        dgvProductos.DataBind();
+        //        Response.Redirect("GestionProductos.aspx", false);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Session.Add("Error", ex);
+        //    }
+        //}
+        
     }
 }

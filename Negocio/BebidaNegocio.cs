@@ -146,6 +146,20 @@ namespace Negocio
             }
 
         }
+        public void eliminar(int id)
+        {
+                AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+            try
+            {
+                datos.setearConsulta("delete from bebidas where id = @id");
+                datos.setearParametros("@id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
 
