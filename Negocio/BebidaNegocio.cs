@@ -58,22 +58,22 @@ namespace Negocio
                 throw ex;
             }
         }
-    
+
         public void agregar(Bebida nuevo)
         {
-            AccesoDatos.AccesoDatos datos= new AccesoDatos.AccesoDatos();
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
             try
             {
                 //codigo - nombre.precio - descripcion - contenido - estado - url - idmarca - idcat
                 datos.setearConsulta("insert into Bebidas values(@Codigo,@Nombre,@Precio,@Descripcion,@Contenido,1,@Url,@Marca,@Categoria)");
-                datos.setearParametros("@Codigo",nuevo.Codigo);
-                datos.setearParametros("@Nombre",nuevo.Nombre);
-                datos.setearParametros("@Precio",nuevo.Precio);
-                datos.setearParametros("@Descripcion",nuevo.Descripcion);
-                datos.setearParametros("@Contenido",nuevo.ContenidoNeto);
-                datos.setearParametros("Url",nuevo.UrlImg);
-                datos.setearParametros("Marca",nuevo.Marca.Id);
-                datos.setearParametros("@Categoria",nuevo.Categoria.Id);
+                datos.setearParametros("@Codigo", nuevo.Codigo);
+                datos.setearParametros("@Nombre", nuevo.Nombre);
+                datos.setearParametros("@Precio", nuevo.Precio);
+                datos.setearParametros("@Descripcion", nuevo.Descripcion);
+                datos.setearParametros("@Contenido", nuevo.ContenidoNeto);
+                datos.setearParametros("Url", nuevo.UrlImg);
+                datos.setearParametros("Marca", nuevo.Marca.Id);
+                datos.setearParametros("@Categoria", nuevo.Categoria.Id);
 
                 datos.ejecutarAccion();
             }
@@ -91,7 +91,7 @@ namespace Negocio
         public Bebida buscar(int Id)
         {
             Bebida bebida = new Bebida();
-            AccesoDatos.AccesoDatos datos=new AccesoDatos.AccesoDatos();
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
             try
             {
                 datos.setearConsulta("select Id,Codigo,Nombre,Precio,Descripcion,ContenidoNeto,Estado,UrlImg,IdMarca,IdCategoria from Bebidas where Id=@Id");
@@ -107,9 +107,9 @@ namespace Negocio
                 bebida.ContenidoNeto = (decimal)datos.Lector["ContenidoNeto"];
                 bebida.Estado = (bool)datos.Lector["Estado"];
                 bebida.UrlImg = (string)datos.Lector["UrlImg"];
-                bebida.Marca=new Marca();
+                bebida.Marca = new Marca();
                 bebida.Marca.Id = (int)datos.Lector["IdMarca"];
-                bebida.Categoria=new Categoria();
+                bebida.Categoria = new Categoria();
                 bebida.Categoria.Id = (int)datos.Lector["IdCategoria"];
 
                 return bebida;
@@ -148,7 +148,7 @@ namespace Negocio
         }
         public void eliminar(int id)
         {
-                AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
             try
             {
                 datos.setearConsulta("delete from bebidas where id = @id");
@@ -157,6 +157,36 @@ namespace Negocio
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+        public void bajaLogica(int id)
+        {
+            try
+            {
+                AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+                datos.setearConsulta("update bebidas set Estado = 0 where id = @id");
+                datos.setearParametros("id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public void altaLogica(int id)
+        {
+            try
+            {
+                AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+                datos.setearConsulta("update bebidas set Estado = 1 where id = @id");
+                datos.setearParametros("id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }

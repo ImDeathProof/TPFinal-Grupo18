@@ -74,11 +74,7 @@
                                     <asp:CommandField HeaderText="Modificar" ShowSelectButton="true" SelectText="Modificar" />
                                     <asp:BoundField HeaderText="Activo" DataField="Estado" />
                                     <%--LINKBUTTON PARA ELIMINAR, IGUAL QUE LA FUNCION LO REVISO DESPUES--%>
-                                    <%--<asp:TemplateField> 
-                                        <ItemTemplate>
-                                            <asp:LinkButton ID="lbtn_Eliminar" Text="Eliminar" runat="server" CommandName="Eliminar" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />
-                                        </ItemTemplate>
-                                    <%--</asp:TemplateField>--%>
+                                    <asp:CommandField HeaderText="Eliminar" ShowSelectButton="true" SelectText="Eliminar" />
                                 </Columns>
                             </asp:GridView>
                         </div>

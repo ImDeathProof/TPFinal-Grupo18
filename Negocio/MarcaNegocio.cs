@@ -62,5 +62,50 @@ namespace Negocio
             }
             finally { datos.cerrarConexion();}
         }
+        public void bajaLogica(int id)
+        {
+            try
+            {
+                AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+                datos.setearConsulta("update Marcas set Estado = 0 where id = @id");
+                datos.setearParametros("id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public void altaLogica(int id)
+        {
+            try
+            {
+                AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+                datos.setearConsulta("update Marcas set Estado = 1 where id = @id");
+                datos.setearParametros("id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public void eliminar(int id)
+        {
+            try
+            {
+                AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+                datos.setearConsulta("delete from Marcas where id = @id");
+                datos.setearParametros("id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

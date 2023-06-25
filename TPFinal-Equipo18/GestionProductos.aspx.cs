@@ -143,7 +143,6 @@ namespace TPFinal_Equipo18
                 }
             }
         }
-      
         //FUNCION PARA ELIMINAR USANDO EL LINKBUTTON PERO NO FUNCIONA, LO REVISO DESPUES
         //protected void dgvProductos_RowCommand(object sender, GridViewCommandEventArgs e)
         //{
@@ -152,20 +151,20 @@ namespace TPFinal_Equipo18
         //        int index = Convert.ToInt32(e.CommandArgument);
         //        GridViewRow row = dgvProductos.Rows[index];
 
-        //        BebidaNegocio negocio = new BebidaNegocio();
-        //        List<Bebida> lista = new List<Bebida>();
-        //        lista = negocio.Listar();
-        //        negocio.eliminar(13);
+            //        BebidaNegocio negocio = new BebidaNegocio();
+            //        List<Bebida> lista = new List<Bebida>();
+            //        lista = negocio.Listar();
+            //        negocio.eliminar(13);
 
-        //        dgvProductos.DataSource = lista;
-        //        dgvProductos.DataBind();
-        //        Response.Redirect("GestionProductos.aspx", false);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Session.Add("Error", ex);
-        //    }
-        //}
-        
+            //        dgvProductos.DataSource = lista;
+            //        dgvProductos.DataBind();
+            //        Response.Redirect("GestionProductos.aspx", false);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Session.Add("Error", ex);
+            //    }
+            //}
+
     }
 }
