@@ -15,15 +15,15 @@ namespace Negocio
             AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
             try
             {
-                datos.setearConsulta("Select Id, NombreUsuario, Contraseña, IdTipoUser from USUARIOS where = @user AND pass = @pass ");
+                datos.setearConsulta("Select Id, NombreUsuario, Contraseña, IdTipoUsser from USUARIOS where NombreUsuario = @user AND Contraseña = @pass ");
                 datos.setearParametros("@user",usuario.NombreUsuario);
                 datos.setearParametros("@pass", usuario.Contraseña);
 
                 datos.ejecutarLectura();
                 while(datos.Lector.Read())
                 {
-                    usuario.Id = (int)datos.Lector["id"];
-                    usuario.IdTipoUser = (int)(datos.Lector["IdTipoUser"]) == 1 ? TipoUsuario.ADMIN : TipoUsuario.NORMAL;
+                    usuario.Id = (int)datos.Lector["Id"];
+                    usuario.IdTipoUser = (int)(datos.Lector["IdTipoUsser"]) == 1 ? TipoUsuario.ADMIN : TipoUsuario.NORMAL;
                     return true;
                 }
                 return false;
