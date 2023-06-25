@@ -5,15 +5,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container border border-3 border-primary p-3" id="">
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Nombre de usuario</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label class="form-label">E-Mail</label>
+            <asp:TextBox runat="server" id="txtUser" placeholder="e-mail" CssClass="form-control"/>
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <label class="form-label">Contraseña</label>
+            <asp:TextBox runat="server" placeholder="*********" id="txtPass" CssClass="form-control" />
         </div>
         <div class="mb-3">
-            <button type="submit" class="btn btn-primary">Entrar</button>
+             <asp:Button Text="Entar"  runat="server" ID="btnIngresar" Onclick="btnIngresar_Click" class="btn btn-primary"/>
             <asp:HyperLink NavigateUrl="/Registro.aspx" runat="server" CssClass="p-3">Registrarme</asp:HyperLink>
         </div>
     </div>
