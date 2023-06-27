@@ -6,40 +6,42 @@
     <div class="container border border-3 border-primary p-3" id="">
         <div class="mb-3">
             <label for="" class="form-label">Nombre</label>
-            <input type="email" class="form-control" id="" aria-describedby="emailHelp">
+            <asp:TextBox runat="server" ID="txtNombre" placeholder="Ingrese su nombre de usuario" CssClass="form-control" />
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Apellido</label>
-            <input type="email" class="form-control" id="" aria-describedby="emailHelp">
+            <asp:TextBox runat="server" ID="txtApellido" placeholder="Ingrese su nombre de usuario" CssClass="form-control" />
         </div>
         <div class="mb-3">
             <label for="" class="form-label">DNI</label>
-            <input type="email" class="form-control" id="" aria-describedby="emailHelp">
+            <asp:TextBox runat="server" ID="txtDNI" placeholder="Ingrese su nombre de usuario" CssClass="form-control" />
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Telefono</label>
-            <input type="email" class="form-control" id="" aria-describedby="emailHelp">
+            <asp:TextBox runat="server" ID="txtTelefono" placeholder="Ingrese su nombre de usuario" CssClass="form-control" />
             <div id="" class="form-text">Puede ser un celular</div>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Fecha de nacimiento</label>
-            <input type="email" class="form-control" id="" aria-describedby="emailHelp">
+            <asp:TextBox runat="server" ID="txtFechaNacimiento" placeholder="Ingrese su nombre de usuario" CssClass="form-control" TextMode="Date" />
             <div id="" class="form-text">Debes tener al menos 18 años</div>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Nombre de Usuario</label>
-            <input type="email" class="form-control" id="" aria-describedby="emailHelp">
+            <asp:TextBox runat="server" ID="txtUsuario" placeholder="Ingrese su nombre de usuario" CssClass="form-control" />
+            <%--<asp:Label ID="lblUsuarioExistente" Text="El usuario ya existe! Elegi otro" CssClass="form-text" runat="server" />--%>
+            <asp:Label ID="lblAlertaUsuario" Text="El nombre de usuario ya existe, por favor elija otro" runat="server" />
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Dirección de Email</label>
-            <input type="email" class="form-control" id="" aria-describedby="emailHelp">
+            <asp:TextBox runat="server" ID="txtEmail" placeholder="Ingrese su nombre de usuario" CssClass="form-control" />
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="">
+            <asp:TextBox runat="server" placeholder="Ingrese su contraseña" ID="txtPass" TextMode="Password" CssClass="form-control" />
         </div>
         <div class="mb-3">
-            <button type="submit" class="btn btn-primary">Registrar</button>
+            <button id="btnRegistrar" type="submit" class="btn btn-primary" onclick="btnRegistrar_Click">Registrar</button>
             <asp:HyperLink NavigateUrl="/LogIn.aspx" runat="server" CssClass="p-3">Ya tengo cuenta</asp:HyperLink>
         </div>
     </div>

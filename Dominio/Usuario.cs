@@ -13,7 +13,7 @@ namespace Dominio
     }
     public class Usuario
     {
-        public int Id {get; set; }
+        public int Id { get; set; }
         public string NombreUsuario { get; set; }
         public string Contraseña { get; set; }
         public TipoUsuario IdTipoUser { get; set; }
@@ -24,7 +24,7 @@ namespace Dominio
         public string Telefono { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public Domicilio Domicilio { get; set; }
-        
+        public Usuario(){}
         public Usuario(string user, string pass, bool admin)
         {
             NombreUsuario = user;
