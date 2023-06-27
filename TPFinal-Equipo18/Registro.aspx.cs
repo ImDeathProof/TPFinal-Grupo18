@@ -25,30 +25,32 @@ namespace TPFinal_Equipo18.LogIn
             try
             {
                 Nuevo = new Usuario();
-                //if (negocio.Buscar(txtUsuario.Text))
-                //{
-                ///Cargamos los datos en el nuevo usuario
-                Nuevo.NombreUsuario = txtUsuario.Text;
-                Nuevo.Nombre = txtNombre.Text;
-                Nuevo.Apellido = txtApellido.Text;
-                Nuevo.Contraseña = txtPass.Text;
-                Nuevo.Email = txtEmail.Text;
-                Nuevo.DNI = int.Parse(txtDNI.Text);
-                Nuevo.Telefono = txtTelefono.Text;
-                Nuevo.FechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
-                ///Lo cargamos a la base de datos
-                negocio.Registrar(Nuevo);
-                //}
-                //else
-                //{
-                //    lblAlertaUsuario.Visible = true;
-                //}
-                Response.Redirect("Default.aspx", false);
+                if (negocio.Buscar(txtUsuario.Text)==false)
+                {
+                    ///Cargamos los datos en el nuevo usuario
+                    Nuevo.NombreUsuario = txtUsuario.Text;
+                    Nuevo.Nombre = txtNombre.Text;
+                    Nuevo.Apellido = txtApellido.Text;
+                    Nuevo.Contraseña = txtPass.Text;
+                    Nuevo.Email = txtEmail.Text;
+                    Nuevo.DNI = int.Parse(txtDNI.Text);
+                    Nuevo.Telefono = txtTelefono.Text;
+                    Nuevo.FechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
+                    ///Lo cargamos a la base de datos
+                    negocio.Registrar(Nuevo);
+                    negocio.Loguear(Nuevo);
+                    Session.Add("usuario", Nuevo);
+                    Response.Redirect("Default.aspx", false);
+                }
+                else
+                {
+                    lblAlertaUsuario.Visible = true;
+                }
             }
             catch (Exception ex)
             {
-                //Session.Add("Error", ex);
-                throw ex;
+                Session.Add("Error", ex);
+                //throw ex;
             }
         }
     }

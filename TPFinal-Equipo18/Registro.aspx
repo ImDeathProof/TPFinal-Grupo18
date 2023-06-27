@@ -41,7 +41,7 @@
             <asp:TextBox runat="server" placeholder="Ingrese su contraseña" ID="txtPass" TextMode="Password" CssClass="form-control" />
         </div>
         <div class="mb-3">
-            <button id="btnRegistrar" type="submit" class="btn btn-primary" onclick="btnRegistrar_Click">Registrar</button>
+            <asp:Button id="btnRegistrar" Text="Registrar" cssclass="btn btn-success" onclick="btnRegistrar_Click" runat="server" />
             <asp:HyperLink NavigateUrl="/LogIn.aspx" runat="server" CssClass="p-3">Ya tengo cuenta</asp:HyperLink>
         </div>
     </div>

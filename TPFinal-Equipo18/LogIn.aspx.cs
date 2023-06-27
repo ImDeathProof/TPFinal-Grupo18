@@ -29,7 +29,7 @@ namespace TPFinal_Equipo18
                 }
                 else
                 {
-                    Session.Add("erros", "Mail o Pass incorrecta");
+                    Session.Add("error", "Mail o Pass incorrecta");
                     Response.Redirect("Error.aspx");
                 }
             }
