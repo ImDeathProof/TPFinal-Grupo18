@@ -97,6 +97,20 @@ insert into Bebidas values('A11','Fernet ',2000,'Bebida alcoholica elaborada con
 insert into Bebidas values('A22','Manao ',300,'Gaseosa berreta',1,1,'https://www.argensend.com/wp-content/uploads/2021/09/D_NQ_NP_716200-MLA43739181284_102020-F.webp',3,3)
 insert into Bebidas values('B33','Terminaitor ',500,'Jugo de estracto de uva',1,1,'https://s3.amazonaws.com/storage.wobiz.com/138/138495/images/Large/1557322653_c2314b5790046933a89ca07dbc544870.138495.jpeg',4,3)
 
+--Insert TipoUsuario
+insert into TipoUsuario(Nombre)
+values('Admin'),
+    ('Normal')
+
+--Insert Domicilio
+insert into Domicilio(Calle, Numero, Provincia, Partido, Localidad)
+values ('Av. Corrientes', '992','Buenos Aires','CABA','Monserrat')
+
+--Inserts Usuario
+insert into usuarios(NombreUsuario, Contraseña, IdTipoUsser,Nombre, Apellido, Dni, Email, Telefono, FechaNacimiento, IdDomicilio)
+values ('admin','123456',1,'Juan Roman', 'Riquelme', '41239483', 'administrador@almacenBebidas.com', '1521342834','1978-06-24',1)
+
+--Consultas
 SELECT * FROM Bebidas
 SELECT * FROM Categorias
 SELECT * FROM Marcas
