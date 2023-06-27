@@ -42,7 +42,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link">¿Quienes somos?</a>
+                                <a class="nav-link" href="Carrito.aspx" >Carrito</a>
                             </li>
                             <li class="nav-container">
                                 <div class="d-flex" role="search">

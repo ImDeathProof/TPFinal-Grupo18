@@ -21,6 +21,29 @@ namespace TPFinal_Equipo18
                 listaBebidas = negocio.Listar();
             }
 
+            if (Request.QueryString["Id"] != null)
+            {
+                List<Bebida> carritoBebidas;
+                BebidaNegocio negocio = new BebidaNegocio();
+                Bebida seleccionado;
+
+                if (Session["Bebidas"] == null)
+                {
+                    carritoBebidas = new List<Bebida>();
+                }
+                else
+                {
+                    carritoBebidas = (List<Bebida>)Session["Bebidas"];
+                }
+                string id = Request.QueryString["Id"];
+
+                seleccionado = negocio.buscar(int.Parse(id));
+
+                carritoBebidas.Add(seleccionado);
+
+                Session.Add("Bebidas", carritoBebidas);
+            }
+
         }
     }
 }
