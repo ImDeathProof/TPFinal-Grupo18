@@ -24,7 +24,7 @@
                         <p class="card-text"><%: bebida.Descripcion %></p>
                         <a href="#" class="btn btn-secondary">Ver detalle </a>
                         <%-- Redirecciono a la misma pagina para quedarme con el id --%>
-                        <a href="#" class="btn btn-secondary">Añadir al carrito </a>
+                        <a href="Default.aspx?Id= <%: bebida.Id %>" class="btn btn-secondary">Añadir al carrito </a>
                     </div>
                 </div>
             </div>
