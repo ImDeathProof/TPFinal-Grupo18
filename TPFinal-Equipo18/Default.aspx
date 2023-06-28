@@ -39,7 +39,9 @@
             <div class="col">
                 <%-- Cargo las tarjetas --%>
                 <div class="card h-100">
-                    <img src="<%:bebida.UrlImg %>" class="card-img-top" alt="img articulo">
+                    <div class="img-container">
+                        <img src="<%:bebida.UrlImg %>" class="card-img-top img-responsive" alt="img articulo">
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title"><%:bebida.Nombre%></h5>
                         <p class="card-text"><%: bebida.Descripcion %></p>
@@ -55,5 +57,5 @@
 
     </div>
 
-
+    
 </asp:Content>

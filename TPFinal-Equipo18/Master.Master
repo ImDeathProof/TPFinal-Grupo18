@@ -31,9 +31,20 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/Novedades.aspx">Novedades</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/GestionProductos.aspx">Gestion de productos</a>
+                            <%--Panel de Gestion - Productos y Usuarios--%>
+                            <%if (user.IdTipoUser == Dominio.TipoUsuario.ADMIN)
+                                {%>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Panel de Gestión
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/GestionProductos.aspx">Gestión de Productos</a></li>
+                                    <li><a class="dropdown-item" href="/GestionProductos.aspx">Gestión de Usuarios</a></li>
+                                </ul>
                             </li>
+                            <%} %>
+
+                            <%----------------%>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos
                                 </a>
@@ -43,28 +54,40 @@
                                     <li><a class="dropdown-item" href="#">Bebidas Importadas</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Carrito.aspx">Carrito</a>
-                            </li>
+                            <%--Barra de busqueda--%>
                             <li class="nav-container">
                                 <div class="d-flex" role="search">
                                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                     <button id="btnBuscar" class="btn btn-outline-dark" type="submit">Buscar</button>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/LogIn.aspx">Log-In</a>
-                            </li>
-                            <li>
-                                <button class="btn btn-dark">
-                                    <i class="bi bi-cart bi-3x"></i>
-                                </button>
-                            </li>
-
                         </ul>
+                        <%--Contenedor Login - User - Carrito--%>
+                        <nav class="navbar navbar-expand-lg">
+                            <div class="container-fluid flex-row-reverse">
+                                <div class="collapse navbar-collapse d-flex justify-content-end" id="navPanel">
+                                    <ul class="nav navbar-nav">
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="linkLogIn" href="/LogIn.aspx" runat="server">Ingresar</a></li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="linkRegistro" href="/Registro.aspx" runat="server">Registrate</a></li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="linkLogOut" href="/Default.aspx" runat="server">Salir</a></li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="linkPerfil" href="/Perfil.aspx" runat="server">Perfil</a></li>
+                                        <li class="nav-item">
+                                            <button class="btn btn-dark">
+                                                <i class="bi bi-cart bi-3x" href="/Carrito.aspx"></i>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
                     </div>
                 </div>
             </nav>
+
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
             <footer class="footer bg-footer text-white p-3">

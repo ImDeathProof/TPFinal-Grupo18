@@ -45,3 +45,16 @@ carrusel-home{
     max-height:800px;
     min-height:600px;
 }
+.h-100 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img-container{
+    height:400px;
+    width:250px;
+}
+.img-container img{
+    height:100%;
+    width:250px;
+}

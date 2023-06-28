@@ -14,10 +14,9 @@ namespace TPFinal_Equipo18
         public List<Bebida> listaBebidas { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
-                BebidaNegocio negocio= new BebidaNegocio();
-
+                BebidaNegocio negocio = new BebidaNegocio();
                 listaBebidas = negocio.Listar();
             }
 
