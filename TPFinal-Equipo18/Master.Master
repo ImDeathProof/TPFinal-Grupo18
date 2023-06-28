@@ -76,9 +76,10 @@
                                         <li class="nav-item">
                                             <a class="nav-link" id="linkPerfil" href="/Perfil.aspx" runat="server">Perfil</a></li>
                                         <li class="nav-item">
-                                            <button class="btn btn-dark">
+                                            <a href="/Carrito.aspx"> <i class="bi bi-cart bi-3x"</a>
+                                            <%--<button class="btn btn-dark">
                                                 <i class="bi bi-cart bi-3x" href="/Carrito.aspx"></i>
-                                            </button>
+                                            </button>--%>
                                         </li>
                                     </ul>
                                 </div>

@@ -11,6 +11,7 @@ namespace TPFinal_Equipo18
 {
     public partial class Carrito : System.Web.UI.Page
     {
+        public decimal precioTotal { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
@@ -18,9 +19,15 @@ namespace TPFinal_Equipo18
             {
                 if (Session["Bebidas"] != null)
                 {
-                    dgvCarrito.DataSource = Session["Bebidas"];
+                    List<Bebida> aux = new List<Bebida>();
+                    aux = (List<Bebida>)Session["Bebidas"];
+
+                    dgvCarrito.DataSource = aux;
                     dgvCarrito.DataBind();
 
+                    precioTotal = aux.Sum(x => x.Precio);
+
+                    lblTotal.Text = precioTotal.ToString();
                 }
             }
                    

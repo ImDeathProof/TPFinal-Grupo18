@@ -15,7 +15,7 @@
                 <asp:GridView ID="dgvCarrito" runat="server" AutoGenerateColumns="false"
                     CssClass="table table-dark table-striped" DataKeyNames="Id"
                     OnSelectedIndexChanged="dgvCarrito_SelectedIndexChanged"
-                    onse>
+                    >
                     <Columns>
                         <asp:BoundField HeaderText="Codigo" DataField="Codigo" />
                         <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
@@ -25,6 +25,10 @@
                     </Columns>
                 </asp:GridView>
             </div>
+            <div>
+                <asp:Label ID="lblTotal" runat="server" Text=""></asp:Label>
+            </div>
+
         </div>
         <div>
             <%}
@@ -34,6 +38,14 @@
             <h3>¡El carrito está vacío!</h3>
             <a href="Default.aspx">Volver al listado</a>
             <%} %>
+        </div>
+
+        <div class ="row">
+            <div class="col-6">
+                <a href="Pagos.aspx" class="btn btn-primary">Iniciar pago</a>
+
+            </div>
+
         </div>
     </div>
 
