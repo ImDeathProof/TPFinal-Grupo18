@@ -1,0 +1,47 @@
+﻿/*
+    PALETA DE COLORES
+    #ffffff -> Textos
+    #dccec3 -> Hover Textos
+    #373737 -> Fondos
+    #black -> Nav bar - botones
+*/
+
+
+
+body{
+    background-color: #373737;
+    color:#F9F9F9;
+}
+.navbar{
+    background-color:black;
+    color: #ffffff;
+}
+.nav-link{
+    color: #ffffff;
+}
+.nav-link:hover {
+    color: #dccec3;
+    transition: .3s;
+}
+
+.navbar-brand{
+    color:#ffffff;
+    font-weight: 600;
+}
+.navbar-brand:hover {
+    color: #dccec3;
+    transition:.3s;
+}
+#btnBuscar{
+    color: #ffffff;
+}
+#btnBuscar:hover{
+    color: #dccec3;
+    transition:.3s;
+}
+carrusel-home{
+    min-width:2000px;
+    max-width:2000px;
+    max-height:800px;
+    min-height:600px;
+}

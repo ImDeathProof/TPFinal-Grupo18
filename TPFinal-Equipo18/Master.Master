@@ -9,13 +9,15 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link href="Contents/Styles.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
 
         <div>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="/Default.aspx">AlmacenDeBebidas</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +26,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/Default.aspx">Inicio</a>
+                                <a class="nav-link" aria-current="page" href="/Default.aspx">Inicio</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/Novedades.aspx">Novedades</a>
@@ -42,79 +44,81 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="Carrito.aspx" >Carrito</a>
+                                <a class="nav-link" href="Carrito.aspx">Carrito</a>
                             </li>
                             <li class="nav-container">
                                 <div class="d-flex" role="search">
                                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                                    <button id="btnBuscar" class="btn btn-outline-dark" type="submit">Buscar</button>
                                 </div>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/LogIn.aspx">Log-In</a>
                             </li>
                             <li>
-                                <a type="button" href="/Carrito.aspx" class="btn btn-dark">Carrito</a>
+                                <button class="btn btn-dark">
+                                    <i class="bi bi-cart bi-3x"></i>
+                                </button>
                             </li>
-                            
+
                         </ul>
                     </div>
                 </div>
             </nav>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-         <footer class="footer bg-footer text-white p-3">
-            <div class="row">
-                <div class="col border-end">
-                    <ul>
-                        <li>
-                            <h5>Mapa de Sitio:</h5>
-                        </li>
-                        <li>
-                            <a class="footer-item" href="Default.aspx">Inicio</a>
-                        </li>
-                        <li>
-                            <a class="footer-item" href="Carrito.aspx">Carrito</a>
-                        </li>
-                    </ul>
+            <footer class="footer bg-footer text-white p-3">
+                <div class="row">
+                    <div class="col border-end">
+                        <ul>
+                            <li>
+                                <h5>Mapa de Sitio:</h5>
+                            </li>
+                            <li>
+                                <a class="footer-item" href="Default.aspx">Inicio</a>
+                            </li>
+                            <li>
+                                <a class="footer-item" href="Carrito.aspx">Carrito</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col border-end">
+                        <ul>
+                            <li>
+                                <h5>Ayuda:</h5>
+                            </li>
+                            <li>
+                                <a class="footer-item" href="#">Centro de ayuda</a>
+                            </li>
+                            <li>
+                                <a class="footer-item" href="#">Contactanos</a>
+                            </li>
+                            <li>
+                                <a class="footer-item" href="#">Más info</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul>
+                            <li>
+                                <h5>Nosotros:</h5>
+                            </li>
+                            <li>
+                                <a class="footer-item" href="#">Brian Galeano</a>
+                            </li>
+                            <li>
+                                <a class="footer-item" href="#">Elias Garcia</a>
+                            </li>
+                            <li>
+                                <a class="footer-item" href="#">Joaquin Gigena</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <p>Copyright ©&nbsp;2023 por Grupo 18</p>
+                    </div>
                 </div>
-                <div class="col border-end">
-                    <ul>
-                        <li>
-                            <h5>Ayuda:</h5>
-                        </li>
-                        <li>
-                            <a class="footer-item" href="#">Centro de ayuda</a>
-                        </li>
-                        <li>
-                            <a class="footer-item" href="#">Contactanos</a>
-                        </li>
-                        <li>
-                            <a class="footer-item" href="#">Más info</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <ul>
-                        <li>
-                            <h5>Nosotros:</h5>
-                        </li>
-                        <li>
-                            <a class="footer-item" href="#">Brian Galeano</a>
-                        </li>
-                        <li>
-                            <a class="footer-item" href="#">Elias Garcia</a>
-                        </li>
-                        <li>
-                            <a class="footer-item" href="#">Joaquin Gigena</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="text-center">
-                    <p>Copyright ©&nbsp;2023 por Grupo 18</p>
-                </div>
-            </div>
-        </footer>
+            </footer>
         </div>
     </form>
 </body>

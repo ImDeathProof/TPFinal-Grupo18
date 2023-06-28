@@ -25,7 +25,7 @@ namespace TPFinal_Equipo18.LogIn
             try
             {
                 Nuevo = new Usuario();
-                if (negocio.Buscar(txtUsuario.Text)==false)
+                if (negocio.Buscar(txtUsuario.Text) == false)
                 {
                     ///Cargamos los datos en el nuevo usuario
                     Nuevo.NombreUsuario = txtUsuario.Text;

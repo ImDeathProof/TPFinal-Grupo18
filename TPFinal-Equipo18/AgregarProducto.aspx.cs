@@ -35,6 +35,9 @@ namespace TPFinal_Equipo18
                 ddlMarca.DataValueField = "Id";
                 ddlMarca.DataTextField = "Nombre";
                 ddlMarca.DataBind();
+
+                txtEstado.Text = "True";
+                txtEstado.Enabled = false;
             }
 
             if (Request.QueryString["Id"] != null && !IsPostBack)

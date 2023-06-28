@@ -29,7 +29,6 @@
         <div class="mb-3">
             <label for="" class="form-label">Nombre de Usuario</label>
             <asp:TextBox runat="server" ID="txtUsuario" placeholder="Ingrese su nombre de usuario" CssClass="form-control" />
-            <%--<asp:Label ID="lblUsuarioExistente" Text="El usuario ya existe! Elegi otro" CssClass="form-text" runat="server" />--%>
             <asp:Label ID="lblAlertaUsuario" Text="El nombre de usuario ya existe, por favor elija otro" runat="server" />
         </div>
         <div class="mb-3">
@@ -41,7 +40,7 @@
             <asp:TextBox runat="server" placeholder="Ingrese su contraseña" ID="txtPass" TextMode="Password" CssClass="form-control" />
         </div>
         <div class="mb-3">
-            <asp:Button id="btnRegistrar" Text="Registrar" cssclass="btn btn-success" onclick="btnRegistrar_Click" runat="server" />
+            <asp:Button ID="btnRegistrar" Text="Registrar" CssClass="btn btn-success" OnClick="btnRegistrar_Click" runat="server" />
             <asp:HyperLink NavigateUrl="/LogIn.aspx" runat="server" CssClass="p-3">Ya tengo cuenta</asp:HyperLink>
         </div>
     </div>
