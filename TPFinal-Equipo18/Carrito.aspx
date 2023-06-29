@@ -20,7 +20,8 @@
                         <asp:BoundField HeaderText="Codigo" DataField="Codigo" />
                         <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
                         <asp:BoundField HeaderText="Codigo" DataField="Precio" />
-                        <asp:CommandField HeaderText="Eliminar" ShowSelectButton="true" SelectText="Eliminar" />
+                        <asp:CommandField HeaderText="Eliminar" ShowSelectButton="true" ShowInsertButton="true" ButtonType="Image"  SelectText="Eliminar" />
+                        <asp:BoundField HeaderText="Cantidad" DataField=" 1 "   />
 
                     </Columns>
                 </asp:GridView>

@@ -38,7 +38,14 @@ namespace TPFinal_Equipo18
         {
             int id = int.Parse( dgvCarrito.SelectedDataKey.Value.ToString());
 
-            List<Bebida> aux = (List <Bebida>) Session["Bebidas"];
+            Bebida eliminado= new Bebida();
+            BebidaNegocio negocio= new BebidaNegocio();
+
+            eliminado = negocio.buscar(id);
+
+            List<Bebida> aux = (List<Bebida>)Session["Bebidas"];
+
+          
             
             foreach (Bebida b in aux)
             {
