@@ -72,11 +72,12 @@
                                         <li class="nav-item">
                                             <a class="nav-link" id="linkRegistro" href="/Registro.aspx" runat="server">Registrate</a></li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="linkLogOut" href="/Default.aspx" runat="server">Salir</a></li>
+                                            <asp:Button Text="Salir" ID="btnLogout" OnClick="btnLogout_Click" CssClass="nav-link" runat="server" />
+
                                         <li class="nav-item">
                                             <a class="nav-link" id="linkPerfil" href="/Perfil.aspx" runat="server">Perfil</a></li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/Carrito.aspx"> <i class="bi bi-cart bi-3x"></i></a>
+                                            <a class="nav-link" href="/Carrito.aspx"><i class="bi bi-cart bi-3x"></i></a>
                                             <%--<button class="btn btn-dark">
                                                 <i class="bi bi-cart bi-3x" href="/Carrito.aspx"></i>
                                             </button>--%>

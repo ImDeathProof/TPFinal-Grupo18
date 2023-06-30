@@ -107,7 +107,7 @@ insert into Domicilio(Calle, Numero, Provincia, Partido, Localidad)
 values ('Av. Corrientes', '992','Buenos Aires','CABA','Monserrat')
 
 --Inserts Usuario
-insert into usuarios(NombreUsuario, Contraseña, IdTipoUsser,Nombre, Apellido, Dni, Email, Telefono, FechaNacimiento, IdDomicilio)
+insert into usuarios(NombreUsuario, Contraseña, IdTipoUsser, Nombre, Apellido, Dni, Email, Telefono, FechaNacimiento, IdDomicilio)
 values ('admin','123456',1,'Juan Roman', 'Riquelme', '41239483', 'administrador@almacenBebidas.com', '1521342834','1978-06-24',1)
 
 --Consultas
@@ -117,3 +117,13 @@ SELECT * FROM Marcas
 
 SELECT A.Id, A.Precio, A.Codigo,A.Nombre, A.Descripcion, M.Descripcion Marca ,C.Descripcion Categoria from ARTICULOS A inner join MARCAS M on M.Id=A.IdMarca inner join CATEGORIAS C on C.Id=A.IdCategoria
 Select B.Id, B.Codigo, B.Nombre, B.Precio, B.Descripcion, B.ContenidoNeto, B.Estado, B.UrlImg, M.Nombre Marca, C.Nombre Categoria from Bebidas B inner JOIN MARCAS M on M.Id=B.IdMarca inner join CATEGORIAS C on C.Id=B.idCategoria
+
+select * from Domicilio
+select * from Usuarios
+SELECT * from TipoUsuario
+insert into Usuarios values ('JOse', '1234', 2,'jose', 'papa', '1234', 'asd@asd1.com', '12345', '12-25-1998', 1)
+delete from Usuarios where Id=7
+Select Id, NombreUsuario, Contraseña, IdTipoUsser, Nombre, Apellido, Dni, Email, Telefono, FechaNacimiento, IdDomicilio from Usuarios
+Select Id, NombreUsuario, Contraseña, IdTipoUsser, Nombre, Apellido, Dni, Email, Telefono, FechaNacimiento, IdDomicilio from Usuarios where Id =3
+
+update Usuarios set Codigo=@Codigo,Nombre=@Nombre,Precio=@Precio,Descripcion=@Descripcion,ContenidoNeto=@Contenido,Estado=1,UrlImg=@Url,IdMarca=@Marca,IdCategoria=@Categoria where Id=@Id

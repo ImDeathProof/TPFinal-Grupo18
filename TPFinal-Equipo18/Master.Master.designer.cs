@@ -51,13 +51,13 @@ namespace TPFinal_Equipo18
         protected global::System.Web.UI.HtmlControls.HtmlAnchor linkRegistro;
 
         /// <summary>
-        /// Control linkLogOut.
+        /// Control btnLogout.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor linkLogOut;
+        protected global::System.Web.UI.WebControls.Button btnLogout;
 
         /// <summary>
         /// Control linkPerfil.

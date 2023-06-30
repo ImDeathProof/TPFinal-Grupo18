@@ -18,18 +18,36 @@ namespace TPFinal_Equipo18
                 if (Session["usuario"] != null)
                 {
                     user = (Usuario)Session["usuario"];
-                    linkLogOut.Visible = true;
-                    linkPerfil.Visible =true;
+                    btnLogout.Visible = true;
+                    linkPerfil.Visible = true;
                     linkRegistro.Visible = false;
                     linkLogIn.Visible = false;
                 }
                 else
                 {
-                    linkLogOut.Visible = false;
+                    btnLogout.Visible = false;
                     linkPerfil.Visible = false;
                     linkLogIn.Visible = true;
                     linkRegistro.Visible = true;
                 }
+            }
+        }
+
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Session["usuario"] != null)
+                {
+                    Session.Remove("usuario");
+                    Response.Redirect("/Default.aspx", false);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }

@@ -33,7 +33,7 @@ namespace TPFinal_Equipo18.LogIn
                     Nuevo.Apellido = txtApellido.Text;
                     Nuevo.Contraseña = txtPass.Text;
                     Nuevo.Email = txtEmail.Text;
-                    Nuevo.DNI = int.Parse(txtDNI.Text);
+                    Nuevo.DNI = txtDNI.Text;
                     Nuevo.Telefono = txtTelefono.Text;
                     Nuevo.FechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
                     ///Lo cargamos a la base de datos
