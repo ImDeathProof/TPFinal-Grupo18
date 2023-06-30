@@ -22,23 +22,26 @@ namespace TPFinal_Equipo18
 
             if (Request.QueryString["Id"] != null)
             {
-                List<Bebida> carritoBebidas;
+                List<CarritoClase> carritoBebidas;
                 BebidaNegocio negocio = new BebidaNegocio();
                 Bebida seleccionado;
+                CarritoClase carrito=new CarritoClase();
 
                 if (Session["Bebidas"] == null)
                 {
-                    carritoBebidas = new List<Bebida>();
+                    carritoBebidas = new List<CarritoClase>();
                 }
                 else
                 {
-                    carritoBebidas = (List<Bebida>)Session["Bebidas"];
+                    carritoBebidas = (List<CarritoClase>)Session["Bebidas"];
                 }
                 string id = Request.QueryString["Id"];
 
                 seleccionado = negocio.buscar(int.Parse(id));
 
-                carritoBebidas.Add(seleccionado);
+                carrito.Bebida = seleccionado;
+
+                carritoBebidas.Add(carrito);
 
                 Session.Add("Bebidas", carritoBebidas);
             }

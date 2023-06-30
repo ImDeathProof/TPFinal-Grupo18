@@ -13,15 +13,33 @@
         <div class="row">
             <div class="col-8">
                 <asp:GridView ID="dgvCarrito" runat="server" AutoGenerateColumns="false"
-                    CssClass="table table-dark table-striped" DataKeyNames="Id"
-                    OnSelectedIndexChanged="dgvCarrito_SelectedIndexChanged"
-                    >
+                    CssClass="table  table-striped" 
+                    OnRowCommand="dgvCarrito_RowCommand">
                     <Columns>
-                        <asp:BoundField HeaderText="Codigo" DataField="Codigo" />
-                        <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
-                        <asp:BoundField HeaderText="Codigo" DataField="Precio" />
-                        <asp:CommandField HeaderText="Eliminar" ShowSelectButton="true" ShowInsertButton="true" ButtonType="Image"  SelectText="Eliminar" />
-                        <asp:BoundField HeaderText="Cantidad" DataField=" 1 "   />
+                        <asp:BoundField HeaderText="Codigo" DataField="Bebida.Codigo" />
+                        <asp:BoundField HeaderText="Nombre" DataField="Bebida.Nombre" />
+                        <asp:BoundField HeaderText="Codigo" DataField="Bebida.Precio" />
+                        <asp:BoundField HeaderText="Cantidad" DataField="Cantidad" />
+
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="btnAgregar" runat="server" Text=" + "
+                                    CommandName="Agregar" CommandArgument=' <%# ((GridViewRow)Container).RowIndex  %>'></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="btnDescontar" runat="server" Text=" - "
+                                    CommandName="Descontar" CommandArgument=' <%# ((GridViewRow)Container).RowIndex  %>'></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="btnEliminar" runat="server" Text="Eliminar"
+                                    CommandName="Eliminar" CommandArgument=' <%# ((GridViewRow)Container).RowIndex  %>'></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
 
                     </Columns>
                 </asp:GridView>
@@ -41,7 +59,7 @@
             <%} %>
         </div>
 
-        <div class ="row">
+        <div class="row">
             <div class="col-6">
                 <a href="Pagos.aspx" class="btn btn-primary">Iniciar pago</a>
 

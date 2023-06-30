@@ -19,13 +19,13 @@ namespace TPFinal_Equipo18
             {
                 if (Session["Bebidas"] != null)
                 {
-                    List<Bebida> aux = new List<Bebida>();
-                    aux = (List<Bebida>)Session["Bebidas"];
+                    List<CarritoClase> aux = new List<CarritoClase>();
+                    aux = (List<CarritoClase>)Session["Bebidas"];
 
                     dgvCarrito.DataSource = aux;
                     dgvCarrito.DataBind();
 
-                    precioTotal = aux.Sum(x => x.Precio);
+                    precioTotal = aux.Sum(x => x.Bebida.Precio *(x.Cantidad));
 
                     lblTotal.Text = precioTotal.ToString();
                 }
@@ -33,31 +33,83 @@ namespace TPFinal_Equipo18
                    
 
         }
-        //No funciona
-        protected void dgvCarrito_SelectedIndexChanged(object sender, EventArgs e)
+
+        protected void dgvCarrito_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            int id = int.Parse( dgvCarrito.SelectedDataKey.Value.ToString());
-
-            Bebida eliminado= new Bebida();
-            BebidaNegocio negocio= new BebidaNegocio();
-
-            eliminado = negocio.buscar(id);
-
-            List<Bebida> aux = (List<Bebida>)Session["Bebidas"];
-
-          
-            
-            foreach (Bebida b in aux)
+            if (e.CommandName == "Eliminar")
             {
-                if (b.Id == id)
-                {
-                    aux.Remove(b);
-                }
+                int index = Convert.ToInt32(e.CommandArgument);
+
+                List<CarritoClase> aux = (List<CarritoClase>)Session["Bebidas"];
+
+                aux.RemoveAt(index);
+                Session["Bebidas"] = aux;
+
+                dgvCarrito.DataSource = aux;
+                dgvCarrito.DataBind();
+
+                Response.Redirect("Carrito.aspx", false);
+
             }
+            else if (e.CommandName == "Agregar")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
 
-            Session.Add("Bebidas", aux);
+                List<CarritoClase> aux = (List<CarritoClase>)Session["Bebidas"];
 
-            Response.Redirect("Carrito.aspx", false);
+                aux[index].Cantidad++;
+                Session["Bebidas"] = aux;
+
+                dgvCarrito.DataSource = aux;
+                dgvCarrito.DataBind();
+
+                Response.Redirect("Carrito.aspx", false);
+
+            }
+            else
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+
+                List<CarritoClase> aux = (List<CarritoClase>)Session["Bebidas"];
+
+                if (aux[index].Cantidad >1)
+                {
+                    aux[index].Cantidad--;
+                    Session["Bebidas"] = aux;
+
+                    dgvCarrito.DataSource = aux;
+                    dgvCarrito.DataBind();
+
+                    Response.Redirect("Carrito.aspx", false);
+                }
+
+            }
         }
+        //No funciona
+        //    protected void dgvCarrito_SelectedIndexChanged(object sender, EventArgs e)
+        //    {
+        //        int id = int.Parse( dgvCarrito.SelectedDataKey.Value.ToString());
+
+        //        Bebida eliminado= new Bebida();
+        //        BebidaNegocio negocio= new BebidaNegocio();
+
+        //        eliminado = negocio.buscar(id);
+
+        //        List<Bebida> aux = (List<Bebida>)Session["Bebidas"];
+
+
+
+        //        foreach (Bebida b in aux)
+        //        {
+        //            if (b.Id == id)
+        //            {
+        //                aux.Remove(b);
+        //            }
+        //        }
+
+        //        Session.Add("Bebidas", aux);
+
+        //        Response.Redirect("Carrito.aspx", false);
+        //    }
     }
 }
