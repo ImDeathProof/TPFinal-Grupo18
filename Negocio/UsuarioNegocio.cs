@@ -46,7 +46,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("insert into Usuarios values (@NombreUsuario, @Contraseña, @IdTipoUsser,@Nombre, @Apellido, @Dni, @Email, @Telefono, @FechaNacimiento, @IdDomicilio)");
+                datos.setearConsulta("insert into Usuarios values ('@NombreUsuario', '@Contraseña', @IdTipoUsser,'@Nombre', '@Apellido', '@Dni', '@Email', '@Telefono', @FechaNacimiento, @IdDomicilio)");
 
                 datos.setearParametros("@NombreUsuario", Nuevo.NombreUsuario);
                 datos.setearParametros("@Contraseña", Nuevo.Contraseña);
