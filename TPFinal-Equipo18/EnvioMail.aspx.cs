@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,14 +15,18 @@ namespace TPFinal_Equipo18
 
         }
 
-        protected void Unnamed_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-
+            EmailService emailService = new EmailService();
+            emailService.armarCorreo(txtEmail.Text, txtNombre.Text, txtMensaje.Text);
+            try
+            {
+                emailService.enviarEmail();
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex);
+            }
         }
     }
 }

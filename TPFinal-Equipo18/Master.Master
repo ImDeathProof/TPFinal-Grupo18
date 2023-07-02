@@ -116,7 +116,7 @@
                                 <a class="footer-item" href="#">Centro de ayuda</a>
                             </li>
                             <li>
-                                <a class="footer-item" href="#">Contactanos</a>
+                                <a class="footer-item" href="EnvioMail.aspx">Contactanos</a>
                             </li>
                             <li>
                                 <a class="footer-item" href="#">Más info</a>

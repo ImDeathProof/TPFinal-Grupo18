@@ -7,16 +7,16 @@
          <div class="col">
             <div class="mb-3">
            <%//<form class="form-label" action="/enviar-mensaje" method="POST">%>
-                <label class="form-label" for="nombre">Nombre:</label>
-                    <asp:textbox runat="server" ID="txtnombre" CssClass="form-control"/>
+                <label class="form-label">Nombre</label>
+                    <asp:textbox runat="server" ID="txtNombre" CssClass="form-control"/>
              </div>
              <div class="mb-3">
-                 <label class="form-label" for="email">Email:</label>
-                 <asp:textbox runat="server" ID="txtemail" CssClass="form-control"/>
+                 <label class="form-label">Email</label>
+                 <asp:textbox runat="server" ID="txtEmail" CssClass="form-control"/>
               </div>
              <div class="mb-3">
-                <label class="form-label" for="mensaje">Mensaje:</label>
-                <asp:textbox TextMode="MultiLine" runat="server" ID="txtmensaje" CssClass="from-control"/>
+                <label class="form-label">Mensaje</label>
+                <asp:textbox TextMode="MultiLine" runat="server" ID="txtMensaje" CssClass="from-control"/>
              </div>
                 <asp:Button Text="Aceptar" CssClass="btn btn-primary" runat="server" ID="btnAceptar" OnClick="btnAceptar_Click" />
             <%//</form>%>  
