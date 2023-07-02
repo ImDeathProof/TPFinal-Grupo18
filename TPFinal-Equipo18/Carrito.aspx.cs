@@ -85,6 +85,18 @@ namespace TPFinal_Equipo18
 
             }
         }
+
+        protected void btnIniciarPago_Click(object sender, EventArgs e)
+        {
+            float monto= float.Parse( lblTotal.Text);
+            if (monto > 0)
+            {
+                Session.Add("MontoTotal", monto);
+                Response.Redirect("Pagos.aspx");
+
+            }
+
+        }
         //No funciona
         //    protected void dgvCarrito_SelectedIndexChanged(object sender, EventArgs e)
         //    {

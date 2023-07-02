@@ -3,14 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Esta es la pantalla de pagos  </h1>
+    <h2>Completa los ultimos pasos para terminar tu compra</h2>
 
     <div class="container">
         <div class="row">
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Entrega</label>
-            </div>
 
+            <h4>Formas de entrega </h4>
         </div>
         <div>
 
@@ -34,16 +32,49 @@
             <div class="mb-3">
                 <asp:TextBox ID="txtTelefono" runat="server" Text="Telefono" ForeColor="#999999"></asp:TextBox>
             </div>
+
         </div>
-      
+
 
 
 
         <%}
             else if (rblEntrega.SelectedValue == "2")
             { %>
-        <label>retira por sucursal</label>
-        <%} %>
+        <div class="row">
+            <div class="mb-3">
+                <h3>Retira por sucursal </h3>
+
+                <p>Direccion: Av. Hipólito Yrigoyen 288, B1617 Gral. Pacheco, Provincia de Buenos Aires </p>
+
+            </div>
+        </div>
+        <%}%>
+
+        <div class="row">
+            <h4>Medios de pago </h4>
+
+            <asp:Label ID="lblMontoTotal" CssClass="form-label" runat="server" Text="El monto total a pagar es de <% pagoTotal %> $ "></asp:Label>
+
+            <div class="mb-3">
+                <asp:CheckBox ID="ckbMp" runat="server" Text="Mercado pago" />
+
+            </div>
+            <%if (ckbMp.Checked == true)
+                {  %>
+            <div class="mb-3">
+                <asp:Label ID="lblNumeroPago" runat="server" CssClass="form-label" Text="Ingrese el numero de operacion"></asp:Label>
+                <asp:TextBox ID="txtNumeroOperacion" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+            <%} %>
+        </div>
+        <div class="row">
+            <div class="col 12">
+                <asp:Button ID="btnTerminar" runat="server" CssClass="btn btn-success" Text="Terminar compra" OnClick="btnTerminar_Click" />
+                <a href="Carrito.aspx" class="btn btn-danger">Volver</a>
+            </div>
+        </div>
+
     </div>
 
 

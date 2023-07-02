@@ -9,7 +9,17 @@ namespace TPFinal_Equipo18
 {
     public partial class Pagos : System.Web.UI.Page
     {
+        public float pagoTotal { get; set; }
         protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                pagoTotal =(float) Session["MontoTotal"];
+            }
+
+        }
+
+        protected void btnTerminar_Click(object sender, EventArgs e)
         {
 
         }

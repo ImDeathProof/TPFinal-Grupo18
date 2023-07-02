@@ -61,8 +61,8 @@
 
         <div class="row">
             <div class="col-6">
-                <a href="Pagos.aspx" class="btn btn-primary">Iniciar pago</a>
-
+                <%--<a href="Pagos.aspx" class="btn btn-primary">Iniciar pago</a>--%>
+                <asp:Button ID="btnIniciarPago" runat="server" CssClass=" btn btn-primary" OnClick="btnIniciarPago_Click" Text="Iniciar pago" />
             </div>
 
         </div>
