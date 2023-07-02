@@ -19,29 +19,23 @@ namespace TPFinal_Equipo18
                 UsuarioNegocio negocio = new UsuarioNegocio();
                 Usuario aux = (Usuario)Session["usuario"];
                 Usuario = negocio.BuscarCompleto(aux);
-
+                ///CARGA DE USUARIO
                 lbl_Usuario.InnerText = Usuario.NombreUsuario;
                 lbl_Apellido.InnerText = Usuario.Apellido;
-                lbl_Nombre.InnerText=Usuario.Nombre;
-                lbl_DNI.InnerText=Usuario.DNI;
-                lbl_Email.InnerText=Usuario.Email;
-                lbl_Telefono.InnerText=Usuario.Telefono;
+                lbl_Nombre.InnerText = Usuario.Nombre;
+                lbl_DNI.InnerText = Usuario.DNI;
+                lbl_Email.InnerText = Usuario.Email;
+                lbl_Telefono.InnerText = Usuario.Telefono;
                 lbl_FNacimiento.InnerText = Usuario.FechaNacimiento.ToString("d");
-
-            }
-        }
-
-        protected void btnModificar_Click(object sender, EventArgs e)
-        {
-            UsuarioNegocio negocio=new UsuarioNegocio();
-            try
-            {
-                negocio.modificar(Usuario);
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
+                ///CARGA DE DOMICILIO
+                ///HAY QUE AGREGAR LAS VERIFICACIONES EN CASO QUE NO TENGA DOMICILIO
+                lbl_Calle.InnerText = Usuario.Domicilio.Calle;
+                lbl_Numero.InnerText = Usuario.Domicilio.Numero;
+                lbl_Provincia.InnerText = Usuario.Domicilio.Provincia;
+                lbl_Partido.InnerText = Usuario.Domicilio.Partido;
+                lbl_Localidad.InnerText = Usuario.Domicilio.Localidad;
+                lbl_Departamento.InnerText = Usuario.Domicilio.Departamento;
+                lbl_Piso.InnerText = Usuario.Domicilio.Piso;
             }
         }
     }

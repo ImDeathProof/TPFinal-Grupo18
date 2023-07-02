@@ -115,7 +115,12 @@ namespace Negocio
                 usuario.Email = (string)datos.Lector["Email"];
                 usuario.Telefono = (string)datos.Lector["Telefono"];
                 usuario.FechaNacimiento = (DateTime)datos.Lector["FechaNacimiento"];
-                //usuario.Domicilio = (int)datos.Lector["IdDomicilio"];
+                if (datos.Lector["IdDomicilio"] != null)
+                {
+                    DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
+                    usuario.Domicilio = domicilioNegocio.Buscar(usuario);
+                }
+
                 return usuario;
             }
             catch (Exception ex)
@@ -136,7 +141,7 @@ namespace Negocio
                 datos.setearConsulta("update Usuarios set NombreUsuario=@NombreUsuario, Contraseña=@Contraseña, IdTipoUsser=@IdTipoUsser, Nombre=@Nombre, Apellido=@Apellido, Dni=@Dni, Email=@Email, Telefono=@Telefono, "/*FechaNacimiento=@FechaNacimiento*/ + " IdDomicilio=@IdDomicilio where Id=@Id");
                 datos.setearParametros("@NombreUsuario", nuevo.NombreUsuario);
                 datos.setearParametros("@Contraseña", nuevo.Contraseña);
-                int tipoUsuario= nuevo.IdTipoUser == TipoUsuario.ADMIN ? 1 : 2;
+                int tipoUsuario = nuevo.IdTipoUser == TipoUsuario.ADMIN ? 1 : 2;
                 datos.setearParametros("@IdTipoUsser", tipoUsuario);
                 datos.setearParametros("@Apellido", nuevo.Apellido);
                 datos.setearParametros("@Nombre", nuevo.Nombre);

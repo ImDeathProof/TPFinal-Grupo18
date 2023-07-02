@@ -9,6 +9,7 @@ namespace Dominio
     public class Domicilio
     {
         public int Id { get; set; }
+        public int IdUsuario { get; set; }
         public string Calle { get; set; }
         public string Numero { get; set; }
         public string Provincia { get; set; }

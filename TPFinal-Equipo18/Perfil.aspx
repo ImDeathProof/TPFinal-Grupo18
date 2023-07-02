@@ -47,19 +47,56 @@
                     <label>Telefono: </label>
                     <label id="lbl_Telefono" text="" class="form-label" runat="server">Telefono</label>
                 </div>
-                <%--HAY QUE REVISAR PORQUE TIRA ERRORES CUANDO INTENTA MODIFICAR--%>
-                <%--<div class="p-3">
-                    <asp:Button ID="btnModificar" Text="Modificar" runat="server" OnClick="btnModificar_Click" />
-                </div>--%>
-            </div>
-            <%--CUANDO TENGAMOS LO DEL DOMICILIO SE HABILITA--%>
-            <%--<div class="col-6 container border">
-                <h3>Domicilio: </h3>
                 <div class="p-3">
-                    <asp:Button Text="Agregar" runat="server" />
-                    <asp:Button Text="Modificar" runat="server" />
+                    <%--HAY QUE REVISAR PORQUE TIRA ERRORES CUANDO INTENTA MODIFICAR--%>
+                    <label>Todavia no tienen funcionalidad</label>
+                    <button class="btn btn-primary" href="/Registro.aspx">Modificar</button>
                 </div>
-            </div>--%>
+            </div>
+            <%--<%--CUANDO TENGAMOS LO DEL DOMICILIO SE HABILITA--%>
+            <div class="col-6 container border">
+                <div class="p-3">
+                    <h3>Domicilio: </h3>
+                    <div>
+                        <label>Calle: </label>
+                        <label id="lbl_Calle" text=" " class="form-label" runat="server"></label>
+                    </div>
+                    <div>
+                        <label>Numero: </label>
+                        <label id="lbl_Numero" text=" " class="form-label" runat="server"></label>
+                    </div>
+                    <div>
+                        <label>Provincia: </label>
+                        <label id="lbl_Provincia" text=" " class="form-label" runat="server"></label>
+                    </div>
+                    <div>
+                        <label>Partido: </label>
+                        <label id="lbl_Partido" text=" " class="form-label" runat="server"></label>
+                    </div>
+                    <div>
+                        <label>Localidad: </label>
+                        <label id="lbl_Localidad" text=" " class="form-label" runat="server"></label>
+                    </div>
+                    <div>
+                        <label>Departamento: </label>
+                        <label id="lbl_Departamento" text=" " class="form-label" runat="server"></label>
+                    </div>
+                    <div>
+                        <label>Piso: </label>
+                        <label id="lbl_Piso" text=" " class="form-label" runat="server"></label>
+                    </div>
+                    <label>Todavia no tienen funcionalidad</label>
+                    <%if (Usuario.Domicilio != null)
+                        {%>
+                    <asp:Button Text="Modificar" CssClass="btn btn-primary" runat="server" />
+                    <%}
+                        else
+                        {%>
+                    <asp:Button Text="Agregar" CssClass="btn btn-success" runat="server" />
+
+                    <%} %>
+                </div>
+            </div>
         </div>
     </div>
 </asp:Content>
