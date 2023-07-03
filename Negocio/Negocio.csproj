@@ -45,7 +45,9 @@
     <Compile Include="CategoriaNegocio.cs" />
     <Compile Include="DomicilioNegocio.cs" />
     <Compile Include="EmailService.cs" />
+    <Compile Include="EstadoPedidoNegocio.cs" />
     <Compile Include="MarcaNegocio.cs" />
+    <Compile Include="PedidoNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioNegocio.cs" />
   </ItemGroup>
