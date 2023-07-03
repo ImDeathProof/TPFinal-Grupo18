@@ -13,6 +13,14 @@ namespace TPFinal_Equipo18
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["mensaje"] != null)
+            {
+                lblMsj.Text =(string) Session["mensaje"];
+            }
+            else
+            {
+                lblMsj.Visible= false;
+            }
 
         }
         protected void btnIngresar_Click(object sender, EventArgs e)

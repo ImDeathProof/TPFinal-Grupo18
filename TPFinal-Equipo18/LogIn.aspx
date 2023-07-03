@@ -12,6 +12,9 @@
             <label class="form-label">Contraseña</label>
             <asp:TextBox runat="server" placeholder="Ingrese su contraseña" id="txtPass"  TextMode="Password" CssClass="form-control"/>
         </div>
+        <div class="mb-3"> 
+            <asp:Label ID="lblMsj" runat="server" Text="" ForeColor="Red"></asp:Label>
+        </div>
         <div class="mb-3">
              <asp:Button Text="Entrar"  runat="server" ID="btnIngresar" Onclick="btnIngresar_Click" class="btn btn-primary"/>
             <asp:HyperLink NavigateUrl="/Registro.aspx" runat="server" CssClass="p-3">Registrarme</asp:HyperLink>

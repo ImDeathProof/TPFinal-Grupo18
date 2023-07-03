@@ -12,6 +12,12 @@ namespace TPFinal_Equipo18
         public float pagoTotal { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!(Session["usuario"] != null))
+            {
+                Session.Add("mensaje", "Debes loguearte para iniciar el pago ");
+                Response.Redirect("Login.aspx", false);
+            }
+
             if (!IsPostBack)
             {
                 pagoTotal =(float) Session["MontoTotal"];
