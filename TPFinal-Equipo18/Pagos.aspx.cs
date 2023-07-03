@@ -52,6 +52,9 @@ namespace TPFinal_Equipo18
                 pedido.Estado.Id = 1;
 
 
+                //Falta desarrollar
+                negocio.agregar(pedido);
+
 
             }
             catch (Exception ex)
