@@ -50,5 +50,11 @@ namespace TPFinal_Equipo18
                 ddlEstados.Items.Insert(0, new ListItem("Cambiar estado"));
             }
         }
+
+        protected void ddlEstados_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+
+        }
     }
 }

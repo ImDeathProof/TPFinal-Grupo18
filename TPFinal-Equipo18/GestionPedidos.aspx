@@ -19,7 +19,9 @@
                         <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
                         <asp:TemplateField  HeaderText="Cambiar estado">
                             <ItemTemplate>
-                                <asp:DropDownList ID="ddlEstados" runat="server"   >
+                                <asp:DropDownList ID="ddlEstados" runat="server" 
+                                    OnSelectedIndexChanged="ddlEstados_SelectedIndexChanged"
+                                    AutoPostBack="true">
                                 </asp:DropDownList>
                             </ItemTemplate>
                         </asp:TemplateField>                
