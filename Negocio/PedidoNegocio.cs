@@ -38,5 +38,28 @@ namespace Negocio
                 throw ex;
             }
         }
+
+        public void agregar(Pedido nuevo)
+        {
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("insert into Pedidos (idUsuario,Importe,idMetodoPago,Entrega,idEstado)  values(@idUsuario,@Importe,@idMetodoPago,@Entrega,1)");
+                datos.setearParametros("@idUsuario", nuevo.usuario.Id);
+                datos.setearParametros("@Importe",nuevo.Importe);
+                datos.setearParametros("@idMetodoPago",1);
+                datos.setearParametros("@Entrega",nuevo.Entrega);
+                
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
     }
 }

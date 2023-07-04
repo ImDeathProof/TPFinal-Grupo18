@@ -21,11 +21,10 @@ namespace TPFinal_Equipo18
                 Response.Redirect("Login.aspx", false);
             }
 
-            if (!IsPostBack)
-            {
+           
                 pagoTotal =(float) Session["MontoTotal"];
                 
-            }
+            
 
         }
 
@@ -38,6 +37,7 @@ namespace TPFinal_Equipo18
                 Pedido pedido = new Pedido();
                 Usuario usuario = (Usuario)Session["usuario"];
 
+                pedido.usuario=new Usuario();
                 pedido.usuario.Id = usuario.Id;
                 pedido.Importe = pagoTotal;
                 pedido.MedioPago = 1;
@@ -49,12 +49,13 @@ namespace TPFinal_Equipo18
                 {
                     pedido.Entrega = " Rertira por sucursal";
                 }
-                pedido.Estado.Id = 1;
+                
 
 
-                //Falta desarrollar
-                //negocio.agregar(pedido);
+                
+                negocio.agregar(pedido);
 
+                Response.Redirect("Default.aspx", false);
 
             }
             catch (Exception ex)
