@@ -29,5 +29,26 @@ namespace TPFinal_Equipo18
                 
             }
         }
+
+        protected void dgvPedidos_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                DropDownList ddlEstados = (DropDownList)e.Row.FindControl("ddlEstados");
+
+                
+                EstadoPedidoNegocio negocio = new EstadoPedidoNegocio();
+                List<EstadoPedido> estados = negocio.listar();
+
+                
+                ddlEstados.DataSource = estados;
+                ddlEstados.DataTextField = "Descripcion";
+                ddlEstados.DataValueField = "Id";
+                ddlEstados.DataBind();
+
+                
+                ddlEstados.Items.Insert(0, new ListItem("Cambiar estado"));
+            }
+        }
     }
 }

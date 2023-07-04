@@ -2,13 +2,13 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
     <h2>Gestion de pedidos </h2>
     <div class="container">
         <div class="row">
             <div class="col 10">
                 <asp:GridView ID="dgvPedidos" runat="server" CssClass="table table-dark table-striped"
-                    AutoGenerateColumns="false">
+                    AutoGenerateColumns="false" OnRowDataBound="dgvPedidos_RowDataBound">
                     <Columns>
                         <asp:BoundField HeaderText="Usuario" DataField="NombreUsuario" />
                         <asp:BoundField HeaderText="Contacto" DataField="Email" />
@@ -19,13 +19,10 @@
                         <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
                         <asp:TemplateField  HeaderText="Cambiar estado">
                             <ItemTemplate>
-                                <asp:DropDownList id="ddlEstados" runat="server"  >
+                                <asp:DropDownList ID="ddlEstados" runat="server"   >
                                 </asp:DropDownList>
                             </ItemTemplate>
-                        </asp:TemplateField>
-                        
-                      
-                        
+                        </asp:TemplateField>                
 
                     </Columns>
                 </asp:GridView>
