@@ -95,3 +95,14 @@ C:\Tp-Final-Prog3\TPFinal-Grupo18\Negocio\obj\Debug\Negocio.csproj.CoreCompileIn
 C:\Tp-Final-Prog3\TPFinal-Grupo18\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 C:\Tp-Final-Prog3\TPFinal-Grupo18\Negocio\obj\Debug\Negocio.dll
 C:\Tp-Final-Prog3\TPFinal-Grupo18\Negocio\obj\Debug\Negocio.pdb
+C:\Tp-Final-Prog3\3\TPFinal-Grupo18\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\Tp-Final-Prog3\3\TPFinal-Grupo18\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Tp-Final-Prog3\3\TPFinal-Grupo18\Negocio\obj\Debug\Negocio.dll
+C:\Tp-Final-Prog3\3\TPFinal-Grupo18\Negocio\obj\Debug\Negocio.pdb
+C:\Tp-Final-Prog3\3\TPFinal-Grupo18\Negocio\bin\Debug\Negocio.dll
+C:\Tp-Final-Prog3\3\TPFinal-Grupo18\Negocio\bin\Debug\Negocio.pdb
+C:\Tp-Final-Prog3\3\TPFinal-Grupo18\Negocio\bin\Debug\AccesoDatos.dll
+C:\Tp-Final-Prog3\3\TPFinal-Grupo18\Negocio\bin\Debug\Dominio.dll
+C:\Tp-Final-Prog3\3\TPFinal-Grupo18\Negocio\bin\Debug\AccesoDatos.pdb
+C:\Tp-Final-Prog3\3\TPFinal-Grupo18\Negocio\bin\Debug\Dominio.pdb
+C:\Tp-Final-Prog3\3\TPFinal-Grupo18\Negocio\obj\Debug\Negocio.csproj.CopyComplete

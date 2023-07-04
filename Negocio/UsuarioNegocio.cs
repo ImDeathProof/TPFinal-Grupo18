@@ -19,7 +19,7 @@ namespace Negocio
                 datos.setearConsulta("Select Id, NombreUsuario, Contraseña, IdTipoUsser from USUARIOS where NombreUsuario = @user AND Contraseña = @pass ");
                 datos.setearParametros("@user", usuario.NombreUsuario);
                 datos.setearParametros("@pass", usuario.Contraseña);
-                datos.ejecutar
+               
 
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())

@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    internal class Pedido
+    public class Pedido
     {
+        public int Id { get; set; }
+        public Usuario usuario { get; set; }
+        public float Importe { get; set; }
+        public DateTime Fecha { get; set; }
+        public int MedioPago { get; set; }
+        public string Entrega { get; set; }
+        public EstadoPedido Estado { get; set; }
     }
 }
