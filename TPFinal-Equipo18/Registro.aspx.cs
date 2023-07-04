@@ -41,6 +41,7 @@ namespace TPFinal_Equipo18.LogIn
                     negocio.Loguear(Nuevo);
                     Session.Add("usuario", Nuevo);
                     Response.Redirect("Default.aspx", false);
+                    
                 }
                 else
                 {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Security.Permissions;
 
 namespace AccesoDatos
 {
@@ -23,9 +24,9 @@ namespace AccesoDatos
             //ELIAS:
             //conexion = new SqlConnection("server=.\\SQLEXPRESSLAB3; database=AlmacenBebidas; integrated security=false; user = sa; password = 123456");
             //BRIAN: 
-            //conexion = new SqlConnection("server=.\\SQLLABO3; database=AlmacenBebidas; integrated security=false; user = sa; password = 123456");
+            conexion = new SqlConnection("server=.\\SQLLABO3; database=AlmacenBebidas; integrated security=false; user = sa; password = 123456");
             //JOAQUIN:
-            conexion = new SqlConnection("server=.\\SQLEXPRESS01; database=AlmacenBebidas; integrated security=true ");
+            //conexion = new SqlConnection("server=.\\SQLEXPRESS01; database=AlmacenBebidas; integrated security=true ");
             comando = new SqlCommand();
         }
 
@@ -73,6 +74,22 @@ namespace AccesoDatos
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        public int ejecutarAccionScalar()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                return int.Parse(comando.ExecuteScalar().ToString());
+
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }
