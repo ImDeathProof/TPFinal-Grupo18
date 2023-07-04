@@ -8,8 +8,10 @@
         <div class="row">
             <div class="col 10">
                 <asp:GridView ID="dgvPedidos" runat="server" CssClass="table table-dark table-striped"
-                    AutoGenerateColumns="false" OnRowDataBound="dgvPedidos_RowDataBound">
+                    AutoGenerateColumns="false" OnRowDataBound="dgvPedidos_RowDataBound"
+                    >
                     <Columns>
+                        
                         <asp:BoundField HeaderText="Usuario" DataField="NombreUsuario" />
                         <asp:BoundField HeaderText="Contacto" DataField="Email" />
                         <asp:BoundField HeaderText="Importe" DataField="Importe" />

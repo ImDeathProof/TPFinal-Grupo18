@@ -66,5 +66,26 @@ namespace Negocio
             }
             finally { datos.cerrarConexion(); }
         }
+
+        public void cambiarEstado(int id,int estado)
+        {
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("update Pedidos set idEstado= @Estado where Id=@Id");
+                datos.setearParametros("@Estado",estado);
+                datos.setearParametros("@Id",id);
+
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }

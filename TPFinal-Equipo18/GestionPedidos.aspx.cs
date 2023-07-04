@@ -11,18 +11,20 @@ namespace TPFinal_Equipo18
 {
     public partial class GestionPedidos : System.Web.UI.Page
     {
-        public List<EstadoPedido> listaEstados { get; set; }
+        public List<Pedido> listaPedidos { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            EstadoPedidoNegocio estadoNegocio= new EstadoPedidoNegocio();
-            listaEstados = estadoNegocio.listar();
+            
+            
             
             if (!IsPostBack)
             {
                 
                 PedidoNegocio negocio= new PedidoNegocio();
 
-                dgvPedidos.DataSource = negocio.Listar();
+                listaPedidos= negocio.Listar();
+                dgvPedidos.DataSource = listaPedidos;
+
                 dgvPedidos.DataBind();
                 
                 
@@ -53,8 +55,29 @@ namespace TPFinal_Equipo18
 
         protected void ddlEstados_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            PedidoNegocio negocio= new PedidoNegocio();
+            listaPedidos=negocio.Listar();
 
+            DropDownList ddlEstados = (DropDownList)sender;
+            GridViewRow row = (GridViewRow)ddlEstados.NamingContainer;
+
+            int index = row.RowIndex;
+
+            string idEstado= ddlEstados.SelectedValue.ToString();
+
+            int id = listaPedidos[index].Id;
+
+            negocio.cambiarEstado(id,int.Parse(idEstado));
+
+            Response.Redirect("GestionPedidos.aspx");
+
+        }
+
+        protected void dgvPedidos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string id = dgvPedidos.SelectedDataKey.Values.ToString();
+
+            //string idEstado = ddlEstados.SelectedValue.ToString();
         }
     }
 }
