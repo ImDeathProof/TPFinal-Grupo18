@@ -88,7 +88,7 @@ namespace TPFinal_Equipo18
 
         protected void btnIniciarPago_Click(object sender, EventArgs e)
         {
-            float monto= float.Parse( lblTotal.Text);
+            decimal monto= decimal.Parse( lblTotal.Text);
             if (monto > 0)
             {
                 Session.Add("MontoTotal", monto);

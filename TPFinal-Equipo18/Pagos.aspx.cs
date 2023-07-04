@@ -11,7 +11,7 @@ namespace TPFinal_Equipo18
 {
     public partial class Pagos : System.Web.UI.Page
     {
-        public float pagoTotal { get; set; }
+        public decimal pagoTotal { get; set; }
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,7 +22,7 @@ namespace TPFinal_Equipo18
             }
 
            
-                pagoTotal =(float) Session["MontoTotal"];
+                pagoTotal =(decimal) Session["MontoTotal"];
                 
             
 

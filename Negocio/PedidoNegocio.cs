@@ -16,18 +16,23 @@ namespace Negocio
             AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
             try
             {
-                datos.setearConsulta("select P.Id,P.idUsuario,P.Importe,P.Fecha,P.idMetodoPago,P.Entrega,Ep.Nombre from Pedidos P\r\ninner join EstadoPedido Ep on Ep.Id=P.idEstado \r\n");
+                datos.setearConsulta("select P.Id,P.idUsuario,P.Importe,P.Fecha,P.idMetodoPago,P.Entrega,Ep.Nombre,U.NombreUsuario,U.Email from Pedidos P inner join EstadoPedido Ep on Ep.Id=P.idEstado inner join Usuarios U on U.Id=P.idUsuario");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
                     Pedido aux = new Pedido();
                     aux.Id = (int)datos.Lector["Id"];
+                    aux.usuario= new Usuario();
                     aux.usuario.Id = (int)datos.Lector["idUsuario"];
-                    aux.Importe = (float)datos.Lector["Importe"];
+                    aux.Importe = (decimal)datos.Lector["Importe"];
                     aux.Fecha = (DateTime)datos.Lector["Fecha"];
                     aux.MedioPago = (int)datos.Lector["idMetodoPago"];
                     aux.Entrega = (string)datos.Lector["Entrega"];
+                    aux.Estado= new EstadoPedido();
                     aux.Estado.Descripcion = (string)datos.Lector["Nombre"];
+                    aux.NombreUsuario = (string)datos.Lector["NombreUsuario"];
+                    aux.Email= (string)datos.Lector["Email"];
+                    
 
                     lista.Add(aux);
                 }
