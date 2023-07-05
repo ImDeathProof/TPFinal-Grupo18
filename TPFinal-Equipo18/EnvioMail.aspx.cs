@@ -22,6 +22,7 @@ namespace TPFinal_Equipo18
             try
             {
                 emailService.enviarEmail();
+
             }
             catch (Exception ex)
             {

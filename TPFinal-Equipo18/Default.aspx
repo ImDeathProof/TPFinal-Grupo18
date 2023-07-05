@@ -29,6 +29,9 @@
     <div class="container p-3">
         <div class="row row-cols-1 row-cols-md-3 g-4">
 
+             <%-- Leo los articulos --%>
+            <%if (listaBebidas == null)
+                { listaBebidas = (List<Dominio.Bebida>)Session["artFiltrado"]; }  %>
             <% foreach (Dominio.Bebida bebida in listaBebidas)
                 {
                     if (bebida.Estado == true)

@@ -10,6 +10,7 @@ namespace TPFinal_Equipo18
 {
     public partial class Master : System.Web.UI.MasterPage
     {
+        public List<Bebida> listaFiltrada { get; set; }
         public Usuario user = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -49,6 +50,14 @@ namespace TPFinal_Equipo18
 
                 throw ex;
             }
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            List<Bebida> lista = (List<Bebida>)Session["Lista"];
+
+            listaFiltrada = lista.FindAll(x => x.Nombre.ToUpper().Contains(txtFiltro.Text.ToUpper()));
+            Session.Add("artFiltrado", listaFiltrada);
         }
     }
 }

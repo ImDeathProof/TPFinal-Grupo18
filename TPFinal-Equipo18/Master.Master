@@ -57,9 +57,10 @@
                             </li>
                             <%--Barra de busqueda--%>
                             <li class="nav-container">
-                                <div class="d-flex" role="search">
-                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                    <button id="btnBuscar" class="btn btn-outline-dark" type="submit">Buscar</button>
+                                <div class="d-flex">
+                                    <asp:TextBox runat="server" ID="txtFiltro" class="form-control me-2" placeholder="Search" aria-label="Search"></asp:TextBox>
+                                    <asp:Button runat="server" Text="Buscar" ID="btnBuscar" OnClick="btnBuscar_Click" class="btn btn-outline-dark"></asp:Button>
+                    
                                 </div>
                             </li>
                         </ul>

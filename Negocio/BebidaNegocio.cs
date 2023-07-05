@@ -190,6 +190,101 @@ namespace Negocio
                 throw ex;
             }
         }
+        public List<Bebida> Filtrar(string campo, string criterio, string filtro)
+        {
+            List<Bebida> lista = new List<Bebida>();
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+
+            try
+            {
+                string consulta = "SELECT A.Id, A.Precio, A.Codigo,A.Nombre, A.Descripcion, M.Descripcion Marca ,C.Descripcion Categoria from ARTICULOS A inner join MARCAS M on M.Id=A.IdMarca inner join CATEGORIAS C on C.Id=A.IdCategoria and ";
+
+                switch (campo)
+                {
+                    case "Precio":
+                        switch (criterio)
+                        {
+                            case "Mayor a: ":
+                                consulta += "Precio > " + filtro;
+                                break;
+                            case "Menor a: ":
+                                consulta += "Precio < " + filtro;
+                                break;
+                            default:
+                                consulta += "Precio = " + filtro;
+                                break;
+                        }
+
+                        break;
+                    case "Nombre":
+                        switch (criterio)
+                        {
+                            case "Comienza con: ":
+                                consulta += "Nombre like '" + filtro + "%'";
+                                break;
+                            case "Termina con: ":
+                                consulta += "Nombre like '%" + filtro + "' ";
+                                break;
+                            case "Contiene: ":
+                                consulta += "Nombre like '%" + filtro + "%' ";
+                                break;
+
+                        }
+
+                        break;
+                    default:
+                        switch (criterio)
+                        {
+                            case "Comienza con: ":
+                                consulta += "A.Descripcion like '" + filtro + "%'";
+                                break;
+                            case "Termina con: ":
+                                consulta += "A.Descripcion like '%" + filtro + "' ";
+                                break;
+                            case "Contiene: ":
+                                consulta += "A.Descripcion like '%" + filtro + "%' ";
+                                break;
+                        }
+                        break;
+                }
+
+                datos.setearConsulta(consulta);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Bebida aux = new Bebida();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    //aux.imagen = new Imagen();
+                    //aux.imagen.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+                    aux.Categoria = new Categoria();
+                    /*if (datos.Lector["Categoria"] is DBNull)
+                    {
+                        aux.categoria.Descripcion = " ";
+                    }
+                    else
+                    {
+                        aux.categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    }
+                    aux.marca = new Marca();
+                    aux.marca.Descripcion = (string)datos.Lector["Marca"];*/ ///MARCAS Y CATEGORIA NO TIENEN DESCRIPCIÓN POR ESO 
+
+                    lista.Add(aux);
+                }
+
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
 
