@@ -17,7 +17,8 @@ namespace TPFinal_Equipo18
             if (!IsPostBack)
             {
                 BebidaNegocio negocio = new BebidaNegocio();
-                listaBebidas = negocio.Listar();
+                Session.Add("listaBebidas", negocio.Listar());
+                listaBebidas = (List<Bebida>)Session["listaBebidas"];
             }
 
             if (Request.QueryString["Id"] != null)

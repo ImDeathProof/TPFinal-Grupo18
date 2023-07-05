@@ -54,7 +54,7 @@ namespace TPFinal_Equipo18
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            List<Bebida> lista = (List<Bebida>)Session["Lista"];
+            List<Bebida> lista = (List<Bebida>)Session["listaBebidas"];
 
             listaFiltrada = lista.FindAll(x => x.Nombre.ToUpper().Contains(txtFiltro.Text.ToUpper()));
             Session.Add("artFiltrado", listaFiltrada);
