@@ -24,6 +24,15 @@ namespace TPFinal_Equipo18
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_Usuario;
 
         /// <summary>
+        /// Control lbl_Estado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_Estado;
+
+        /// <summary>
         /// Control lbl_Nombre.
         /// </summary>
         /// <remarks>

@@ -39,7 +39,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="/GestionProductos.aspx">Gestión de Productos</a></li>
-                                    <li><a class="dropdown-item" href="/GestionProductos.aspx">Gestión de Usuarios</a></li>
+                                    <li><a class="dropdown-item" href="/GestionUsuarios.aspx">Gestión de Usuarios</a></li>
                                     <li><a class="dropdown-item" href="/GestionPedidos.aspx">Gestión de Pedidos</a></li>
                                 </ul>
                             </li>

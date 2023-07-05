@@ -27,6 +27,7 @@ namespace TPFinal_Equipo18
                 lbl_Email.InnerText = Usuario.Email;
                 lbl_Telefono.InnerText = Usuario.Telefono;
                 lbl_FNacimiento.InnerText = Usuario.FechaNacimiento.ToString("d");
+                lbl_Estado.InnerText = Usuario.Estado == true ? "Activo" : "Bloqueado";
                 ///CARGA DE DOMICILIO
                 ///HAY QUE AGREGAR LAS VERIFICACIONES EN CASO QUE NO TENGA DOMICILIO
                 lbl_Calle.InnerText = Usuario.Domicilio.Calle;

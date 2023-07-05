@@ -47,7 +47,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("insert into Usuarios values ('@NombreUsuario', '@Contraseña', @IdTipoUsser,'@Nombre', '@Apellido', '@Dni', '@Email', '@Telefono', @FechaNacimiento, @IdDomicilio)");
+                datos.setearConsulta("insert into Usuarios values ('@NombreUsuario', '@Contraseña', @IdTipoUsser,'@Nombre', '@Apellido', '@Dni', '@Email', '@Telefono', @FechaNacimiento, @IdDomicilio, @Estado)");
 
                 datos.setearParametros("@NombreUsuario", Nuevo.NombreUsuario);
                 datos.setearParametros("@Contraseña", Nuevo.Contraseña);
@@ -59,6 +59,7 @@ namespace Negocio
                 datos.setearParametros("@Telefono", Nuevo.Telefono);
                 datos.setearParametros("@FechaNacimiento", Nuevo.FechaNacimiento);
                 datos.setearParametros("@IdDomicilio", 1);
+                datos.setearParametros("@Estado", 1);
 
                 datos.ejecutarAccion();
 
@@ -100,7 +101,7 @@ namespace Negocio
             AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
             try
             {
-                datos.setearConsulta("Select Id, NombreUsuario, Contraseña, IdTipoUsser, Nombre, Apellido, Dni, Email, Telefono, FechaNacimiento, IdDomicilio from Usuarios where Id = @Id");
+                datos.setearConsulta("Select Id, NombreUsuario, Contraseña, IdTipoUsser, Nombre, Apellido, Dni, Email, Telefono, FechaNacimiento, IdDomicilio, Estado from Usuarios where Id = @Id");
                 datos.setearParametros("@Id", us.Id);
                 datos.ejecutarLectura();
 
@@ -116,6 +117,7 @@ namespace Negocio
                 usuario.Email = (string)datos.Lector["Email"];
                 usuario.Telefono = (string)datos.Lector["Telefono"];
                 usuario.FechaNacimiento = (DateTime)datos.Lector["FechaNacimiento"];
+                usuario.Estado = (bool)datos.Lector["Estado"];
                 if (datos.Lector["IdDomicilio"] != null)
                 {
                     DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
@@ -163,6 +165,42 @@ namespace Negocio
                 throw ex;
             }
 
+        }
+        public List<Usuario> Listar()
+        {
+            List<Usuario> lista = new List<Usuario>();
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+            try
+            {
+                datos.setearConsulta("Select Id, NombreUsuario, Contraseña, IdTipoUsser, Nombre, Apellido, Dni, Email, Telefono, FechaNacimiento, IdDomicilio, Estado from Usuarios");
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    Usuario usuario = new Usuario();
+                    usuario.Id = (int)datos.Lector["Id"];
+                    usuario.NombreUsuario = (string)datos.Lector["NombreUsuario"];
+                    usuario.Contraseña = (string)datos.Lector["Contraseña"];
+                    usuario.IdTipoUser = (int)(datos.Lector["IdTipoUsser"]) == 1 ? TipoUsuario.ADMIN : TipoUsuario.NORMAL;
+                    usuario.Nombre = (string)datos.Lector["Nombre"];
+                    usuario.Apellido = (string)datos.Lector["Apellido"];
+                    usuario.DNI = (string)datos.Lector["Dni"];
+                    usuario.Email = (string)datos.Lector["Email"];
+                    usuario.Telefono = (string)datos.Lector["Telefono"];
+                    usuario.FechaNacimiento = (DateTime)datos.Lector["FechaNacimiento"];
+                    usuario.Estado = (bool)datos.Lector["Estado"];
+                    if (datos.Lector["IdDomicilio"] != null)
+                    {
+                        DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
+                        usuario.Domicilio = domicilioNegocio.Buscar(usuario);
+                    }
+                    lista.Add(usuario);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
     }
