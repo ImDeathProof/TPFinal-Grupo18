@@ -19,7 +19,7 @@ namespace Negocio
                 datos.setearConsulta("Select Id, NombreUsuario, Contraseña, IdTipoUsser from USUARIOS where NombreUsuario = @user AND Contraseña = @pass ");
                 datos.setearParametros("@user", usuario.NombreUsuario);
                 datos.setearParametros("@pass", usuario.Contraseña);
-               
+
 
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
@@ -164,7 +164,48 @@ namespace Negocio
 
                 throw ex;
             }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void Bloquear(int ID)
+        {
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+            try
+            {
+                datos.setearConsulta("update Usuarios set Estado = 0 where Id=@Id");
+                datos.setearParametros("@Id", ID);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void Desbloquear(int ID)
+        {
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+            try
+            {
+                datos.setearConsulta("update Usuarios set Estado = 1 where Id=@Id");
+                datos.setearParametros("@Id", ID);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
         public List<Usuario> Listar()
         {
@@ -200,6 +241,10 @@ namespace Negocio
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
 
