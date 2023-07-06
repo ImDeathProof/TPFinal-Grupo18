@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TPFinal_Equipo18
 {
@@ -30,22 +31,19 @@ namespace TPFinal_Equipo18
         {
             string nombreBoton = string.Empty;
 
-            if (estado != null)
-            {
-                string estadoTexto = estado.ToString();
 
-                // Asigna el nombre del botón según el valor de "Estado"
-                if (estadoTexto == "True")
-                {
-                    nombreBoton = "Bloquear";
-                }
-                else
-                {
-                    nombreBoton = "Desbloquear";
-                }
+            string estadoTexto = estado.ToString();
+
+            // Asigna el nombre del botón según el valor de "Estado"
+            if (estadoTexto == "True")
+            {
+                return "Bloquear";
+            }
+            else
+            {
+                return "Desbloquear";
             }
 
-            return nombreBoton;
         }
         protected void dgvUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -59,32 +57,24 @@ namespace TPFinal_Equipo18
                 int rowIndex = Convert.ToInt32(e.CommandArgument);
                 GridViewRow row = dgvUsuarios.Rows[rowIndex];
 
-                // Obtener la ID del pedido
-                string idUsuario = row.Cells[0].Text; // Suponiendo que la columna "ID" es la primera (índice 0)
-                Id = int.Parse(idUsuario);
-                // Realizar acciones con la ID obtenida
-                // ...
+                // Obtener la ID del usuario
+                Id = int.Parse(row.Cells[0].Text);
+
+                //Accion de bloquear o desbloquear
+                UsuarioNegocio neg = new UsuarioNegocio();
+
+                LinkButton linkButton = row.FindControl("btnAccion") as LinkButton;
+                if (linkButton.Text == "Bloquear")
+                {
+                    neg.Bloquear(Id);
+                }
+                else
+                {
+                    neg.Desbloquear(Id);
+                }
+                Response.Redirect("GestionUsuarios.aspx", false);
             }
         }
-        protected void btnAccion_Click(object sender, EventArgs e)
-        {
-            LinkButton btn = (LinkButton)sender;
-            UsuarioNegocio neg = new UsuarioNegocio();
-            
 
-            if (btn.Text.ToString() == "Bloquear")
-            {
-                neg.Bloquear(Id);
-            }
-            else
-            {
-                neg.Desbloquear(Id);
-            }
-            listaUsuarios = neg.Listar();
-            dgvUsuarios.DataSource = listaUsuarios;
-
-            dgvUsuarios.DataBind();
-            
-        }
     }
 }

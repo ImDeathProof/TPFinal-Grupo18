@@ -16,12 +16,14 @@
                         <asp:BoundField HeaderText="Usuario" DataField="NombreUsuario" />
                         <asp:BoundField HeaderText="E-mail" DataField="Email" />
                         <asp:BoundField HeaderText="Estado" DataField="Estado" />
-                        <asp:TemplateField>
+                        <asp:TemplateField HeaderText="Acción">
                             <ItemTemplate>
-                                <asp:LinkButton ID="btnAccion" runat="server" Text='<%# GetButtonText(Eval("Estado")) %>'
-                                    CommandName="Accion" CommandArgument=' <%#((GridViewRow)Container).RowIndex%>' OnClick="btnAccion_Click"></asp:LinkButton>
+                                <asp:LinkButton id="btnAccion" runat="server" Text='<%# GetButtonText(Eval("Estado")) %>'
+                                    CommandName="Accion" CommandArgument=' <%#((GridViewRow)Container).RowIndex%>'></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
+
+
                     </Columns>
                 </asp:GridView>
             </div>
