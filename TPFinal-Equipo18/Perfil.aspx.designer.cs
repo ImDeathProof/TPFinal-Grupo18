@@ -15,6 +15,33 @@ namespace TPFinal_Equipo18
     {
 
         /// <summary>
+        /// Control avatarUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image avatarUsuario;
+
+        /// <summary>
+        /// Control txtImagen.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile txtImagen;
+
+        /// <summary>
+        /// Control btnGuardarImg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardarImg;
+
+        /// <summary>
         /// Control lbl_Usuario.
         /// </summary>
         /// <remarks>
@@ -114,67 +141,67 @@ namespace TPFinal_Equipo18
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDatosDomicilio;
 
         /// <summary>
-        /// Control lbl_Calle.
+        /// Control txt_Calle.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_Calle;
+        protected global::System.Web.UI.WebControls.TextBox txt_Calle;
 
         /// <summary>
-        /// Control lbl_Numero.
+        /// Control txt_Numero.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_Numero;
+        protected global::System.Web.UI.WebControls.TextBox txt_Numero;
 
         /// <summary>
-        /// Control lbl_Provincia.
+        /// Control txt_Provincia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_Provincia;
+        protected global::System.Web.UI.WebControls.TextBox txt_Provincia;
 
         /// <summary>
-        /// Control lbl_Partido.
+        /// Control txt_Partido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_Partido;
+        protected global::System.Web.UI.WebControls.TextBox txt_Partido;
 
         /// <summary>
-        /// Control lbl_Localidad.
+        /// Control txt_Localidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_Localidad;
+        protected global::System.Web.UI.WebControls.TextBox txt_Localidad;
 
         /// <summary>
-        /// Control lbl_Departamento.
+        /// Control txt_Departamento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_Departamento;
+        protected global::System.Web.UI.WebControls.TextBox txt_Departamento;
 
         /// <summary>
-        /// Control lbl_Piso.
+        /// Control txt_Piso.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_Piso;
+        protected global::System.Web.UI.WebControls.TextBox txt_Piso;
 
         /// <summary>
         /// Control divMisPedidos.

@@ -15,8 +15,12 @@
             <div class="row">
                 <div class="col-6 container border">
                     <div class="border p-3">
-                        <h3>FOTO DE PERFIL</h3>
+                        <asp:Image ID="avatarUsuario" ImageUrl="https://www.mendozapost.com/files/image/7/7142/54b6f4c45797b.jpg"
+                            runat="server" CssClass="img-fluid mb-3" />
                     </div>
+                    <label class="form-label">Avatar</label>
+                    <input type="file" id="txtImagen" class="form-control" runat="server" />
+                    <asp:Button ID="btnGuardarImg" Text="Guardar" CssClass="btn btn-primary" runat="server" OnClick="btnGuardarImg_Click" />
                 </div>
                 <div class="col-6 container border">
                     <div>
@@ -78,7 +82,7 @@
                     </div>
                     <div class="p-3">
                         <%--HAY QUE REVISAR PORQUE TIRA ERRORES CUANDO INTENTA MODIFICAR--%>
-                        <asp:Button ID="btnModificarUsuario" Text="Modificar" runat="server" OnClick="btnModificarUsuario_Click" />
+                        <asp:Button ID="btnModificarUsuario" Text="Modificar" CssClass="btn btn-primary" runat="server" OnClick="btnModificarUsuario_Click" />
                     </div>
                 </div>
             </div>
@@ -91,13 +95,13 @@
                             <div class="col-6">
                                 <label>Calle: </label>
                                 <div>
-                                    <label id="lbl_Calle" text=" " class="form-label" runat="server"></label>
+                                    <asp:TextBox ID="txt_Calle" Text=" " CssClass="form-control" runat="server" />
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label>Numero: </label>
                                 <div>
-                                    <label id="lbl_Numero" text=" " class="form-label" runat="server"></label>
+                                    <asp:TextBox ID="txt_Numero" Text=" " CssClass="form-control" runat="server" />
                                 </div>
                             </div>
                         </div>
@@ -105,13 +109,13 @@
                             <div class="col-6">
                                 <label>Provincia: </label>
                                 <div>
-                                    <label id="lbl_Provincia" text=" " class="form-label" runat="server"></label>
+                                    <asp:TextBox ID="txt_Provincia" Text=" " CssClass="form-control" runat="server" />
                                 </div>
                             </div>
                             <div class="col-6">
                                 <label>Partido: </label>
                                 <div>
-                                    <label id="lbl_Partido" text=" " class="form-label" runat="server"></label>
+                                    <asp:TextBox ID="txt_Partido" Text=" " CssClass="form-control" runat="server" />
                                 </div>
                             </div>
                         </div>
@@ -120,7 +124,7 @@
                             <div class="col-6">
                                 <label>Localidad: </label>
                                 <div>
-                                    <label id="lbl_Localidad" text=" " class="form-label" runat="server"></label>
+                                    <asp:TextBox ID="txt_Localidad" Text=" " CssClass="form-control" runat="server" />
                                 </div>
                             </div>
                         </div>
@@ -131,26 +135,29 @@
                                 <div class="col-6">
                                     <label>Departamento: </label>
                                     <div>
-                                        <label id="lbl_Departamento" text=" " class="form-label" runat="server"></label>
+                                        <asp:TextBox ID="txt_Departamento" Text=" " CssClass="form-control" runat="server" />
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <label>Piso: </label>
                                     <div>
-                                        <label id="lbl_Piso" text=" " class="form-label" runat="server"></label>
+                                        <asp:TextBox ID="txt_Piso" Text=" " CssClass="form-control" runat="server" />
                                     </div>
                                 </div>
                             </div>
-                            <%if (Usuario.Domicilio != null)
+                            <div class="p-3">
+                                <%if (usuario.Domicilio == null)
 
-                                {%>
-                            <asp:Button Text="Modificar" CssClass="btn btn-primary" runat="server" />
-                            <%}
-                                else
-                                {%>
-                            <asp:Button Text="Agregar" CssClass="btn btn-success" runat="server" />
+                                    {%>
+                                <asp:Button Text="Agregar" CssClass="btn btn-success" runat="server" />
 
-                            <%} %>
+                                <%}
+                                    else
+                                    {%>
+                                <asp:Button Text="Modificar" CssClass="btn btn-primary" runat="server" />
+
+                                <%} %>
+                            </div>
                         </div>
                     </div>
                 </div>

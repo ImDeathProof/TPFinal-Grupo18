@@ -101,13 +101,17 @@ namespace Negocio
             AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
             try
             {
-                datos.setearConsulta("Select Id, NombreUsuario, Contraseña, IdTipoUsser, Nombre, Apellido, Dni, Email, Telefono, FechaNacimiento, IdDomicilio, Estado from Usuarios where Id = @Id");
+                datos.setearConsulta("Select NombreUsuario, Contraseña, IdTipoUsser, Nombre, Apellido, Dni, Email, Telefono, FechaNacimiento, IdDomicilio, Estado, Avatar from Usuarios where Id = @Id");
                 datos.setearParametros("@Id", us.Id);
                 datos.ejecutarLectura();
 
                 Usuario usuario = new Usuario();
                 datos.Lector.Read();
-                usuario.Id = (int)datos.Lector["Id"];
+                usuario.Id = us.Id;
+                if (!(datos.Lector["Avatar"] is DBNull))
+                    usuario.Avatar = (string)datos.Lector["Avatar"];
+                else
+                    usuario.Avatar = "default.jpg";
                 usuario.NombreUsuario = (string)datos.Lector["NombreUsuario"];
                 usuario.Contraseña = (string)datos.Lector["Contraseña"];
                 if (!(datos.Lector["IdTipoUsser"] is DBNull))
@@ -238,6 +242,28 @@ namespace Negocio
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void CambiarAvatar(Usuario user)
+        {
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+            try
+            {
+                datos.setearConsulta("Update USUARIOS set Avatar = @Avatar where Id = @Id");
+                datos.setearParametros("@Avatar", user.Avatar);
+                datos.setearParametros("@Id", user.Id);
+                datos.ejecutarAccion();
+
+                
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
             finally

@@ -25,6 +25,7 @@ namespace Dominio
         public DateTime FechaNacimiento { get; set; }
         public Domicilio Domicilio { get; set; }
         public bool Estado { get; set; }
+        public string Avatar { get; set; }
         public Usuario(){}
         public Usuario(string user, string pass, bool admin)
         {

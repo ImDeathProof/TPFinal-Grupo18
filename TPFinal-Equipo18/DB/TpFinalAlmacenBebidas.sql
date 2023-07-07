@@ -28,7 +28,8 @@ Email varchar(50) not null,
 Telefono varchar(50),
 FechaNacimiento date,
 IdDomicilio int foreign key references Domicilio(Id),
-Estado bit not null default 1
+Estado bit not null default 1,
+Avatar varchar(300) null default 'default.jpg'
 )
 go
 
@@ -157,4 +158,9 @@ Select Id, NombreUsuario, Contraseña, IdTipoUsser, Nombre, Apellido, Dni, Email
 update Usuarios set Codigo=@Codigo,Nombre=@Nombre,Precio=@Precio,Descripcion=@Descripcion,ContenidoNeto=@Contenido,Estado=1,UrlImg=@Url,IdMarca=@Marca,IdCategoria=@Categoria where Id=@Id
 
 ALTER table Usuarios 
-add Estado bit not null default 1
+add Avatar varchar(300) null default 'default.jpg'
+
+update Usuarios set Estado = 0 where Id=4
+DECLARE @Id
+@Id=4
+update Usuarios set Estado = 1 where Id=4
