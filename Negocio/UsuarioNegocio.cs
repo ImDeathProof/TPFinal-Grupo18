@@ -110,15 +110,18 @@ namespace Negocio
                 usuario.Id = (int)datos.Lector["Id"];
                 usuario.NombreUsuario = (string)datos.Lector["NombreUsuario"];
                 usuario.Contraseña = (string)datos.Lector["Contraseña"];
-                usuario.IdTipoUser = (int)(datos.Lector["IdTipoUsser"]) == 1 ? TipoUsuario.ADMIN : TipoUsuario.NORMAL;
+                if (!(datos.Lector["IdTipoUsser"] is DBNull))
+                    usuario.IdTipoUser = (int)(datos.Lector["IdTipoUsser"]) == 1 ? TipoUsuario.ADMIN : TipoUsuario.NORMAL;
                 usuario.Nombre = (string)datos.Lector["Nombre"];
                 usuario.Apellido = (string)datos.Lector["Apellido"];
                 usuario.DNI = (string)datos.Lector["Dni"];
                 usuario.Email = (string)datos.Lector["Email"];
-                usuario.Telefono = (string)datos.Lector["Telefono"];
-                usuario.FechaNacimiento = (DateTime)datos.Lector["FechaNacimiento"];
+                if (!(datos.Lector["Telefono"] is DBNull))
+                    usuario.Telefono = (string)datos.Lector["Telefono"];
+                if (!(datos.Lector["FechaNacimiento"] is DBNull))
+                    usuario.FechaNacimiento = DateTime.Parse(datos.Lector["FechaNacimiento"].ToString());
                 usuario.Estado = (bool)datos.Lector["Estado"];
-                if (datos.Lector["IdDomicilio"] != null)
+                if (!(datos.Lector["IdDomicilio"] is DBNull))
                 {
                     DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
                     usuario.Domicilio = domicilioNegocio.Buscar(usuario);
@@ -136,25 +139,20 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
-        public void modificar(Usuario nuevo)
+        public void Modificar(Usuario nuevo)
         {
             AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
             try
             {
-                datos.setearConsulta("update Usuarios set NombreUsuario=@NombreUsuario, Contraseña=@Contraseña, IdTipoUsser=@IdTipoUsser, Nombre=@Nombre, Apellido=@Apellido, Dni=@Dni, Email=@Email, Telefono=@Telefono, "/*FechaNacimiento=@FechaNacimiento*/ + " IdDomicilio=@IdDomicilio where Id=@Id");
-                datos.setearParametros("@NombreUsuario", nuevo.NombreUsuario);
-                datos.setearParametros("@Contraseña", nuevo.Contraseña);
-                int tipoUsuario = nuevo.IdTipoUser == TipoUsuario.ADMIN ? 1 : 2;
-                datos.setearParametros("@IdTipoUsser", tipoUsuario);
-                datos.setearParametros("@Apellido", nuevo.Apellido);
+                datos.setearConsulta("update Usuarios set Nombre=@Nombre, Apellido=@Apellido, Dni=@Dni, Email=@Email, Telefono=@Telefono, FechaNacimiento=@FechaNacimiento where NombreUsuario=@NombreUsuario");
                 datos.setearParametros("@Nombre", nuevo.Nombre);
+                datos.setearParametros("@Apellido", nuevo.Apellido);
                 datos.setearParametros("Dni", nuevo.DNI);
                 datos.setearParametros("Email", nuevo.Email);
                 datos.setearParametros("@Telefono", nuevo.Telefono);
                 //Esto tira error, hay que revisar
-                //datos.setearParametros("@FechaNacimiento", nuevo.FechaNacimiento);
-                datos.setearParametros("@IdDomicilio", 1);
-                datos.setearParametros("@Id", nuevo.Id);
+                datos.setearParametros("@FechaNacimiento", nuevo.FechaNacimiento);
+                datos.setearParametros("@NombreUsuario", nuevo.NombreUsuario);
 
 
                 datos.ejecutarAccion();

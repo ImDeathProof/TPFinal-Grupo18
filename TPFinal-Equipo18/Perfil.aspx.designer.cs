@@ -33,58 +33,85 @@ namespace TPFinal_Equipo18
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_Estado;
 
         /// <summary>
-        /// Control lbl_Nombre.
+        /// Control divDatosUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_Nombre;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDatosUsuario;
 
         /// <summary>
-        /// Control lbl_Apellido.
+        /// Control txt_Nombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_Apellido;
+        protected global::System.Web.UI.WebControls.TextBox txt_Nombre;
 
         /// <summary>
-        /// Control lbl_DNI.
+        /// Control txt_Apellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_DNI;
+        protected global::System.Web.UI.WebControls.TextBox txt_Apellido;
 
         /// <summary>
-        /// Control lbl_FNacimiento.
+        /// Control txt_DNI.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_FNacimiento;
+        protected global::System.Web.UI.WebControls.TextBox txt_DNI;
 
         /// <summary>
-        /// Control lbl_Email.
+        /// Control txt_FNacimiento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_Email;
+        protected global::System.Web.UI.WebControls.TextBox txt_FNacimiento;
 
         /// <summary>
-        /// Control lbl_Telefono.
+        /// Control txt_Email.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_Telefono;
+        protected global::System.Web.UI.WebControls.TextBox txt_Email;
+
+        /// <summary>
+        /// Control txt_Telefono.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_Telefono;
+
+        /// <summary>
+        /// Control btnModificarUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModificarUsuario;
+
+        /// <summary>
+        /// Control divDatosDomicilio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDatosDomicilio;
 
         /// <summary>
         /// Control lbl_Calle.
@@ -148,5 +175,14 @@ namespace TPFinal_Equipo18
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_Piso;
+
+        /// <summary>
+        /// Control divMisPedidos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMisPedidos;
     }
 }
