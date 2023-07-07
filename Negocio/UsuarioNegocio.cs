@@ -47,7 +47,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("insert into Usuarios values ('@NombreUsuario', '@Contraseña', @IdTipoUsser,'@Nombre', '@Apellido', '@Dni', '@Email', '@Telefono', @FechaNacimiento, @IdDomicilio, @Estado)");
+                datos.setearConsulta("insert into Usuarios values (@NombreUsuario, @Contraseña, @IdTipoUsser,@Nombre, @Apellido, @Dni, @Email, @Telefono, @FechaNacimiento, @IdDomicilio, @Estado, @Avatar)");
 
                 datos.setearParametros("@NombreUsuario", Nuevo.NombreUsuario);
                 datos.setearParametros("@Contraseña", Nuevo.Contraseña);
@@ -60,6 +60,7 @@ namespace Negocio
                 datos.setearParametros("@FechaNacimiento", Nuevo.FechaNacimiento);
                 datos.setearParametros("@IdDomicilio", 1);
                 datos.setearParametros("@Estado", 1);
+                datos.setearParametros("@Avatar", "default.jpg");
 
                 datos.ejecutarAccion();
 
