@@ -58,7 +58,7 @@ namespace Negocio
                 datos.setearParametros("@Email", Nuevo.Email);
                 datos.setearParametros("@Telefono", Nuevo.Telefono);
                 datos.setearParametros("@FechaNacimiento", Nuevo.FechaNacimiento);
-                datos.setearParametros("@IdDomicilio", 1);
+                datos.setearParametros("@IdDomicilio", DBNull.Value);
                 datos.setearParametros("@Estado", 1);
                 datos.setearParametros("@Avatar", "default.jpg");
 
@@ -131,6 +131,10 @@ namespace Negocio
                     DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
                     usuario.Domicilio = domicilioNegocio.Buscar(usuario);
                 }
+                else
+                {
+                    usuario.Domicilio = null;
+                }
 
                 return usuario;
             }
@@ -155,7 +159,6 @@ namespace Negocio
                 datos.setearParametros("Dni", nuevo.DNI);
                 datos.setearParametros("Email", nuevo.Email);
                 datos.setearParametros("@Telefono", nuevo.Telefono);
-                //Esto tira error, hay que revisar
                 datos.setearParametros("@FechaNacimiento", nuevo.FechaNacimiento);
                 datos.setearParametros("@NombreUsuario", nuevo.NombreUsuario);
 
@@ -260,7 +263,7 @@ namespace Negocio
                 datos.setearParametros("@Id", user.Id);
                 datos.ejecutarAccion();
 
-                
+
             }
             catch (Exception ex)
             {

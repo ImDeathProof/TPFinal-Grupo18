@@ -164,3 +164,9 @@ update Usuarios set Estado = 0 where Id=4
 DECLARE @Id
 @Id=4
 update Usuarios set Estado = 1 where Id=4
+select * from Usuarios
+update Usuarios set Avatar='asd.jpg' where Id=3
+
+delete from Usuarios where id=10
+
+Select Id, NombreUsuario, Contraseña, IdTipoUsser, Nombre, Apellido, Dni, Email, Telefono, FechaNacimiento, IdDomicilio, Estado from Usuarios where Id = 3

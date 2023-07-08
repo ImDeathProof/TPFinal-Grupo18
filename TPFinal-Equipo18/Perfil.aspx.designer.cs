@@ -204,6 +204,24 @@ namespace TPFinal_Equipo18
         protected global::System.Web.UI.WebControls.TextBox txt_Piso;
 
         /// <summary>
+        /// Control btnAgregarDomicilio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAgregarDomicilio;
+
+        /// <summary>
+        /// Control btnModificarDomicilio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModificarDomicilio;
+
+        /// <summary>
         /// Control divMisPedidos.
         /// </summary>
         /// <remarks>

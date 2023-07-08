@@ -146,15 +146,17 @@
                                 </div>
                             </div>
                             <div class="p-3">
-                                <%if (usuario.Domicilio == null)
+                                <%  Dominio.Usuario user = (Dominio.Usuario)Session["usuario"];
+                                    Dominio.Domicilio dom = user.Domicilio;
+                                    if (dom == null)
 
                                     {%>
-                                <asp:Button Text="Agregar" CssClass="btn btn-success" runat="server" />
+                                <asp:Button ID="btnAgregarDomicilio" OnClick="btnAgregarDomicilio_Click" Text="Agregar" CssClass="btn btn-success" runat="server" />
 
                                 <%}
                                     else
                                     {%>
-                                <asp:Button Text="Modificar" CssClass="btn btn-primary" runat="server" />
+                                <asp:Button ID="btnModificarDomicilio" OnClick="btnModificarDomicilio_Click" Text="Modificar" CssClass="btn btn-primary" runat="server" />
 
                                 <%} %>
                             </div>

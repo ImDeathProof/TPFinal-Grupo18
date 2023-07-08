@@ -39,7 +39,7 @@ namespace TPFinal_Equipo18
                 UsuarioNegocio negocio = new UsuarioNegocio();
                 Usuario aux = (Usuario)Session["usuario"];
                 usuario = negocio.BuscarCompleto(aux);
-                Session["usuario"]= usuario;
+                Session["usuario"] = usuario;
                 ///CARGA DE USUARIO
                 lbl_Usuario.InnerText = usuario.NombreUsuario;
                 lbl_Estado.InnerText = usuario.Estado == true ? "Activo" : "Bloqueado";
@@ -54,13 +54,16 @@ namespace TPFinal_Equipo18
                 txt_FNacimiento.Text = usuario.FechaNacimiento.ToString("yyyy-MM-dd");
                 ///CARGA DE DOMICILIO
                 ///HAY QUE AGREGAR LAS VERIFICACIONES EN CASO QUE NO TENGA DOMICILIO
-                txt_Calle.Text = usuario.Domicilio.Calle;
-                txt_Numero.Text = usuario.Domicilio.Numero;
-                txt_Provincia.Text = usuario.Domicilio.Provincia;
-                txt_Partido.Text = usuario.Domicilio.Partido;
-                txt_Localidad.Text = usuario.Domicilio.Localidad;
-                txt_Departamento.Text = usuario.Domicilio.Departamento;
-                txt_Piso.Text = usuario.Domicilio.Piso;
+                if (usuario.Domicilio != null)
+                {
+                    txt_Calle.Text = usuario.Domicilio.Calle;
+                    txt_Numero.Text = usuario.Domicilio.Numero;
+                    txt_Provincia.Text = usuario.Domicilio.Provincia;
+                    txt_Partido.Text = usuario.Domicilio.Partido;
+                    txt_Localidad.Text = usuario.Domicilio.Localidad;
+                    txt_Departamento.Text = usuario.Domicilio.Departamento;
+                    txt_Piso.Text = usuario.Domicilio.Piso;
+                }
                 ///CARGA DE PEDIDOS
             }
         }
@@ -110,6 +113,65 @@ namespace TPFinal_Equipo18
                 neg.CambiarAvatar(usuario);
                 Session["usuario"] = usuario;
                 Response.Redirect("Perfil.aspx", false);
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex.ToString());
+            }
+        }
+
+        protected void btnAgregarDomicilio_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txt_Calle != null && txt_Numero != null && txt_Provincia != null && txt_Partido != null && txt_Localidad != null)
+                {
+                    DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
+                    usuario = (Usuario)Session["usuario"];
+                    Domicilio nuevo = new Domicilio();
+                    nuevo.Calle= txt_Calle.Text;
+                    nuevo.Numero = txt_Numero.Text;
+                    nuevo.Provincia = txt_Provincia.Text;
+                    nuevo.Partido = txt_Partido.Text;
+                    nuevo.Localidad = txt_Localidad.Text;
+                    nuevo.Departamento = txt_Departamento.Text;
+                    nuevo.Piso = txt_Piso.Text;
+                    domicilioNegocio.Cargar(nuevo, usuario);
+
+                    usuario.Domicilio = nuevo;
+                    Session["usuario"] = usuario;
+                    Response.Redirect("Perfil.aspx/Domicilio", false);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                //Session.Add("error", ex.ToString());
+            }
+        }
+
+        protected void btnModificarDomicilio_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txt_Calle != null && txt_Numero != null && txt_Provincia != null && txt_Partido != null && txt_Localidad != null)
+                {
+                    DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
+                    usuario = (Usuario)Session["usuario"];
+                    Domicilio modificado = usuario.Domicilio;
+                    modificado.Numero = txt_Numero.Text;
+                    modificado.Provincia = txt_Provincia.Text;
+                    modificado.Partido = txt_Partido.Text;
+                    modificado.Localidad = txt_Localidad.Text;
+                    modificado.Departamento = txt_Departamento.Text;
+                    modificado.Piso = txt_Piso.Text;
+                    domicilioNegocio.Actualizar(modificado);
+
+                    Session["usuario"] = usuario;
+                    Response.Redirect("Perfil.aspx/Domicilio", false);
+
+                }
             }
             catch (Exception ex)
             {

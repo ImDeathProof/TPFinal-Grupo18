@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,34 @@ namespace Negocio
 {
     public class DomicilioNegocio
     {
+        public void Actualizar(Domicilio nuevo)
+        {
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+            try
+            {
+                datos.setearConsulta("Update Domicilio set Calle = @Calle, Numero = @Numero, Provincia = @Provincia, Partido = @Partido, Localidad = @Localidad, Departamento = @Departamento, Piso = @Piso where Id = @Id");
+                datos.setearParametros("@Calle", nuevo.Calle);
+                datos.setearParametros("@Numero", nuevo.Numero);
+                datos.setearParametros("@Provincia", nuevo.Provincia);
+                datos.setearParametros("@Partido", nuevo.Partido);
+                datos.setearParametros("@Localidad", nuevo.Localidad);
+                datos.setearParametros("@Departamento", nuevo.Departamento);
+                datos.setearParametros("@Piso", nuevo.Piso);
+                datos.setearParametros("@Id", nuevo.Id);
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         public Domicilio Buscar(Usuario User)
         {
             Domicilio encontrado = new Domicilio();
@@ -38,7 +67,8 @@ namespace Negocio
                 if (Datos.Lector["Piso"] is DBNull)
                 {
                     encontrado.Piso = "-";
-                }else
+                }
+                else
                 {
                     encontrado.Piso = (string)Datos.Lector["Piso"];
                 }
@@ -54,6 +84,63 @@ namespace Negocio
             finally
             {
                 Datos.cerrarConexion();
+            }
+        }
+
+        public void Cargar(Domicilio nuevo, Usuario user)
+        {
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("insert into Domicilio values (@Calle, @Numero, @Provincia, @Partido, @Localidad, @Departamento, @Piso); SELECT SCOPE_IDENTITY(); ");
+                datos.setearParametros("@Calle", nuevo.Calle);
+                datos.setearParametros("@Numero", nuevo.Numero);
+                datos.setearParametros("@Provincia", nuevo.Provincia);
+                datos.setearParametros("@Partido", nuevo.Partido);
+                datos.setearParametros("@Localidad", nuevo.Localidad);
+                datos.setearParametros("@Departamento", nuevo.Departamento);
+                datos.setearParametros("@Piso", nuevo.Piso);
+                datos.ejecutarAccion();
+                datos.cerrarConexion();
+                int idDomicilio = obtenerUltimaId();
+                datos = new AccesoDatos.AccesoDatos();
+                ///CARGA LA ID EN LA TABLA DE USUARIOS
+                datos.setearConsulta("UPDATE Usuarios SET IdDomicilio = @IdDomicilio WHERE Id = @IdUsuario");
+                datos.setearParametros("@IdDomicilio", idDomicilio);
+                datos.setearParametros("@IdUsuario", user.Id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        protected int obtenerUltimaId()
+        {
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+            int ultima;
+            try
+            {
+                datos.setearConsulta("select count(*) as id from Domicilio");
+                datos.ejecutarLectura();
+                datos.Lector.Read();
+                ultima = (int)datos.Lector["id"];
+                return ultima;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
     }
