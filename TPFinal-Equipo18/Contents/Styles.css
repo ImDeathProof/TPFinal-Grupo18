@@ -58,3 +58,19 @@ carrusel-home{
     height:100%;
     width:250px;
 }
+
+/*
+.carrito{
+    background-color: azure;
+}*/
+
+.tabla-carrito{
+    margin-bottom:50px;
+    margin-top:50px;
+}
+
+.carrito-titulo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

@@ -54,7 +54,12 @@
         </div>
         <%}%>
 
-
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Selecciona el modo de entrega</option>
+            <option value="1">A domicilio</option>
+            <option value="2">Retira por sucursal</option>
+            <option value="3">Three</option>
+        </select>
 
 
         <div class="row">
