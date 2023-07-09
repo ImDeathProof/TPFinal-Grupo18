@@ -93,7 +93,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("insert into Domicilio values (@Calle, @Numero, @Provincia, @Partido, @Localidad, @Departamento, @Piso); SELECT SCOPE_IDENTITY(); ");
+                datos.setearConsulta("insert into Domicilio values (@Calle, @Numero, @Provincia, @Partido, @Localidad, @Departamento, @Piso)");
                 datos.setearParametros("@Calle", nuevo.Calle);
                 datos.setearParametros("@Numero", nuevo.Numero);
                 datos.setearParametros("@Provincia", nuevo.Provincia);
@@ -127,6 +127,7 @@ namespace Negocio
             int ultima;
             try
             {
+                ///NO ES LO MEJOR Y PUEDE TRAER PROBLEMAS A FUTURO PERO SELECT SCOPE_IDENTITY() NO FUNCIONA Y TIRA ERRORES.
                 datos.setearConsulta("select count(*) as id from Domicilio");
                 datos.ejecutarLectura();
                 datos.Lector.Read();

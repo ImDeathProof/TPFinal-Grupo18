@@ -14,57 +14,65 @@ namespace TPFinal_Equipo18
         public Usuario usuario { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            string rutaActual = Request.Url.AbsolutePath.ToString();
-
-            if (!IsPostBack && (Session["Usuario"] != null))
+            if (Session["usuario"] != null)
             {
-                if (rutaActual == "/Perfil.aspx")
-                {
-                    divMisPedidos.Visible = false;
-                    divDatosUsuario.Visible = true;
-                    divDatosDomicilio.Visible = false;
-                }
-                else if (rutaActual == "/Perfil.aspx/Domicilio")
-                {
-                    divMisPedidos.Visible = false;
-                    divDatosUsuario.Visible = false;
-                    divDatosDomicilio.Visible = true;
-                }
-                else if (rutaActual == "/Perfil.aspx/Mis-Pedidos")
-                {
-                    divMisPedidos.Visible = true;
-                    divDatosDomicilio.Visible = false;
-                    divDatosUsuario.Visible = false;
-                }
-                UsuarioNegocio negocio = new UsuarioNegocio();
-                Usuario aux = (Usuario)Session["usuario"];
-                usuario = negocio.BuscarCompleto(aux);
-                Session["usuario"] = usuario;
-                ///CARGA DE USUARIO
-                lbl_Usuario.InnerText = usuario.NombreUsuario;
-                lbl_Estado.InnerText = usuario.Estado == true ? "Activo" : "Bloqueado";
+                string rutaActual = Request.Url.AbsolutePath.ToString();
 
-                avatarUsuario.ImageUrl = "~/Images/Profile/" + usuario.Avatar;
-
-                txt_Apellido.Text = usuario.Apellido;
-                txt_Nombre.Text = usuario.Nombre;
-                txt_DNI.Text = usuario.DNI;
-                txt_Email.Text = usuario.Email;
-                txt_Telefono.Text = usuario.Telefono;
-                txt_FNacimiento.Text = usuario.FechaNacimiento.ToString("yyyy-MM-dd");
-                ///CARGA DE DOMICILIO
-                ///HAY QUE AGREGAR LAS VERIFICACIONES EN CASO QUE NO TENGA DOMICILIO
-                if (usuario.Domicilio != null)
+                if (!IsPostBack && (Session["usuario"] != null))
                 {
-                    txt_Calle.Text = usuario.Domicilio.Calle;
-                    txt_Numero.Text = usuario.Domicilio.Numero;
-                    txt_Provincia.Text = usuario.Domicilio.Provincia;
-                    txt_Partido.Text = usuario.Domicilio.Partido;
-                    txt_Localidad.Text = usuario.Domicilio.Localidad;
-                    txt_Departamento.Text = usuario.Domicilio.Departamento;
-                    txt_Piso.Text = usuario.Domicilio.Piso;
+                    if (rutaActual == "/Perfil.aspx")
+                    {
+                        divMisPedidos.Visible = false;
+                        divDatosUsuario.Visible = true;
+                        divDatosDomicilio.Visible = false;
+                    }
+                    else if (rutaActual == "/Perfil.aspx/Domicilio")
+                    {
+                        divMisPedidos.Visible = false;
+                        divDatosUsuario.Visible = false;
+                        divDatosDomicilio.Visible = true;
+                    }
+                    else if (rutaActual == "/Perfil.aspx/Mis-Pedidos")
+                    {
+                        divMisPedidos.Visible = true;
+                        divDatosDomicilio.Visible = false;
+                        divDatosUsuario.Visible = false;
+                    }
+                    UsuarioNegocio negocio = new UsuarioNegocio();
+                    Usuario aux = (Usuario)Session["usuario"];
+                    usuario = negocio.BuscarCompleto(aux);
+                    Session["usuario"] = usuario;
+                    ///CARGA DE USUARIO
+                    lbl_Usuario.InnerText = usuario.NombreUsuario;
+                    lbl_Estado.InnerText = usuario.Estado == true ? "Activo" : "Bloqueado";
+
+                    avatarUsuario.ImageUrl = "~/Images/Profile/" + usuario.Avatar;
+
+                    txt_Apellido.Text = usuario.Apellido;
+                    txt_Nombre.Text = usuario.Nombre;
+                    txt_DNI.Text = usuario.DNI;
+                    txt_Email.Text = usuario.Email;
+                    txt_Telefono.Text = usuario.Telefono;
+                    txt_FNacimiento.Text = usuario.FechaNacimiento.ToString("yyyy-MM-dd");
+                    ///CARGA DE DOMICILIO
+                    ///HAY QUE AGREGAR LAS VERIFICACIONES EN CASO QUE NO TENGA DOMICILIO
+                    if (usuario.Domicilio != null)
+                    {
+                        txt_Calle.Text = usuario.Domicilio.Calle;
+                        txt_Numero.Text = usuario.Domicilio.Numero;
+                        txt_Provincia.Text = usuario.Domicilio.Provincia;
+                        txt_Partido.Text = usuario.Domicilio.Partido;
+                        txt_Localidad.Text = usuario.Domicilio.Localidad;
+                        txt_Departamento.Text = usuario.Domicilio.Departamento;
+                        txt_Piso.Text = usuario.Domicilio.Piso;
+                    }
+                    ///CARGA DE PEDIDOS
                 }
-                ///CARGA DE PEDIDOS
+            }
+            else
+            {
+                ///SI no hay usuario logueado te manda al inicio.
+                Response.Redirect("Default.aspx", false);
             }
         }
 
@@ -129,7 +137,7 @@ namespace TPFinal_Equipo18
                     DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
                     usuario = (Usuario)Session["usuario"];
                     Domicilio nuevo = new Domicilio();
-                    nuevo.Calle= txt_Calle.Text;
+                    nuevo.Calle = txt_Calle.Text;
                     nuevo.Numero = txt_Numero.Text;
                     nuevo.Provincia = txt_Provincia.Text;
                     nuevo.Partido = txt_Partido.Text;

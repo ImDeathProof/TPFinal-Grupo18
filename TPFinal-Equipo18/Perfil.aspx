@@ -3,6 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <%if (Session["usuario"] != null)
+        {
+
+    %>
+
     <div class="row">
         <div class="container col-3 border p-3">
             <nav class="nav flex-column">
@@ -174,4 +179,13 @@
             </div>
         </div>
     </div>
+    <%}
+        else
+        {%>
+    <div>
+        <h2>Debes estar logueado para acceder a esta pagina</h2>
+        <a href="/Default.aspx">Volver al inicio</a>
+        <a href="/Login.aspx">Iniciar sesión</a>
+    </div>
+    <%} %>
 </asp:Content>

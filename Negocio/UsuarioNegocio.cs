@@ -219,7 +219,7 @@ namespace Negocio
             AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
             try
             {
-                datos.setearConsulta("Select Id, NombreUsuario, Contraseña, IdTipoUsser, Nombre, Apellido, Dni, Email, Telefono, FechaNacimiento, IdDomicilio, Estado from Usuarios");
+                datos.setearConsulta("Select Id, NombreUsuario, Contraseña, IdTipoUsser, Nombre, Apellido, Dni, Email, Telefono, FechaNacimiento, IdDomicilio, Estado, Avatar from Usuarios");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
@@ -232,14 +232,24 @@ namespace Negocio
                     usuario.Apellido = (string)datos.Lector["Apellido"];
                     usuario.DNI = (string)datos.Lector["Dni"];
                     usuario.Email = (string)datos.Lector["Email"];
-                    usuario.Telefono = (string)datos.Lector["Telefono"];
-                    usuario.FechaNacimiento = (DateTime)datos.Lector["FechaNacimiento"];
+                    if (!(datos.Lector["Telefono"] is DBNull))
+                        usuario.Telefono = (string)datos.Lector["Telefono"];
+                    if (!(datos.Lector["FechaNacimiento"] is DBNull))
+                        usuario.FechaNacimiento = DateTime.Parse(datos.Lector["FechaNacimiento"].ToString());
                     usuario.Estado = (bool)datos.Lector["Estado"];
-                    if (datos.Lector["IdDomicilio"] != null)
+                    if (!(datos.Lector["IdDomicilio"] is DBNull))
                     {
                         DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
                         usuario.Domicilio = domicilioNegocio.Buscar(usuario);
                     }
+                    else
+                    {
+                        usuario.Domicilio = null;
+                    }
+                    if (!(datos.Lector["Avatar"] is DBNull))
+                        usuario.Avatar = (string)datos.Lector["Avatar"];
+                    else
+                        usuario.Avatar = "default.jpg";
                     lista.Add(usuario);
                 }
                 return lista;
