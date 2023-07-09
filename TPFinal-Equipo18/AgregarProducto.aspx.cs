@@ -16,6 +16,9 @@ namespace TPFinal_Equipo18
         protected void Page_Load(object sender, EventArgs e)
         {
             txtId.Visible = false;
+            lblId.Visible = false;
+            txtEstado.Visible = false;
+            lblEstado.Visible = false;
 
             if (!IsPostBack)
             {
@@ -46,11 +49,12 @@ namespace TPFinal_Equipo18
                 BebidaNegocio negocio = new BebidaNegocio();
                 Seleccionada = negocio.buscar(int.Parse(Request.QueryString["Id"]));
 
+                lblId.Visible = true;
                 txtId.Visible = true;
                 txtId.Enabled = false;
                 txtId.Text = Seleccionada.Id.ToString();
-                txtEstado.Visible = true;
-                txtEstado.Enabled = false;
+                //txtEstado.Visible = true;
+                //txtEstado.Enabled = false;
                 txtEstado.Text = Seleccionada.Estado.ToString();
                 txtCodigo.Text = Seleccionada.Codigo;
                 txtNombre.Text = Seleccionada.Nombre;

@@ -170,3 +170,6 @@ update Usuarios set Avatar='asd.jpg' where Id=3
 delete from Usuarios where id=10
 
 Select Id, NombreUsuario, Contraseña, IdTipoUsser, Nombre, Apellido, Dni, Email, Telefono, FechaNacimiento, IdDomicilio, Estado from Usuarios where Id = 3
+
+alter table Bebidas
+add Stock int not null default 0 
