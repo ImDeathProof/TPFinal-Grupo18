@@ -33,6 +33,17 @@ namespace TPFinal_Equipo18
            
             try
             {
+                List<CarritoClase> carritoClases = (List<CarritoClase>)Session["Bebidas"];
+                BebidaNegocio bebidaNegocio= new BebidaNegocio();
+
+                foreach (CarritoClase cc in carritoClases)
+                {
+                    bebidaNegocio.descontarStock(cc.Bebida.Id, cc.Cantidad);
+
+                }
+
+
+
                 PedidoNegocio negocio= new PedidoNegocio();
                 Pedido pedido = new Pedido();
                 Usuario usuario = (Usuario)Session["usuario"];

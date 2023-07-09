@@ -18,7 +18,7 @@ namespace Negocio
             AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
             try
             {
-                datos.setearConsulta("Select B.Id, B.Codigo, B.Nombre, B.Precio, B.Descripcion, B.ContenidoNeto, B.Estado, B.UrlImg, M.Nombre Marca, C.Nombre Categoria from Bebidas B inner JOIN MARCAS M on M.Id=B.IdMarca inner join CATEGORIAS C on C.Id=B.idCategoria");
+                datos.setearConsulta("Select B.Id, B.Codigo, B.Nombre, B.Precio, B.Descripcion, B.ContenidoNeto, B.Estado, B.UrlImg, M.Nombre Marca, C.Nombre Categoria, B.Stock from Bebidas B inner JOIN MARCAS M on M.Id=B.IdMarca inner join CATEGORIAS C on C.Id=B.idCategoria");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
@@ -31,6 +31,7 @@ namespace Negocio
                     aux.ContenidoNeto = (decimal)datos.Lector["ContenidoNeto"];
                     aux.Estado = (bool)datos.Lector["Estado"];
                     aux.UrlImg = (string)datos.Lector["UrlImg"];
+                    aux.Stock = (int)datos.Lector["Stock"];
                     aux.Marca = new Marca();
                     if (datos.Lector["Marca"] is DBNull)
                     {
@@ -65,13 +66,14 @@ namespace Negocio
             try
             {
                 //codigo - nombre.precio - descripcion - contenido - estado - url - idmarca - idcat
-                datos.setearConsulta("insert into Bebidas values(@Codigo,@Nombre,@Precio,@Descripcion,@Contenido,1,@Url,@Marca,@Categoria)");
+                datos.setearConsulta("insert into Bebidas values(@Codigo,@Nombre,@Precio,@Descripcion,@Contenido,1,@Url,@Marca,@Categoria,@Stock)");
                 datos.setearParametros("@Codigo", nuevo.Codigo);
                 datos.setearParametros("@Nombre", nuevo.Nombre);
                 datos.setearParametros("@Precio", nuevo.Precio);
                 datos.setearParametros("@Descripcion", nuevo.Descripcion);
                 datos.setearParametros("@Contenido", nuevo.ContenidoNeto);
                 datos.setearParametros("Url", nuevo.UrlImg);
+                datos.setearParametros("Stock", nuevo.Stock);
                 datos.setearParametros("Marca", nuevo.Marca.Id);
                 datos.setearParametros("@Categoria", nuevo.Categoria.Id);
 
@@ -94,7 +96,7 @@ namespace Negocio
             AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
             try
             {
-                datos.setearConsulta("select Id,Codigo,Nombre,Precio,Descripcion,ContenidoNeto,Estado,UrlImg,IdMarca,IdCategoria from Bebidas where Id=@Id");
+                datos.setearConsulta("select Id,Codigo,Nombre,Precio,Descripcion,ContenidoNeto,Estado,UrlImg,IdMarca,IdCategoria,Stock from Bebidas where Id=@Id");
                 datos.setearParametros("Id", Id);
                 datos.ejecutarLectura();
 
@@ -106,6 +108,7 @@ namespace Negocio
                 bebida.Descripcion = (string)datos.Lector["Descripcion"];
                 bebida.ContenidoNeto = (decimal)datos.Lector["ContenidoNeto"];
                 bebida.Estado = (bool)datos.Lector["Estado"];
+                bebida.Stock = (int)datos.Lector["Stock"];
                 bebida.UrlImg = (string)datos.Lector["UrlImg"];
                 bebida.Marca = new Marca();
                 bebida.Marca.Id = (int)datos.Lector["IdMarca"];
@@ -126,7 +129,7 @@ namespace Negocio
             AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
             try
             {
-                datos.setearConsulta("update Bebidas set Codigo=@Codigo,Nombre=@Nombre,Precio=@Precio,Descripcion=@Descripcion,ContenidoNeto=@Contenido,Estado=1,UrlImg=@Url,IdMarca=@Marca,IdCategoria=@Categoria where Id=@Id");
+                datos.setearConsulta("update Bebidas set Codigo=@Codigo,Nombre=@Nombre,Precio=@Precio,Descripcion=@Descripcion,ContenidoNeto=@Contenido,Estado=1,UrlImg=@Url,IdMarca=@Marca,IdCategoria=@Categoria,Stock=@Stock where Id=@Id");
                 datos.setearParametros("@Codigo", nuevo.Codigo);
                 datos.setearParametros("@Nombre", nuevo.Nombre);
                 datos.setearParametros("@Precio", nuevo.Precio);
@@ -136,6 +139,7 @@ namespace Negocio
                 datos.setearParametros("Marca", nuevo.Marca.Id);
                 datos.setearParametros("@Categoria", nuevo.Categoria.Id);
                 datos.setearParametros("Id", nuevo.Id);
+                datos.setearParametros("Stock", nuevo.Stock);
 
                 datos.ejecutarAccion();
             }
@@ -284,6 +288,27 @@ namespace Negocio
 
                 throw ex;
             }
+        }
+
+        public void descontarStock(int Id,int Cantidad)
+        {
+            try
+            {
+                AccesoDatos.AccesoDatos datos= new AccesoDatos.AccesoDatos();
+
+                datos.setearConsulta("update Bebidas set Stock=Stock-@Cantidad where id=@Id");
+                datos.setearParametros("@Id", Id);
+                datos.setearParametros("@Cantidad", Cantidad);
+
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
     }
 }

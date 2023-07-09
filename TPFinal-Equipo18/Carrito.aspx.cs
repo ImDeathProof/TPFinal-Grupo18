@@ -57,13 +57,19 @@ namespace TPFinal_Equipo18
 
                 List<CarritoClase> aux = (List<CarritoClase>)Session["Bebidas"];
 
-                aux[index].Cantidad++;
-                Session["Bebidas"] = aux;
+                if (aux[index].Cantidad< aux[index].Bebida.Stock)
+                {
+                    aux[index].Cantidad++;
+                    Session["Bebidas"] = aux;
 
-                dgvCarrito.DataSource = aux;
-                dgvCarrito.DataBind();
+                    dgvCarrito.DataSource = aux;
+                    dgvCarrito.DataBind();
 
-                Response.Redirect("Carrito.aspx", false);
+                    Response.Redirect("Carrito.aspx", false);
+
+                }
+
+               
 
             }
             else

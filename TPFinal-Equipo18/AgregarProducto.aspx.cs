@@ -62,6 +62,7 @@ namespace TPFinal_Equipo18
                 txtContenido.Text = Seleccionada.ContenidoNeto.ToString();
                 txtPrecio.Text = Seleccionada.Precio.ToString();
                 txtImage.Text = Seleccionada.UrlImg;
+                txtStock.Text = Seleccionada.Stock.ToString();
 
                 ddlCategoria.DataValueField = Seleccionada.Categoria.Id.ToString();
                 ddlMarca.DataValueField = Seleccionada.Marca.Id.ToString();
@@ -88,6 +89,7 @@ namespace TPFinal_Equipo18
                 nuevo.ContenidoNeto = decimal.Parse(txtContenido.Text);
                 nuevo.Precio = decimal.Parse(txtPrecio.Text);
                 nuevo.UrlImg = txtImage.Text;
+                nuevo.Stock = int.Parse(txtStock.Text);
 
                 nuevo.Marca = new Marca();
                 nuevo.Marca.Id = int.Parse(ddlMarca.SelectedValue);

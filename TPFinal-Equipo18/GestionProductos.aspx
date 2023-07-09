@@ -71,6 +71,7 @@
                                     <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
                                     <asp:BoundField HeaderText="Marca" DataField="Marca.Nombre" />
                                     <asp:BoundField HeaderText="Categoria" DataField="Categoria.Nombre" />
+                                    <asp:BoundField HeaderText="Stock" DataField="Stock" />
                                     <asp:CommandField HeaderText="Modificar" ShowSelectButton="true" SelectText="Modificar" />
                                     <asp:BoundField HeaderText="Activo" DataField="Estado" />
                                     

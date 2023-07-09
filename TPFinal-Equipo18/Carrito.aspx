@@ -20,6 +20,7 @@
                         <asp:BoundField HeaderText="Nombre" DataField="Bebida.Nombre" />
                         <asp:BoundField HeaderText="Codigo" DataField="Bebida.Precio" />
                         <asp:BoundField HeaderText="Cantidad" DataField="Cantidad" />
+                        <asp:BoundField HeaderText="Stock Disponibe" DataField="Bebida.Stock" />
 
                         <asp:TemplateField>
                             <ItemTemplate>
@@ -63,6 +64,7 @@
             <div class="col-6">
                 <%--<a href="Pagos.aspx" class="btn btn-primary">Iniciar pago</a>--%>
                 <asp:Button ID="btnIniciarPago" runat="server" CssClass=" btn btn-primary" OnClick="btnIniciarPago_Click" Text="Iniciar pago" />
+                <a href="Default.aspx">Volver</a>
             </div>
 
         </div>
