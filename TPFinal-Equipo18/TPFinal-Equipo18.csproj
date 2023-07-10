@@ -70,6 +70,7 @@
     <Content Include="AgregarProducto.aspx" />
     <Content Include="Carrito.aspx" />
     <Content Include="Contents\Styles.css" />
+    <Content Include="DetalleProducto.aspx" />
     <Content Include="EnvioMail.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="GestionPedidos.aspx" />
@@ -99,6 +100,13 @@
     </Compile>
     <Compile Include="Carrito.aspx.designer.cs">
       <DependentUpon>Carrito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleProducto.aspx.cs">
+      <DependentUpon>DetalleProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleProducto.aspx.designer.cs">
+      <DependentUpon>DetalleProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="EnvioMail.aspx.cs">
       <DependentUpon>EnvioMail.aspx</DependentUpon>
