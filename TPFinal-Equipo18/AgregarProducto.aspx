@@ -66,11 +66,20 @@
                         <asp:DropDownList ID="ddlCategoria" CssClass="form-control" runat="server"></asp:DropDownList>
                     </div>
 
+                    <div class="mb-3">
+                        <label class="form-label">Imagen de la bebida</label>
+                        <input type="file" id="txtImg" runat="server" class="form-control"/>
+                        <asp:Image ID="imgProducto" ImageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBSgPpbL1xA_L4GMvsPnsQ6WyEJnvg-l7IBfl2qreg&s"
+                           CssClass="img-fluid mb-3" runat="server" />
+                    </div>
+
+
+
                     <%--Para usar Update panel--%>
                     <asp:ScriptManager runat="server" />
 
                     <%--Para que se actualice solo la imagen--%>
-                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                  <%--  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                             <div>
                                 <asp:Label ID="lblImg" runat="server" Text="Url de la imagen"></asp:Label>
@@ -79,7 +88,7 @@
                             </div>
                             <asp:Image ID="imgProducto" ImageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBSgPpbL1xA_L4GMvsPnsQ6WyEJnvg-l7IBfl2qreg&s" runat="server" />
                         </ContentTemplate>
-                    </asp:UpdatePanel>
+                    </asp:UpdatePanel>--%>
                 </div>
 
 
