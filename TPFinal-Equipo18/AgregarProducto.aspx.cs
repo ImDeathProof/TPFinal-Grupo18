@@ -61,7 +61,8 @@ namespace TPFinal_Equipo18
                 txtDescripcion.Text = Seleccionada.Descripcion;
                 txtContenido.Text = Seleccionada.ContenidoNeto.ToString();
                 txtPrecio.Text = Seleccionada.Precio.ToString();
-                txtImage.Text = Seleccionada.UrlImg;
+                //txtImage.Text = Seleccionada.UrlImg;
+                imgProducto.ImageUrl = "~/Images/" + Seleccionada.UrlImg;
                 txtStock.Text = Seleccionada.Stock.ToString();
 
                 ddlCategoria.DataValueField = Seleccionada.Categoria.Id.ToString();
@@ -73,7 +74,7 @@ namespace TPFinal_Equipo18
 
         protected void txtImage_TextChanged(object sender, EventArgs e)
         {
-            imgProducto.ImageUrl = txtImage.Text;
+            //imgProducto.ImageUrl = txtImage.Text;
 
         }
 
@@ -83,12 +84,20 @@ namespace TPFinal_Equipo18
             Bebida nuevo = new Bebida();
             try
             {
+                if (txtImg.PostedFile.FileName != "")
+                {
+                    string ruta = Server.MapPath("./Images/");
+                    txtImg.PostedFile.SaveAs(ruta + "perfil.jpg");
+                    nuevo.UrlImg= "perfil-.jpg";
+                }
+
+
                 nuevo.Codigo = txtCodigo.Text;
                 nuevo.Nombre = txtNombre.Text;
                 nuevo.Descripcion = txtDescripcion.Text;
                 nuevo.ContenidoNeto = decimal.Parse(txtContenido.Text);
                 nuevo.Precio = decimal.Parse(txtPrecio.Text);
-                nuevo.UrlImg = txtImage.Text;
+                //nuevo.UrlImg = txtImage.Text;
                 nuevo.Stock = int.Parse(txtStock.Text);
 
                 nuevo.Marca = new Marca();
@@ -96,6 +105,7 @@ namespace TPFinal_Equipo18
 
                 nuevo.Categoria = new Categoria();
                 nuevo.Categoria.Id = int.Parse(ddlCategoria.SelectedValue);
+
 
                 if (Request.QueryString["Id"] != null)
                 {

@@ -55,8 +55,7 @@ ContenidoNeto decimal check(ContenidoNeto>0),
 Estado bit default 1 not null,
 UrlImg varchar(300) not null,
 IdMarca int foreign key references Marcas(Id),
-IdCategoria int foreign key references Categorias(Id),
-Stock int not null default 0
+IdCategoria int foreign key references Categorias(Id)
 )
 go
 create table Carrito(
@@ -160,6 +159,15 @@ update Usuarios set Codigo=@Codigo,Nombre=@Nombre,Precio=@Precio,Descripcion=@De
 
 ALTER table Usuarios 
 add Avatar varchar(300) null default 'default.jpg'
+
+update Usuarios set Estado = 0 where Id=4
+DECLARE @Id
+@Id=4
+update Usuarios set Estado = 1 where Id=4
+select * from Usuarios
+update Usuarios set Avatar='asd.jpg' where Id=3
+
+delete from Usuarios where id=10
 
 Select Id, NombreUsuario, Contraseña, IdTipoUsser, Nombre, Apellido, Dni, Email, Telefono, FechaNacimiento, IdDomicilio, Estado from Usuarios where Id = 3
 

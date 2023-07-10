@@ -79,3 +79,12 @@ C:\Tp-Final-Prog3\TPFinal-Grupo18\Dominio\obj\Debug\Dominio.csproj.CoreCompileIn
 C:\Tp-Final-Prog3\TPFinal-Grupo18\Dominio\obj\Debug\Dominio.csproj.CopyComplete
 C:\Tp-Final-Prog3\TPFinal-Grupo18\Dominio\obj\Debug\Dominio.dll
 C:\Tp-Final-Prog3\TPFinal-Grupo18\Dominio\obj\Debug\Dominio.pdb
+C:\Users\Elias\Desktop\TPFinal-Grupo18-64366967bb8b4ff54df363537cbcaf0cf6942dc5\Dominio\bin\Debug\Dominio.dll
+C:\Users\Elias\Desktop\TPFinal-Grupo18-64366967bb8b4ff54df363537cbcaf0cf6942dc5\Dominio\bin\Debug\Dominio.pdb
+C:\Users\Elias\Desktop\TPFinal-Grupo18-64366967bb8b4ff54df363537cbcaf0cf6942dc5\Dominio\bin\Debug\AccesoDatos.dll
+C:\Users\Elias\Desktop\TPFinal-Grupo18-64366967bb8b4ff54df363537cbcaf0cf6942dc5\Dominio\bin\Debug\AccesoDatos.pdb
+C:\Users\Elias\Desktop\TPFinal-Grupo18-64366967bb8b4ff54df363537cbcaf0cf6942dc5\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\Elias\Desktop\TPFinal-Grupo18-64366967bb8b4ff54df363537cbcaf0cf6942dc5\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Elias\Desktop\TPFinal-Grupo18-64366967bb8b4ff54df363537cbcaf0cf6942dc5\Dominio\obj\Debug\Dominio.csproj.CopyComplete
+C:\Users\Elias\Desktop\TPFinal-Grupo18-64366967bb8b4ff54df363537cbcaf0cf6942dc5\Dominio\obj\Debug\Dominio.dll
+C:\Users\Elias\Desktop\TPFinal-Grupo18-64366967bb8b4ff54df363537cbcaf0cf6942dc5\Dominio\obj\Debug\Dominio.pdb

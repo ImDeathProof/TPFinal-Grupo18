@@ -58,3 +58,9 @@ C:\Tp-Final-Prog3\TPFinal-Grupo18\AccesoDatos\obj\Debug\AccesoDatos.csproj.Assem
 C:\Tp-Final-Prog3\TPFinal-Grupo18\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
 C:\Tp-Final-Prog3\TPFinal-Grupo18\AccesoDatos\obj\Debug\AccesoDatos.dll
 C:\Tp-Final-Prog3\TPFinal-Grupo18\AccesoDatos\obj\Debug\AccesoDatos.pdb
+C:\Users\Elias\Desktop\TPFinal-Grupo18-64366967bb8b4ff54df363537cbcaf0cf6942dc5\AccesoDatos\bin\Debug\AccesoDatos.dll
+C:\Users\Elias\Desktop\TPFinal-Grupo18-64366967bb8b4ff54df363537cbcaf0cf6942dc5\AccesoDatos\bin\Debug\AccesoDatos.pdb
+C:\Users\Elias\Desktop\TPFinal-Grupo18-64366967bb8b4ff54df363537cbcaf0cf6942dc5\AccesoDatos\obj\Debug\AccesoDatos.csproj.AssemblyReference.cache
+C:\Users\Elias\Desktop\TPFinal-Grupo18-64366967bb8b4ff54df363537cbcaf0cf6942dc5\AccesoDatos\obj\Debug\AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\Elias\Desktop\TPFinal-Grupo18-64366967bb8b4ff54df363537cbcaf0cf6942dc5\AccesoDatos\obj\Debug\AccesoDatos.dll
+C:\Users\Elias\Desktop\TPFinal-Grupo18-64366967bb8b4ff54df363537cbcaf0cf6942dc5\AccesoDatos\obj\Debug\AccesoDatos.pdb
