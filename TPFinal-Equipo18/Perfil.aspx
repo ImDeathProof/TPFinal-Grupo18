@@ -21,15 +21,15 @@
                 <div class="col-6 container border">
                     <div class="border p-3">
                         <asp:Image ID="avatarUsuario" ImageUrl="https://www.mendozapost.com/files/image/7/7142/54b6f4c45797b.jpg"
-                            runat="server" CssClass="img-fluid mb-3" />
+                            runat="server" CssClass="img-fluid mb-3 avatarPerfil" />
                     </div>
-                    <label class="form-label">Avatar</label>
+                    <label class="form-label">Cambiar Avatar</label>
                     <input type="file" id="txtImagen" class="form-control" runat="server" />
                     <asp:Button ID="btnGuardarImg" Text="Guardar" CssClass="btn btn-primary" runat="server" OnClick="btnGuardarImg_Click" />
                 </div>
                 <div class="col-6 container border">
                     <div>
-                        <label id="lbl_Usuario" text="" class="form-label" runat="server"></label>
+                        <label id="lbl_Usuario" text="" class="form-label usernamePerfil" runat="server"></label>
                     </div>
                     <div>
                         <label id="lbl_Estado" text="" class="form-label" runat="server"></label>
@@ -170,13 +170,38 @@
                 </div>
             </div>
             <%--DIV MIS PEDIDOS--%>
+            <%if (listaPedidos.Count > 0)
+                {
+
+            %>
             <div class="row" id="divMisPedidos" runat="server">
                 <div class="col-9 container border">
                     <div class="p-3">
                         <h3>Mis Pedidos: </h3>
+
+                        <asp:GridView ID="dgvPedidos" runat="server" CssClass="table table-dark table-striped table-bordered border-primary"
+                            AutoGenerateColumns="false" OnRowDataBound="dgvPedidos_RowDataBound">
+                            <Columns>
+                                <asp:BoundField HeaderText="Usuario" DataField="NombreUsuario" />
+                                <asp:BoundField HeaderText="Contacto" DataField="Email" />
+                                <asp:BoundField HeaderText="Importe" DataField="Importe" DataFormatString="{0:0.00}" />
+                                <asp:BoundField HeaderText="Fecha de compra" DataField="Fecha" DataFormatString="{0:d}" />
+                                <asp:BoundField HeaderText="Entrega" DataField="Entrega" />
+                                <asp:BoundField HeaderText="Medio de pago" DataField="MedioPago" />
+                                <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
+                            </Columns>
+                        </asp:GridView>
                     </div>
                 </div>
             </div>
+            <%}
+                else
+                { %>
+            <div>
+                <h3>No tiene pedidos aun!</h3>
+                <a href="/Default.aspx">Comprar ya!</a>
+            </div>
+            <%} %>
         </div>
     </div>
     <%}

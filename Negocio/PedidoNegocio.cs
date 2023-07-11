@@ -87,5 +87,40 @@ namespace Negocio
             }
 
         }
+
+        public List<Pedido> ListarPorUsuario(int id)
+        {
+            List<Pedido> lista = new List<Pedido>();
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+            try
+            {
+                datos.setearConsulta("select P.Id,P.idUsuario,P.Importe,P.Fecha,P.idMetodoPago,P.Entrega,Ep.Nombre,U.NombreUsuario,U.Email from Pedidos P inner join EstadoPedido Ep on Ep.Id=P.idEstado inner join Usuarios U on U.Id=P.idUsuario where P.idUsuario = @idUsuario");
+                datos.setearParametros("@idUsuario", id);
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    Pedido aux = new Pedido();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.usuario = new Usuario();
+                    aux.usuario.Id = (int)datos.Lector["idUsuario"];
+                    aux.Importe = (decimal)datos.Lector["Importe"];
+                    aux.Fecha = (DateTime)datos.Lector["Fecha"];
+                    aux.MedioPago = (int)datos.Lector["idMetodoPago"];
+                    aux.Entrega = (string)datos.Lector["Entrega"];
+                    aux.Estado = new EstadoPedido();
+                    aux.Estado.Descripcion = (string)datos.Lector["Nombre"];
+                    aux.NombreUsuario = (string)datos.Lector["NombreUsuario"];
+                    aux.Email = (string)datos.Lector["Email"];
+
+
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

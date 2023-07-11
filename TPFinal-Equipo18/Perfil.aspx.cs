@@ -12,6 +12,7 @@ namespace TPFinal_Equipo18
     public partial class Perfil : System.Web.UI.Page
     {
         public Usuario usuario { get; set; }
+        public List<Pedido> listaPedidos = new List<Pedido>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["usuario"] != null)
@@ -43,7 +44,7 @@ namespace TPFinal_Equipo18
                     usuario = negocio.BuscarCompleto(aux);
                     Session["usuario"] = usuario;
                     ///CARGA DE USUARIO
-                    lbl_Usuario.InnerText = usuario.NombreUsuario;
+                    lbl_Usuario.InnerText = "@" + usuario.NombreUsuario;
                     lbl_Estado.InnerText = usuario.Estado == true ? "Activo" : "Bloqueado";
 
                     avatarUsuario.ImageUrl = "~/Images/Profile/" + usuario.Avatar;
@@ -67,6 +68,12 @@ namespace TPFinal_Equipo18
                         txt_Piso.Text = usuario.Domicilio.Piso;
                     }
                     ///CARGA DE PEDIDOS
+                    PedidoNegocio pedidoNegocio = new PedidoNegocio();
+                    listaPedidos = pedidoNegocio.ListarPorUsuario(usuario.Id);
+                    dgvPedidos.DataSource = listaPedidos;
+
+                    dgvPedidos.DataBind();
+
                 }
             }
             else
@@ -74,6 +81,11 @@ namespace TPFinal_Equipo18
                 ///SI no hay usuario logueado te manda al inicio.
                 Response.Redirect("Default.aspx", false);
             }
+        }
+
+        protected void dgvPedidos_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            
         }
 
         protected void btnModificarUsuario_Click(object sender, EventArgs e)
