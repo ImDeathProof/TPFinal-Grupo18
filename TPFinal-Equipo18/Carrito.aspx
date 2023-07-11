@@ -22,6 +22,7 @@
                         <asp:BoundField HeaderText="Nombre" DataField="Bebida.Nombre" />
                         <asp:BoundField HeaderText="Codigo" DataField="Bebida.Precio" />
                         <asp:BoundField HeaderText="Cantidad" DataField="Cantidad" />
+                        <asp:BoundField HeaderText="Precio" DataField="Precio" />
                         <asp:BoundField HeaderText="Stock Disponibe" DataField="Bebida.Stock" />
 
                         <asp:TemplateField HeaderText="Agregar">
@@ -48,7 +49,7 @@
                 </asp:GridView>
             </div>
             <div>
-                <asp:Label ID="lblTotal" CssClass="bs-info" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblTotal" CssClass="btn btn-info" runat="server" Text=""></asp:Label>
             </div>
 
         </div>

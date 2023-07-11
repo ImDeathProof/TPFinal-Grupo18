@@ -44,19 +44,20 @@ namespace Negocio
             }
         }
 
-        public void agregar(Pedido nuevo)
+        public int agregar(Pedido nuevo)
         {
             AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
 
             try
             {
-                datos.setearConsulta("insert into Pedidos (idUsuario,Importe,idMetodoPago,Entrega,idEstado)  values(@idUsuario,@Importe,@idMetodoPago,@Entrega,1)");
+                datos.setearProcedimiento("SP_AgregarPedido");
                 datos.setearParametros("@idUsuario", nuevo.usuario.Id);
                 datos.setearParametros("@Importe",nuevo.Importe);
                 datos.setearParametros("@idMetodoPago",1);
                 datos.setearParametros("@Entrega",nuevo.Entrega);
+                datos.setearParametros("@Estado",nuevo.Estado.Id);
                 
-                datos.ejecutarAccion();
+                return datos.ejecutarAccionScalar();
 
             }
             catch (Exception ex)
@@ -119,6 +120,27 @@ namespace Negocio
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        public void guardarDetalle(int idPedido, int idProducto, int cantidad, decimal precio)
+        {
+            AccesoDatos.AccesoDatos datos= new AccesoDatos.AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("insert into DetallePedido (IdPedido,IdBebida,Cantidad,Precio) values(@idPedido,@idProducto,@Cantidad,@Precio)");
+                datos.setearParametros("@idPedido",idPedido);
+                datos.setearParametros("@idProducto",idProducto);
+                datos.setearParametros("@Cantidad",cantidad);
+                datos.setearParametros("@Precio",precio);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }
