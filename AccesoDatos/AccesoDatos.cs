@@ -22,11 +22,11 @@ namespace AccesoDatos
         public AccesoDatos()
         {
             //ELIAS:
-            conexion = new SqlConnection("server=.\\SQLEXPRESSLAB3; database=AlmacenBebidas; integrated security=false; user = sa; password = 123456");
+            //conexion = new SqlConnection("server=.\\SQLEXPRESSLAB3; database=AlmacenBebidas; integrated security=false; user = sa; password = 123456");
             //BRIAN: 
             //conexion = new SqlConnection("server=.\\SQLLABO3; database=AlmacenBebidas; integrated security=false; user = sa; password = 123456");
             //JOAQUIN:
-            //conexion = new SqlConnection("server=.\\SQLEXPRESS01; database=AlmacenBebidas; integrated security=true ");
+            conexion = new SqlConnection("server=.\\SQLEXPRESS01; database=AlmacenBebidas; integrated security=true ");
             comando = new SqlCommand();
         }
 
@@ -92,6 +92,12 @@ namespace AccesoDatos
 
                 throw ex;
             }
+        }
+
+        public void setearProcedimiento(string procedimiento)
+        {
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.CommandText = procedimiento;
         }
 
 

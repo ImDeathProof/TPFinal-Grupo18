@@ -10,6 +10,7 @@ namespace Dominio
     {
         public Bebida Bebida { get; set; }
         public int Cantidad { get; set; }
+        public decimal Precio { get; set; }
 
         public CarritoClase()
         {

@@ -22,6 +22,11 @@ namespace TPFinal_Equipo18
                     List<CarritoClase> aux = new List<CarritoClase>();
                     aux = (List<CarritoClase>)Session["Bebidas"];
 
+                    foreach (CarritoClase c in aux)
+                    {
+                        c.Precio = c.Bebida.Precio * c.Cantidad;
+                    }
+
                     dgvCarrito.DataSource = aux;
                     dgvCarrito.DataBind();
 

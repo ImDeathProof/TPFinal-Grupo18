@@ -39,6 +39,7 @@ namespace TPFinal_Equipo18
                 foreach (CarritoClase cc in carritoClases)
                 {
                     bebidaNegocio.descontarStock(cc.Bebida.Id, cc.Cantidad);
+                    
 
                 }
 
@@ -52,6 +53,8 @@ namespace TPFinal_Equipo18
                 pedido.usuario.Id = usuario.Id;
                 pedido.Importe = pagoTotal;
                 pedido.MedioPago = 1;
+                pedido.Estado=new EstadoPedido();
+                pedido.Estado.Id = 1;
                 if (rblEntrega.SelectedValue == "1")
                 {
                     pedido.Entrega = "Entrega a domicilio";
@@ -61,10 +64,13 @@ namespace TPFinal_Equipo18
                     pedido.Entrega = " Rertira por sucursal";
                 }
                 
+                int idPedido=negocio.agregar(pedido);
 
+                foreach (CarritoClase cc in carritoClases)
+                {
+                    negocio.guardarDetalle(idPedido,cc.Bebida.Id, cc.Cantidad, cc.Precio);
 
-                
-                negocio.agregar(pedido);
+                }
 
                 Response.Redirect("Default.aspx", false);
 
