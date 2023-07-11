@@ -65,11 +65,11 @@
                         <asp:Label ID="lblCategoria" runat="server" Text="Categoria" CssClass="form-label"></asp:Label>
                         <asp:DropDownList ID="ddlCategoria" CssClass="form-control" runat="server"></asp:DropDownList>
                     </div>
-                    
+
                     <%--Imagen--%>
                     <div class="mb-3">
                         <label class="form-label">Imagen de la bebida</label>
-                        <input type="file" id="txtImg" runat="server" class="form-control" />
+                        <asp:TextBox runat="server" CssClass="form-control" ID="txtImage" />
                         <asp:Image ID="imgProducto" ImageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBSgPpbL1xA_L4GMvsPnsQ6WyEJnvg-l7IBfl2qreg&s"
                             CssClass="img-fluid mb-3" runat="server" />
                     </div>

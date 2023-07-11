@@ -162,4 +162,3 @@ insert into usuarios(NombreUsuario, Contraseña, IdTipoUsser, Nombre, Apellido, 
 values ('admin','123456',1,'Juan Roman', 'Riquelme', '41239483', 'administrador@almacenBebidas.com', '1521342834','1978-06-24', 1, 1, 'perfil-1')
 go
 --Consultas
-SELECT * from marcas where Importado= 'true';

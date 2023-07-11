@@ -141,13 +141,13 @@ namespace TPFinal_Equipo18
         protected global::System.Web.UI.WebControls.DropDownList ddlCategoria;
 
         /// <summary>
-        /// Control txtImg.
+        /// Control txtImage.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile txtImg;
+        protected global::System.Web.UI.WebControls.TextBox txtImage;
 
         /// <summary>
         /// Control imgProducto.
