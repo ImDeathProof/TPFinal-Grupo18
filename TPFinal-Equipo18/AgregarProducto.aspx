@@ -17,7 +17,7 @@
                     </div>
                     <%--Estado--%>
                     <div class="mb-3">
-                        <label id="lblEstado"  runat="server" for="txtEstado" class="form-label">Estado</label>
+                        <label id="lblEstado" runat="server" for="txtEstado" class="form-label">Estado</label>
                         <asp:TextBox ID="txtEstado" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                     <%--Codigo--%>
@@ -46,11 +46,11 @@
                         <label for="txtContenido" class="form-label">Contenido neto</label>
                         <asp:TextBox ID="txtContenido" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
-                 
+
                 </div>
 
                 <div class="col-md-6">
-                       <%--Stock--%>
+                    <%--Stock--%>
                     <div class="mb-3">
                         <label for="txtStock" class="form-label">Stock</label>
                         <asp:TextBox ID="txtStock" CssClass="form-control" runat="server"></asp:TextBox>
@@ -65,12 +65,13 @@
                         <asp:Label ID="lblCategoria" runat="server" Text="Categoria" CssClass="form-label"></asp:Label>
                         <asp:DropDownList ID="ddlCategoria" CssClass="form-control" runat="server"></asp:DropDownList>
                     </div>
-
+                    
+                    <%--Imagen--%>
                     <div class="mb-3">
                         <label class="form-label">Imagen de la bebida</label>
-                        <input type="file" id="txtImg" runat="server" class="form-control"/>
+                        <input type="file" id="txtImg" runat="server" class="form-control" />
                         <asp:Image ID="imgProducto" ImageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBSgPpbL1xA_L4GMvsPnsQ6WyEJnvg-l7IBfl2qreg&s"
-                           CssClass="img-fluid mb-3" runat="server" />
+                            CssClass="img-fluid mb-3" runat="server" />
                     </div>
 
 
@@ -79,7 +80,7 @@
                     <asp:ScriptManager runat="server" />
 
                     <%--Para que se actualice solo la imagen--%>
-                  <%--  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <%--  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                             <div>
                                 <asp:Label ID="lblImg" runat="server" Text="Url de la imagen"></asp:Label>

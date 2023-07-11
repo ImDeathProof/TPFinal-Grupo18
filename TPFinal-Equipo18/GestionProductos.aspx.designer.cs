@@ -78,6 +78,15 @@ namespace TPFinal_Equipo18
         protected global::System.Web.UI.WebControls.Label lblAlertaNombreMarca;
 
         /// <summary>
+        /// Control Chb_Tipo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox Chb_Tipo;
+
+        /// <summary>
         /// Control btnAgregar_Marca.
         /// </summary>
         /// <remarks>

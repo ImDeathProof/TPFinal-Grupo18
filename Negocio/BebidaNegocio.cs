@@ -112,7 +112,7 @@ namespace Negocio
                 bebida.UrlImg = (string)datos.Lector["UrlImg"];
                 bebida.Marca = new Marca();
                 MarcaNegocio mnegocio = new MarcaNegocio();
-                bebida.Marca= mnegocio.Buscar((int)datos.Lector["IdMarca"]);
+                bebida.Marca = mnegocio.Buscar((int)datos.Lector["IdMarca"]);
                 bebida.Categoria = new Categoria();
                 CategoriaNegocio catnegocio = new CategoriaNegocio();
                 bebida.Categoria = catnegocio.Buscar((int)datos.Lector["IdCategoria"]);
@@ -292,11 +292,11 @@ namespace Negocio
             }
         }
 
-        public void descontarStock(int Id,int Cantidad)
+        public void descontarStock(int Id, int Cantidad)
         {
             try
             {
-                AccesoDatos.AccesoDatos datos= new AccesoDatos.AccesoDatos();
+                AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
 
                 datos.setearConsulta("update Bebidas set Stock=Stock-@Cantidad where id=@Id");
                 datos.setearParametros("@Id", Id);
@@ -312,8 +312,66 @@ namespace Negocio
             }
 
         }
+        public List<Bebida> ListarPorTipo(string criterio)
+        {
+            List<Bebida> lista = new List<Bebida>();
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+            try
+            {
+                string consulta = "Select B.Id, B.Codigo, B.Nombre, B.Precio, B.Descripcion, B.ContenidoNeto, B.Estado, B.UrlImg, M.Nombre Marca, C.Nombre Categoria, B.Stock from Bebidas B inner JOIN MARCAS M on M.Id=B.IdMarca inner join CATEGORIAS C on C.Id=B.idCategoria where";
+                if(criterio == "Importado")
+                {
+                    consulta += " M.Importado = 'true'";
+                }else if(criterio == "Alcoholica")
+                {
+                    consulta += " B.Alcoholica = 'true'";
+                }else
+                {
+                    consulta += " B.Alcoholica = 'false'";
+                }
+                datos.setearConsulta(consulta);
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    Bebida aux = new Bebida();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.ContenidoNeto = (decimal)datos.Lector["ContenidoNeto"];
+                    aux.Estado = (bool)datos.Lector["Estado"];
+                    aux.UrlImg = (string)datos.Lector["UrlImg"];
+                    aux.Stock = (int)datos.Lector["Stock"];
+                    aux.Marca = new Marca();
+                    if (datos.Lector["Marca"] is DBNull)
+                    {
+                        aux.Marca.Nombre = " ";
+                    }
+                    else
+                    {
+                        aux.Marca.Nombre = (string)datos.Lector["Marca"];
+                    }
+                    aux.Categoria = new Categoria();
+                    if (datos.Lector["Categoria"] is DBNull)
+                    {
+                        aux.Categoria.Nombre = " ";
+                    }
+                    else
+                    {
+                        aux.Categoria.Nombre = (string)datos.Lector["Categoria"];
+                    }
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
-       
+
     }
 }
 

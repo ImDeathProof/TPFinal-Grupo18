@@ -45,14 +45,14 @@
                             </li>
                             <%} %>
 
-                            <%----------------%>
+                            <%--------Filtro por tipo de bebidas--------%>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Bebidas alcoholicas</a></li>
-                                    <li><a class="dropdown-item" href="#">Bebidas sin alcohol</a></li>
-                                    <li><a class="dropdown-item" href="#">Bebidas Importadas</a></li>
+                                    <li><a class="dropdown-item" href="/Default.aspx/Alcoholica">Bebidas alcoholicas</a></li>
+                                    <li><a class="dropdown-item" href="/Default.aspx/SinAlcohol">Bebidas sin alcohol</a></li>
+                                    <li><a class="dropdown-item" href="/Default.aspx/Importado">Bebidas Importadas</a></li>
                                 </ul>
                             </li>
                             <%--Barra de busqueda--%>

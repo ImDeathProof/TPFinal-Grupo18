@@ -16,7 +16,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("select Id,Nombre from Marcas");
+                datos.setearConsulta("select Id, Nombre, Importado from Marcas");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -24,6 +24,7 @@ namespace Negocio
                     Marca marca = new Marca();
                     marca.Id = (int)datos.Lector["Id"];
                     marca.Nombre = (string)datos.Lector["Nombre"];
+                    marca.Tipo = (bool)datos.Lector["Importado"];
 
                     lista.Add(marca);
                 }
@@ -50,8 +51,9 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("insert into marcas (Nombre) values(@Nombre)");
+                datos.setearConsulta("insert into marcas (Nombre, Importado) values(@Nombre, @Importado)");
                 datos.setearParametros("@Nombre", nueva.Nombre);
+                datos.setearParametros("@Importado", nueva.Tipo);
                 datos.ejecutarAccion();
 
             }
@@ -112,13 +114,14 @@ namespace Negocio
             AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
             try
             {
-                datos.setearConsulta("Select Nombre from marcas where id = @id");
+                datos.setearConsulta("Select Nombre, Importado from marcas where id = @id");
                 datos.setearParametros("id", id);
                 datos.ejecutarLectura();
                 datos.Lector.Read();
                 Marca marca = new Marca();
                 marca.Id = id;
                 marca.Nombre = (string)datos.Lector["Nombre"];
+                marca.Tipo = (bool)datos.Lector["Importado"];
                 return marca;
             }
             catch (Exception ex)
@@ -131,5 +134,6 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
     }
 }

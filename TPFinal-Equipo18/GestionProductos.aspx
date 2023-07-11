@@ -24,6 +24,10 @@
                             <asp:Label ID="lblMarca" runat="server" CssClass="label-control" Text="Ingresar nombre de la Marca"></asp:Label>
                             <asp:TextBox ID="txtMarca" CssClass="form-control" runat="server"></asp:TextBox>
                             <asp:Label ID="lblAlertaNombreMarca" CssClass="label-control" Text="Debe ingresar un nombre!" runat="server"></asp:Label>
+                            <div class="mb-3">
+                                <label for="Chb_Tipo" class="form-check-label">Importado</label>
+                                <asp:CheckBox ID="Chb_Tipo" runat="server" CssClass="form-check-input bg-transparent border-0" />
+                            </div>
                             <div class="pt-1">
                                 <asp:Button ID="btnAgregar_Marca" CssClass="btn btn-secondary" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
                                 <asp:Button ID="btnCancelar_Marca" CssClass="btn brn-secondary" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
@@ -74,7 +78,7 @@
                                     <asp:BoundField HeaderText="Stock" DataField="Stock" />
                                     <asp:CommandField HeaderText="Modificar" ShowSelectButton="true" SelectText="Modificar" />
                                     <asp:BoundField HeaderText="Activo" DataField="Estado" />
-                                    
+
                                 </Columns>
                             </asp:GridView>
                         </div>

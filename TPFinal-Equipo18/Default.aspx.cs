@@ -17,8 +17,17 @@ namespace TPFinal_Equipo18
             if (!IsPostBack)
             {
                 BebidaNegocio negocio = new BebidaNegocio();
-                Session.Add("listaBebidas", negocio.Listar());
-                listaBebidas = (List<Bebida>)Session["listaBebidas"];
+                string rutaActual = Request.Url.AbsolutePath.ToString();
+                if (rutaActual == "/Default.aspx/Importado")
+                {
+                    Session.Add("listaBebidas", negocio.ListarPorTipo("Importado"));
+                    listaBebidas = (List<Bebida>)Session["listaBebidas"];
+                }
+                else
+                {
+                    Session.Add("listaBebidas", negocio.Listar());
+                    listaBebidas = (List<Bebida>)Session["listaBebidas"];
+                }
             }
 
             if (Request.QueryString["Id"] != null)
@@ -26,7 +35,7 @@ namespace TPFinal_Equipo18
                 List<CarritoClase> carritoBebidas;
                 BebidaNegocio negocio = new BebidaNegocio();
                 Bebida seleccionado;
-                CarritoClase carrito=new CarritoClase();
+                CarritoClase carrito = new CarritoClase();
 
                 if (Session["Bebidas"] == null)
                 {

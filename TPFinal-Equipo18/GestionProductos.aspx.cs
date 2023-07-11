@@ -102,6 +102,10 @@ namespace TPFinal_Equipo18
                         MarcaNegocio negocio = new MarcaNegocio();
                         Marca nueva = new Marca();
                         nueva.Nombre = txtMarca.Text;
+                        if (Chb_Tipo.Checked == true)
+                        {
+                            nueva.Tipo = true;
+                        }
 
                         negocio.agregar(nueva);
                         Response.Redirect("GestionProductos.aspx", false);
