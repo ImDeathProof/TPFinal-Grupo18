@@ -111,9 +111,11 @@ namespace Negocio
                 bebida.Stock = (int)datos.Lector["Stock"];
                 bebida.UrlImg = (string)datos.Lector["UrlImg"];
                 bebida.Marca = new Marca();
-                bebida.Marca.Id = (int)datos.Lector["IdMarca"];
+                MarcaNegocio mnegocio = new MarcaNegocio();
+                bebida.Marca= mnegocio.Buscar((int)datos.Lector["IdMarca"]);
                 bebida.Categoria = new Categoria();
-                bebida.Categoria.Id = (int)datos.Lector["IdCategoria"];
+                CategoriaNegocio catnegocio = new CategoriaNegocio();
+                bebida.Categoria = catnegocio.Buscar((int)datos.Lector["IdCategoria"]);
 
                 return bebida;
             }

@@ -105,5 +105,29 @@ namespace Negocio
                 throw ex;
             }
         }
+        public Categoria Buscar(int id)
+        {
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+            try
+            {
+                datos.setearConsulta("Select Nombre from Categorias where id = @id");
+                datos.setearParametros("id", id);
+                datos.ejecutarLectura();
+                datos.Lector.Read();
+                Categoria categoria = new Categoria();
+                categoria.Id = id;
+                categoria.Nombre = (string)datos.Lector["Nombre"];
+                return categoria;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

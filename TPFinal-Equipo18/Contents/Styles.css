@@ -8,65 +8,75 @@
 
 
 
-body{
+body {
     background-color: #373737;
-    color:#F9F9F9;
-}
-.navbar{
-    background-color:black;
-    color: #ffffff;
-}
-.nav-link{
-    color: #ffffff;
-}
-.nav-link:hover {
-    color: #dccec3;
-    transition: .3s;
+    color: #F9F9F9;
 }
 
-.navbar-brand{
-    color:#ffffff;
-    font-weight: 600;
-}
-.navbar-brand:hover {
-    color: #dccec3;
-    transition:.3s;
-}
-#btnBuscar{
+.navbar {
+    background-color: black;
     color: #ffffff;
 }
-#btnBuscar:hover{
-    color: #dccec3;
-    transition:.3s;
+
+.nav-link {
+    color: #ffffff;
 }
-carrusel-home{
-    min-width:2000px;
-    max-width:2000px;
-    max-height:800px;
-    min-height:600px;
+
+    .nav-link:hover {
+        color: #dccec3;
+        transition: .3s;
+    }
+
+.navbar-brand {
+    color: #ffffff;
+    font-weight: 600;
 }
+
+    .navbar-brand:hover {
+        color: #dccec3;
+        transition: .3s;
+    }
+
+#btnBuscar {
+    color: #ffffff;
+}
+
+    #btnBuscar:hover {
+        color: #dccec3;
+        transition: .3s;
+    }
+
+carrusel-home {
+    min-width: 2000px;
+    max-width: 2000px;
+    max-height: 800px;
+    min-height: 600px;
+}
+
 .h-100 {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.img-container{
-    height:400px;
-    width:250px;
+
+.img-container {
+    height: 400px;
+    width: 250px;
 }
-.img-container img{
-    height:100%;
-    width:250px;
-}
+
+    .img-container img {
+        height: 100%;
+        width: 250px;
+    }
 
 /*
 .carrito{
     background-color: azure;
 }*/
 
-.tabla-carrito{
-    margin-bottom:50px;
-    margin-top:50px;
+.tabla-carrito {
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .carrito-titulo {
@@ -81,6 +91,8 @@ carrusel-home{
     height: 200px;
     border: solid white;
 }
+
 .usernamePerfil {
-    font-size:30px;
+    font-size: 30px;
 }
+

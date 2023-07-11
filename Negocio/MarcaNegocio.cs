@@ -46,7 +46,7 @@ namespace Negocio
 
         public void agregar(Marca nueva)
         {
-            AccesoDatos.AccesoDatos datos= new AccesoDatos.AccesoDatos();
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
 
             try
             {
@@ -60,7 +60,7 @@ namespace Negocio
 
                 throw ex;
             }
-            finally { datos.cerrarConexion();}
+            finally { datos.cerrarConexion(); }
         }
         public void bajaLogica(int id)
         {
@@ -105,6 +105,30 @@ namespace Negocio
             {
 
                 throw ex;
+            }
+        }
+        public Marca Buscar(int id)
+        {
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+            try
+            {
+                datos.setearConsulta("Select Nombre from marcas where id = @id");
+                datos.setearParametros("id", id);
+                datos.ejecutarLectura();
+                datos.Lector.Read();
+                Marca marca = new Marca();
+                marca.Id = id;
+                marca.Nombre = (string)datos.Lector["Nombre"];
+                return marca;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
     }

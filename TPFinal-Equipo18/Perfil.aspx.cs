@@ -68,6 +68,7 @@ namespace TPFinal_Equipo18
                         txt_Piso.Text = usuario.Domicilio.Piso;
                     }
                     ///CARGA DE PEDIDOS
+                    
                     PedidoNegocio pedidoNegocio = new PedidoNegocio();
                     listaPedidos = pedidoNegocio.ListarPorUsuario(usuario.Id);
                     dgvPedidos.DataSource = listaPedidos;
