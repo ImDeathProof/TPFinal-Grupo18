@@ -40,50 +40,86 @@ namespace TPFinal_Equipo18
 
         protected void dgvPedidos_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            try
             {
-                DropDownList ddlEstados = (DropDownList)e.Row.FindControl("ddlEstados");
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    DropDownList ddlEstados = (DropDownList)e.Row.FindControl("ddlEstados");
 
 
-                EstadoPedidoNegocio negocio = new EstadoPedidoNegocio();
-                List<EstadoPedido> estados = negocio.listar();
+                    EstadoPedidoNegocio negocio = new EstadoPedidoNegocio();
+                    List<EstadoPedido> estados = negocio.listar();
 
 
-                ddlEstados.DataSource = estados;
-                ddlEstados.DataTextField = "Descripcion";
-                ddlEstados.DataValueField = "Id";
-                ddlEstados.DataBind();
+                    ddlEstados.DataSource = estados;
+                    ddlEstados.DataTextField = "Descripcion";
+                    ddlEstados.DataValueField = "Id";
+                    ddlEstados.DataBind();
 
 
-                ddlEstados.Items.Insert(0, new ListItem("Cambiar estado"));
+                    ddlEstados.Items.Insert(0, new ListItem("Cambiar estado"));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
             }
         }
 
         protected void ddlEstados_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PedidoNegocio negocio = new PedidoNegocio();
-            listaPedidos = negocio.Listar();
+            try
+            {
+                PedidoNegocio negocio = new PedidoNegocio();
+                listaPedidos = negocio.Listar();
 
-            DropDownList ddlEstados = (DropDownList)sender;
-            GridViewRow row = (GridViewRow)ddlEstados.NamingContainer;
+                DropDownList ddlEstados = (DropDownList)sender;
+                GridViewRow row = (GridViewRow)ddlEstados.NamingContainer;
 
-            int index = row.RowIndex;
+                int index = row.RowIndex;
 
-            string idEstado = ddlEstados.SelectedValue.ToString();
+                string idEstado = ddlEstados.SelectedValue.ToString();
 
-            int id = listaPedidos[index].Id;
+                int id = listaPedidos[index].Id;
 
-            negocio.cambiarEstado(id, int.Parse(idEstado));
+                negocio.cambiarEstado(id, int.Parse(idEstado));
 
-            Response.Redirect("GestionPedidos.aspx");
+                Response.Redirect("GestionPedidos.aspx");
+            }
+            catch (Exception ex)
+            {
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
+            }
 
         }
 
-        protected void dgvPedidos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string id = dgvPedidos.SelectedDataKey.Values.ToString();
+        
 
-            //string idEstado = ddlEstados.SelectedValue.ToString();
+        protected void dgvPedidos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                if (e.CommandName == "VerDetalle")
+                {
+                    int index = Convert.ToInt32(e.CommandArgument);
+
+                    Pedido aux = listaPedidos[index];
+
+                    Session.Add("VerDetalle", aux);
+
+                    Response.Redirect("detallePedido", false);
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
+            }
         }
     }
 }
