@@ -141,6 +141,15 @@ namespace TPFinal_Equipo18
         protected global::System.Web.UI.WebControls.Label lblAlertaNombreCategoria;
 
         /// <summary>
+        /// Control Chb_Alcholica.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox Chb_Alcholica;
+
+        /// <summary>
         /// Control btnAgregar_Categoria.
         /// </summary>
         /// <remarks>

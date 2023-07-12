@@ -60,7 +60,7 @@
                                 <div class="d-flex">
                                     <asp:TextBox runat="server" ID="txtFiltro" class="form-control me-2" placeholder="Search" aria-label="Search"></asp:TextBox>
                                     <asp:Button runat="server" Text="Buscar" ID="btnBuscar" OnClick="btnBuscar_Click" class="btn btn-outline-dark"></asp:Button>
-                    
+
                                 </div>
                             </li>
                         </ul>
@@ -94,50 +94,50 @@
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-            <footer class="footer bg-footer text-white p-3">
+            <footer class="bg-black text-white p-3">
                 <div class="row">
                     <div class="col border-end">
                         <ul>
+                            <h5>Mapa de Sitio:</h5>
                             <li>
-                                <h5>Mapa de Sitio:</h5>
+                                <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="Default.aspx">Inicio</a>
                             </li>
                             <li>
-                                <a class="footer-item" href="Default.aspx">Inicio</a>
+                                <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="Carrito.aspx">Carrito</a>
                             </li>
                             <li>
-                                <a class="footer-item" href="Carrito.aspx">Carrito</a>
+                                <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="Default.aspx/Alcoholica">Bebidas Alcoholicas</a>
+                            </li>
+                            <li>
+                                <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="Default.aspx/SinAlcohol">Bebidas sin Alcohol</a>
+                            </li>
+                            <li>
+                                <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="Default.aspx/Importado">Bebidas Importadas</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col border-end">
                         <ul>
+                            <h5>Ayuda:</h5>
                             <li>
-                                <h5>Ayuda:</h5>
+                                <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="EnvioMail.aspx">Contactanos</a>
                             </li>
                             <li>
-                                <a class="footer-item" href="#">Centro de ayuda</a>
-                            </li>
-                            <li>
-                                <a class="footer-item" href="EnvioMail.aspx">Contactanos</a>
-                            </li>
-                            <li>
-                                <a class="footer-item" href="#">Más info</a>
+                                <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="#">Más info</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col">
                         <ul>
+                            <h5>Nosotros:</h5>
                             <li>
-                                <h5>Nosotros:</h5>
+                                <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="#">Brian Galeano</a>
                             </li>
                             <li>
-                                <a class="footer-item" href="#">Brian Galeano</a>
+                                <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="#">Elias Garcia</a>
                             </li>
                             <li>
-                                <a class="footer-item" href="#">Elias Garcia</a>
-                            </li>
-                            <li>
-                                <a class="footer-item" href="#">Joaquin Gigena</a>
+                                <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="#">Joaquin Gigena</a>
                             </li>
                         </ul>
                     </div>

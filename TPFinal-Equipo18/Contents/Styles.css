@@ -59,6 +59,10 @@ carrusel-home {
     justify-content: center;
 }
 
+#img-Card {
+    height: 250px;
+}
+
 .img-container {
     height: 400px;
     width: 250px;
@@ -95,4 +99,3 @@ carrusel-home {
 .usernamePerfil {
     font-size: 30px;
 }
-

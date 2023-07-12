@@ -23,6 +23,16 @@ namespace TPFinal_Equipo18
                     Session.Add("listaBebidas", negocio.ListarPorTipo("Importado"));
                     listaBebidas = (List<Bebida>)Session["listaBebidas"];
                 }
+                else if(rutaActual == "/Default.aspx/Alcoholica")
+                {
+                    Session.Add("listaBebidas", negocio.ListarPorTipo("Alcoholica"));
+                    listaBebidas = (List<Bebida>)Session["listaBebidas"];
+                }
+                else if (rutaActual == "/Default.aspx/SinAlcohol")
+                {
+                    Session.Add("listaBebidas", negocio.ListarPorTipo("SinAlcohol"));
+                    listaBebidas = (List<Bebida>)Session["listaBebidas"];
+                }
                 else
                 {
                     Session.Add("listaBebidas", negocio.Listar());

@@ -15,58 +15,69 @@ namespace TPFinal_Equipo18
         public Bebida Seleccionada { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtId.Visible = false;
-            lblId.Visible = false;
-            txtEstado.Visible = false;
-            lblEstado.Visible = false;
-
-            if (!IsPostBack)
+            if (Session["usuario"] != null)
             {
-                //Cargo los desplegables de marca y categoria
-                CategoriaNegocio categoria = new CategoriaNegocio();
-                MarcaNegocio marca = new MarcaNegocio();
+                Usuario usuario = (Usuario)Session["usuario"];
+                if (usuario.IdTipoUser == Dominio.TipoUsuario.ADMIN)
+                {
+                    txtId.Visible = false;
+                    lblId.Visible = false;
+                    txtEstado.Visible = false;
+                    lblEstado.Visible = false;
 
-                List<Categoria> catLista = categoria.listar();
-                List<Marca> marLista = marca.listar();
+                    if (!IsPostBack)
+                    {
+                        //Cargo los desplegables de marca y categoria
+                        CategoriaNegocio categoria = new CategoriaNegocio();
+                        MarcaNegocio marca = new MarcaNegocio();
 
-                ddlCategoria.DataSource = catLista;
-                ddlCategoria.DataValueField = "Id";
-                ddlCategoria.DataTextField = "Nombre";
-                ddlCategoria.DataBind();
+                        List<Categoria> catLista = categoria.listar();
+                        List<Marca> marLista = marca.listar();
 
-                ddlMarca.DataSource = marLista;
-                ddlMarca.DataValueField = "Id";
-                ddlMarca.DataTextField = "Nombre";
-                ddlMarca.DataBind();
+                        ddlCategoria.DataSource = catLista;
+                        ddlCategoria.DataValueField = "Id";
+                        ddlCategoria.DataTextField = "Nombre";
+                        ddlCategoria.DataBind();
 
-                txtEstado.Text = "True";
-                txtEstado.Enabled = false;
+                        ddlMarca.DataSource = marLista;
+                        ddlMarca.DataValueField = "Id";
+                        ddlMarca.DataTextField = "Nombre";
+                        ddlMarca.DataBind();
+
+                        txtEstado.Text = "True";
+                        txtEstado.Enabled = false;
+                    }
+
+                    if (Request.QueryString["Id"] != null && !IsPostBack)
+                    {
+
+                        BebidaNegocio negocio = new BebidaNegocio();
+                        Seleccionada = negocio.buscar(int.Parse(Request.QueryString["Id"]));
+
+                        lblId.Visible = true;
+                        txtId.Visible = true;
+                        txtId.Enabled = false;
+                        txtId.Text = Seleccionada.Id.ToString();
+                        //txtEstado.Visible = true;
+                        //txtEstado.Enabled = false;
+                        txtEstado.Text = Seleccionada.Estado.ToString();
+                        txtCodigo.Text = Seleccionada.Codigo;
+                        txtNombre.Text = Seleccionada.Nombre;
+                        txtDescripcion.Text = Seleccionada.Descripcion;
+                        txtContenido.Text = Seleccionada.ContenidoNeto.ToString();
+                        txtPrecio.Text = Seleccionada.Precio.ToString();
+                        txtImage.Text = Seleccionada.UrlImg;
+                        txtStock.Text = Seleccionada.Stock.ToString();
+
+                        ddlCategoria.DataValueField = Seleccionada.Categoria.Id.ToString();
+                        ddlMarca.DataValueField = Seleccionada.Marca.Id.ToString();
+
+                    }
+                }
             }
-
-            if (Request.QueryString["Id"] != null && !IsPostBack)
+            else
             {
-
-                BebidaNegocio negocio = new BebidaNegocio();
-                Seleccionada = negocio.buscar(int.Parse(Request.QueryString["Id"]));
-
-                lblId.Visible = true;
-                txtId.Visible = true;
-                txtId.Enabled = false;
-                txtId.Text = Seleccionada.Id.ToString();
-                //txtEstado.Visible = true;
-                //txtEstado.Enabled = false;
-                txtEstado.Text = Seleccionada.Estado.ToString();
-                txtCodigo.Text = Seleccionada.Codigo;
-                txtNombre.Text = Seleccionada.Nombre;
-                txtDescripcion.Text = Seleccionada.Descripcion;
-                txtContenido.Text = Seleccionada.ContenidoNeto.ToString();
-                txtPrecio.Text = Seleccionada.Precio.ToString();
-                txtImage.Text = Seleccionada.UrlImg;
-                txtStock.Text = Seleccionada.Stock.ToString();
-
-                ddlCategoria.DataValueField = Seleccionada.Categoria.Id.ToString();
-                ddlMarca.DataValueField = Seleccionada.Marca.Id.ToString();
-
+                Response.Redirect("Default.aspx", false);
             }
 
         }
@@ -93,7 +104,7 @@ namespace TPFinal_Equipo18
 
                 nuevo.Marca = new Marca();
                 nuevo.Marca.Id = int.Parse(ddlMarca.SelectedValue);
-                
+
                 nuevo.Categoria = new Categoria();
                 nuevo.Categoria.Id = int.Parse(ddlCategoria.SelectedValue);
 

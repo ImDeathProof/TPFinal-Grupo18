@@ -324,10 +324,10 @@ namespace Negocio
                     consulta += " M.Importado = 'true'";
                 }else if(criterio == "Alcoholica")
                 {
-                    consulta += " B.Alcoholica = 'true'";
+                    consulta += " C.Alcoholica = 'true'";
                 }else
                 {
-                    consulta += " B.Alcoholica = 'false'";
+                    consulta += " C.Alcoholica = 'false'";
                 }
                 datos.setearConsulta(consulta);
                 datos.ejecutarLectura();

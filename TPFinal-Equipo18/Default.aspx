@@ -25,11 +25,11 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <h2>Listado de bebidas</h2>
     <div class="container p-3">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <h2 class="p-3 fs-1">Nuestros Productos</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4 border-top">
 
-             <%-- Leo los articulos --%>
+            <%-- Leo los articulos --%>
             <%if (listaBebidas == null)
                 { listaBebidas = (List<Dominio.Bebida>)Session["artFiltrado"]; }  %>
             <% foreach (Dominio.Bebida bebida in listaBebidas)
@@ -41,16 +41,16 @@
 
             <div class="col">
                 <%-- Cargo las tarjetas --%>
-                <div class="card h-100">
-                    <div class="img-container">
-                        <img src="<%:bebida.UrlImg %>" class="card-img-top img-responsive" alt="img articulo">
+                <div class="card text-bg-dark text-center border-primary border-2 border-opacity-75 h-100">
+                    <div class="img-container bg-white">
+                        <img src="<%:bebida.UrlImg %>" id="img_Card" class="object-fit-scale" alt="img articulo">
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title"><%:bebida.Nombre%></h5>
+                        <h5 class="card-title fs-3"><%:bebida.Nombre%></h5>
                         <p class="card-text"><%: bebida.Descripcion %></p>
-                        <a href="DetalleBebida.aspx?Id= <%: bebida.Id %>" class="btn btn-secondary">Ver detalle </a>
+                        <a href="DetalleBebida.aspx?Id= <%: bebida.Id %>" class="btn btn-outline-primary">Ver detalle </a>
                         <%-- Redirecciono a la misma pagina para quedarme con el id --%>
-                        <a href="Default.aspx?Id= <%: bebida.Id %>" class="btn btn-secondary">Añadir al carrito </a>
+                        <a href="Default.aspx?Id= <%: bebida.Id %>" class="btn btn-outline-success">Añadir al carrito </a>
                     </div>
                 </div>
             </div>
@@ -60,5 +60,5 @@
 
     </div>
 
-    
+
 </asp:Content>

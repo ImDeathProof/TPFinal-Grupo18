@@ -5,12 +5,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <div class="container carrito ">
+    <div class="container carrito border my-2 text-bg-dark border-primary border-2 border-opacity-75">
         <%if (!(Session["Bebidas"] is null))
             {
 
         %>
-        <h2 >Carrito de productos </h2>
+        <h2>Carrito de productos </h2>
         <div class="row">
 
             <div class="col-10">
@@ -49,7 +49,8 @@
                 </asp:GridView>
             </div>
             <div>
-                <asp:Label ID="lblTotal" CssClass="btn btn-info" runat="server" Text=""></asp:Label>
+                <label>Total a pagar: $</label>
+                <asp:Label ID="lblTotal" CssClass="" runat="server" Text=""></asp:Label>
             </div>
 
         </div>
@@ -66,7 +67,7 @@
         <div class="row">
             <div class="col-6">
                 <%--<a href="Pagos.aspx" class="btn btn-primary">Iniciar pago</a>--%>
-                <asp:Button ID="btnIniciarPago" runat="server" CssClass=" btn btn-success" OnClick="btnIniciarPago_Click" Text="Iniciar pago" />
+                <asp:Button ID="btnIniciarPago" runat="server" CssClass="btn btn-outline-success mt-1" OnClick="btnIniciarPago_Click" Text="Iniciar pago" />
                 <a href="Default.aspx">Volver</a>
             </div>
 

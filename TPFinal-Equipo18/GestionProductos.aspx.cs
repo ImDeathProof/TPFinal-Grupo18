@@ -14,29 +14,40 @@ namespace TPFinal_Equipo18
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["usuario"] != null)
             {
-                ddlListado.Items.Insert(0, "Listado de bebidas");
-                ddlListado.Items.Insert(1, "Listado de marcas");
-                ddlListado.Items.Insert(2, "Listado de categorias");
+                Usuario usuario = (Usuario)Session["usuario"];
+                if (usuario.IdTipoUser == Dominio.TipoUsuario.ADMIN)
+                {
+                    if (!IsPostBack)
+                    {
+                        ddlListado.Items.Insert(0, "Listado de bebidas");
+                        ddlListado.Items.Insert(1, "Listado de marcas");
+                        ddlListado.Items.Insert(2, "Listado de categorias");
 
-                BebidaNegocio negocio = new BebidaNegocio();
-                MarcaNegocio marcaNegocio = new MarcaNegocio();
-                CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+                        BebidaNegocio negocio = new BebidaNegocio();
+                        MarcaNegocio marcaNegocio = new MarcaNegocio();
+                        CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
 
-                List<Bebida> list = negocio.Listar();
-                dgvProductos.DataSource = list;
-                dgvProductos.DataBind();
-                
-                dgvCategorias.DataSource = categoriaNegocio.listar();
-                dgvCategorias.DataBind();
+                        List<Bebida> list = negocio.Listar();
+                        dgvProductos.DataSource = list;
+                        dgvProductos.DataBind();
 
-                dgvMarcas.DataSource = marcaNegocio.listar();
-                dgvMarcas.DataBind();
+                        dgvCategorias.DataSource = categoriaNegocio.listar();
+                        dgvCategorias.DataBind();
 
-                divAgregarMarca.Visible = false;
-                divAgregarCategoria.Visible = false;
+                        dgvMarcas.DataSource = marcaNegocio.listar();
+                        dgvMarcas.DataBind();
+
+                        divAgregarMarca.Visible = false;
+                        divAgregarCategoria.Visible = false;
+                    }
+                }
+                else
+                {
+                    Response.Redirect("Default.aspx", false);
+                }
             }
         }
 
@@ -134,6 +145,10 @@ namespace TPFinal_Equipo18
                         CategoriaNegocio negocio = new CategoriaNegocio();
                         Categoria nueva = new Categoria();
                         nueva.Nombre = txtCategoria.Text;
+                        if (Chb_Alcholica.Checked == true)
+                        {
+                            nueva.Tipo = true;
+                        }
 
                         negocio.agregar(nueva);
                         Response.Redirect("GestionProductos.aspx", false);
@@ -155,20 +170,20 @@ namespace TPFinal_Equipo18
         //        int index = Convert.ToInt32(e.CommandArgument);
         //        GridViewRow row = dgvProductos.Rows[index];
 
-            //        BebidaNegocio negocio = new BebidaNegocio();
-            //        List<Bebida> lista = new List<Bebida>();
-            //        lista = negocio.Listar();
-            //        negocio.eliminar(13);
+        //        BebidaNegocio negocio = new BebidaNegocio();
+        //        List<Bebida> lista = new List<Bebida>();
+        //        lista = negocio.Listar();
+        //        negocio.eliminar(13);
 
-            //        dgvProductos.DataSource = lista;
-            //        dgvProductos.DataBind();
-            //        Response.Redirect("GestionProductos.aspx", false);
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        Session.Add("Error", ex);
-            //    }
-            //}
+        //        dgvProductos.DataSource = lista;
+        //        dgvProductos.DataBind();
+        //        Response.Redirect("GestionProductos.aspx", false);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Session.Add("Error", ex);
+        //    }
+        //}
 
     }
 }

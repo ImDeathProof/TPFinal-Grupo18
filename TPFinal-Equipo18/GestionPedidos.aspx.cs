@@ -14,21 +14,27 @@ namespace TPFinal_Equipo18
         public List<Pedido> listaPedidos { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            
-            
-            if (!IsPostBack)
+            if (Session["usuario"] != null)
             {
-                
-                PedidoNegocio negocio= new PedidoNegocio();
+                Usuario usuario = (Usuario)Session["usuario"];
+                if (usuario.IdTipoUser == Dominio.TipoUsuario.ADMIN)
+                {
+                    if (!IsPostBack)
+                    {
 
-                listaPedidos= negocio.Listar();
-                dgvPedidos.DataSource = listaPedidos;
+                        PedidoNegocio negocio = new PedidoNegocio();
 
-                dgvPedidos.DataBind();
-                
-                
-                
+                        listaPedidos = negocio.Listar();
+                        dgvPedidos.DataSource = listaPedidos;
+
+                        dgvPedidos.DataBind();
+
+                    }
+                }
+            }
+            else
+            {
+                Response.Redirect("Default.aspx", false);
             }
         }
 
@@ -38,36 +44,36 @@ namespace TPFinal_Equipo18
             {
                 DropDownList ddlEstados = (DropDownList)e.Row.FindControl("ddlEstados");
 
-                
+
                 EstadoPedidoNegocio negocio = new EstadoPedidoNegocio();
                 List<EstadoPedido> estados = negocio.listar();
 
-                
+
                 ddlEstados.DataSource = estados;
                 ddlEstados.DataTextField = "Descripcion";
                 ddlEstados.DataValueField = "Id";
                 ddlEstados.DataBind();
 
-                
+
                 ddlEstados.Items.Insert(0, new ListItem("Cambiar estado"));
             }
         }
 
         protected void ddlEstados_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PedidoNegocio negocio= new PedidoNegocio();
-            listaPedidos=negocio.Listar();
+            PedidoNegocio negocio = new PedidoNegocio();
+            listaPedidos = negocio.Listar();
 
             DropDownList ddlEstados = (DropDownList)sender;
             GridViewRow row = (GridViewRow)ddlEstados.NamingContainer;
 
             int index = row.RowIndex;
 
-            string idEstado= ddlEstados.SelectedValue.ToString();
+            string idEstado = ddlEstados.SelectedValue.ToString();
 
             int id = listaPedidos[index].Id;
 
-            negocio.cambiarEstado(id,int.Parse(idEstado));
+            negocio.cambiarEstado(id, int.Parse(idEstado));
 
             Response.Redirect("GestionPedidos.aspx");
 

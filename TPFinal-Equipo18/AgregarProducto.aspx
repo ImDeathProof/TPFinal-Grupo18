@@ -37,14 +37,16 @@
 
                     </div>
                     <%--Precio--%>
-                    <div class="mb-3">
-                        <label for="txtPrecio" class="form-label">Precio</label>
-                        <asp:TextBox ID="txtPrecio" CssClass="form-control" runat="server"></asp:TextBox>
+                    <label for="txtPrecio" class="form-label">Precio</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <asp:TextBox ID="txtPrecio" CssClass="form-control" onkeydown="return (event.keyCode >= 48 && event.keyCode <= 57)" runat="server" aria-label="Amount (to the nearest dollar)"></asp:TextBox>
+                        <span class="input-group-text">.00</span>
                     </div>
                     <%--Contenido neto--%>
                     <div class="mb-3">
                         <label for="txtContenido" class="form-label">Contenido neto</label>
-                        <asp:TextBox ID="txtContenido" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtContenido" CssClass="form-control" onkeydown="return (event.keyCode >= 48 && event.keyCode <= 57)" runat="server"></asp:TextBox>
                     </div>
 
                 </div>
@@ -53,7 +55,7 @@
                     <%--Stock--%>
                     <div class="mb-3">
                         <label for="txtStock" class="form-label">Stock</label>
-                        <asp:TextBox ID="txtStock" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtStock" CssClass="form-control" runat="server" onkeydown="return (event.keyCode >= 48 && event.keyCode <= 57)"></asp:TextBox>
                     </div>
                     <%--Marca--%>
                     <div class="mb-3">

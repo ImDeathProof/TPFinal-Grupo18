@@ -24,8 +24,8 @@
                             <asp:Label ID="lblMarca" runat="server" CssClass="label-control" Text="Ingresar nombre de la Marca"></asp:Label>
                             <asp:TextBox ID="txtMarca" CssClass="form-control" runat="server"></asp:TextBox>
                             <asp:Label ID="lblAlertaNombreMarca" CssClass="label-control" Text="Debe ingresar un nombre!" runat="server"></asp:Label>
-                            <div class="mb-3">
-                                <label for="Chb_Tipo" class="form-check-label">Importado</label>
+                            <div class="mb-3 p-1">
+                                <label for="Chb_Tipo" class="form-check-label">Importada</label>
                                 <asp:CheckBox ID="Chb_Tipo" runat="server" CssClass="form-check-input bg-transparent border-0" />
                             </div>
                             <div class="pt-1">
@@ -40,6 +40,10 @@
                             <asp:Label ID="Label1" runat="server" CssClass="label-control" Text="Ingresar nombre de la Categoria"></asp:Label>
                             <asp:TextBox ID="txtCategoria" CssClass="form-control" runat="server"></asp:TextBox>
                             <asp:Label ID="lblAlertaNombreCategoria" CssClass="label-control" Text="Debe ingresar un nombre!" runat="server"></asp:Label>
+                            <div class="mb-3 p-1">
+                                <label for="Chb_Alcholica" class="form-check-label">Alcoholica</label>
+                                <asp:CheckBox ID="Chb_Alcholica" runat="server" CssClass="form-check-input bg-transparent border-0" />
+                            </div>
                             <div class="pt-1">
                                 <asp:Button ID="btnAgregar_Categoria" CssClass="btn btn-secondary" runat="server" Text="Agregar" OnClick="btnAgregar_Click" />
                                 <asp:Button ID="btnCancelar_Categoria" CssClass="btn brn-secondary" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
