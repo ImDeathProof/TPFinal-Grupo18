@@ -33,7 +33,7 @@ namespace TPFinal_Equipo18
                 if (negocio.Loguear(usuario))
                 {
                     Session.Add("usuario", usuario);
-                    Response.Redirect("Novedades.aspx");
+                    Response.Redirect("Default.aspx");
                 }
                 else
                 {
