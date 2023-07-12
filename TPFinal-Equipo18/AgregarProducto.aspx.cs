@@ -94,6 +94,12 @@ namespace TPFinal_Equipo18
             Bebida nuevo = new Bebida();
             try
             {
+                Page.Validate();
+                if(!Page.IsValid)
+                {
+                    return;
+                }
+
                 nuevo.Codigo = txtCodigo.Text;
                 nuevo.Nombre = txtNombre.Text;
                 nuevo.Descripcion = txtDescripcion.Text;

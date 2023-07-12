@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>ROMPISTE TODO AMIGUITO</h1>
-    <h3>Revisate la password o el Email de nuevo</h3>
+    <h1>ERROR</h1>
+    <%--<h3>Revisate la password o el Email de nuevo</h3>--%>
     <asp:Label Text="text" runat="server" ID="lblMensaje" />
 </asp:Content>
