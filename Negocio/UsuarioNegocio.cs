@@ -97,18 +97,18 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
-        public Usuario BuscarCompleto(Usuario us)
+        public Usuario BuscarCompleto(int id)
         {
             AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
             try
             {
                 datos.setearConsulta("Select NombreUsuario, Contraseña, IdTipoUsser, Nombre, Apellido, Dni, Email, Telefono, FechaNacimiento, IdDomicilio, Estado, Avatar from Usuarios where Id = @Id");
-                datos.setearParametros("@Id", us.Id);
+                datos.setearParametros("@Id",id);
                 datos.ejecutarLectura();
 
                 Usuario usuario = new Usuario();
                 datos.Lector.Read();
-                usuario.Id = us.Id;
+                usuario.Id = id;
                 if (!(datos.Lector["Avatar"] is DBNull))
                     usuario.Avatar = (string)datos.Lector["Avatar"];
                 else

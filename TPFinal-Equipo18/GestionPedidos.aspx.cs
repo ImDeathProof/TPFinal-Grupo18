@@ -19,12 +19,12 @@ namespace TPFinal_Equipo18
                 Usuario usuario = (Usuario)Session["usuario"];
                 if (usuario.IdTipoUser == Dominio.TipoUsuario.ADMIN)
                 {
+                    PedidoNegocio negocio = new PedidoNegocio();
+
+                    listaPedidos = negocio.Listar();
                     if (!IsPostBack)
                     {
 
-                        PedidoNegocio negocio = new PedidoNegocio();
-
-                        listaPedidos = negocio.Listar();
                         dgvPedidos.DataSource = listaPedidos;
 
                         dgvPedidos.DataBind();
@@ -110,7 +110,7 @@ namespace TPFinal_Equipo18
 
                     Session.Add("VerDetalle", aux);
 
-                    Response.Redirect("detallePedido", false);
+                    Response.Redirect("detallePedido.aspx", false);
 
                 }
             }

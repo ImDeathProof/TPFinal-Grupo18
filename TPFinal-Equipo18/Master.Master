@@ -32,8 +32,8 @@
                                 <a class="nav-link disabled" href="/Novedades.aspx">Novedades</a>
                             </li>
                             <%--Panel de Gestion - Productos y Usuarios--%>
-                            <%if (user.IdTipoUser == Dominio.TipoUsuario.ADMIN)
-                                {%>
+                          <%--  <%if (user.IdTipoUser == Dominio.TipoUsuario.ADMIN)--%>
+                               <%-- {%>--%>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Panel de Gestión
                                 </a>
@@ -43,7 +43,7 @@
                                     <li><a class="dropdown-item" href="/GestionPedidos.aspx">Gestión de Pedidos</a></li>
                                 </ul>
                             </li>
-                            <%} %>
+                            <%--<%} %>--%>
 
                             <%--------Filtro por tipo de bebidas--------%>
                             <li class="nav-item dropdown">

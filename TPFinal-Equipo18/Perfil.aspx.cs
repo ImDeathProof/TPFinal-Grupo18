@@ -41,7 +41,7 @@ namespace TPFinal_Equipo18
                     }
                     UsuarioNegocio negocio = new UsuarioNegocio();
                     Usuario aux = (Usuario)Session["usuario"];
-                    usuario = negocio.BuscarCompleto(aux);
+                    usuario = negocio.BuscarCompleto(aux.Id);
                     Session["usuario"] = usuario;
                     ///CARGA DE USUARIO
                     lbl_Usuario.InnerText = "@" + usuario.NombreUsuario;

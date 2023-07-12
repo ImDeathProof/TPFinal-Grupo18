@@ -144,5 +144,39 @@ namespace Negocio
                 throw ex;
             }
         }
+
+        public List<DetallePedido> listarDetalle(int Id)
+        {
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
+            List<DetallePedido> lista= new List<DetallePedido>();
+
+            try
+            {
+                datos.setearConsulta("select Id,IdPedido,IdBebida,Cantidad,Precio from DetallePedido where IdPedido=@Id");
+                datos.setearParametros("@Id", Id);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    DetallePedido detalle =new DetallePedido();
+
+                    detalle.Id = (int)datos.Lector["Id"];
+                    detalle.IdBebida = (int)datos.Lector["IdBebida"];
+                    detalle.IdPedido = (int)datos.Lector["IdPedido"];
+                    detalle.Cantidad = (int)datos.Lector["Cantidad"];
+                    detalle.Precio = (decimal)datos.Lector["Precio"];
+
+
+                    lista.Add(detalle);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }

@@ -9,6 +9,7 @@
             <div class="col 10">
                 <asp:GridView ID="dgvPedidos" runat="server" CssClass="table table-dark table-striped"
                     AutoGenerateColumns="false" OnRowDataBound="dgvPedidos_RowDataBound"
+                    OnRowCommand="dgvPedidos_RowCommand"
                     >
                     <Columns>
                         
@@ -26,7 +27,13 @@
                                     AutoPostBack="true">
                                 </asp:DropDownList>
                             </ItemTemplate>
-                        </asp:TemplateField>                
+                        </asp:TemplateField>      
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="btnDetallePedido" runat="server" Text="Ver detalle"
+                                 CommandName="VerDetalle" CommandArgument=' <%# ((GridViewRow)Container).RowIndex  %>' CssClass="btn btn-outline-info"   ></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
 
                     </Columns>
                 </asp:GridView>
