@@ -7,10 +7,12 @@
         <div class="mb-3">
             <label class="form-label">Usuario</label>
             <asp:TextBox runat="server" id="txtUser" placeholder="Ingrese su nombre de usuario" CssClass="form-control"/>
+            <asp:RequiredFieldValidator CssClass="validator" ErrorMessage="El usuario es obligatorio" ControlToValidate="txtUser" runat="server" />
         </div>
         <div class="mb-3">
             <label class="form-label">Contraseña</label>
             <asp:TextBox runat="server" placeholder="Ingrese su contraseña" id="txtPass"  TextMode="Password" CssClass="form-control"/>
+            <asp:RequiredFieldValidator CssClass="validator" ErrorMessage="La contraseña es obligatoria" ControlToValidate="txtPass" runat="server" />
         </div>
         <div class="mb-3"> 
             <asp:Label ID="lblMsj" runat="server" Text="" ForeColor="Red"></asp:Label>

@@ -29,6 +29,13 @@ namespace TPFinal_Equipo18
             UsuarioNegocio negocio = new UsuarioNegocio();
             try
             {
+                Page.Validate();
+                if (!Page.IsValid)
+                {
+                    return;
+                }
+
+
                 usuario = new Usuario(txtUser.Text, txtPass.Text, false);
                 if (negocio.Loguear(usuario))
                 {

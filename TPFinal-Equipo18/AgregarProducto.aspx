@@ -24,17 +24,19 @@
                     <div class="mb-3">
                         <label for="txtCodigo" class="form-label">Codigo</label>
                         <asp:TextBox ID="txtCodigo" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator CssClass="validator" ErrorMessage="Este campo es obligatorio" ControlToValidate="txtCodigo" runat="server" />
                     </div>
                     <%--Nombre--%>
                     <div class="mb-3">
                         <label for="txtNombre" class="form-label">Nombre</label>
                         <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator CssClass="validator" ErrorMessage="Este campo es obligatorio" ControlToValidate="txtNombre" runat="server" />
                     </div>
                     <%--Descripcion--%>
                     <div class="mb-3">
                         <label for="txtDescripcion" class="form-label">Descripcion</label>
                         <asp:TextBox ID="txtDescripcion" CssClass="form-control" runat="server" TextMode="MultiLine"></asp:TextBox>
-
+                        <asp:RequiredFieldValidator CssClass="validator" ErrorMessage="Este campo es obligatorio" ControlToValidate="txtDescripcion" runat="server" />
                     </div>
                     <%--Precio--%>
                     <label for="txtPrecio" class="form-label">Precio</label>
@@ -42,11 +44,13 @@
                         <span class="input-group-text">$</span>
                         <asp:TextBox ID="txtPrecio" CssClass="form-control" onkeydown="return (event.keyCode >= 48 && event.keyCode <= 57)" runat="server" aria-label="Amount (to the nearest dollar)"></asp:TextBox>
                         <span class="input-group-text">.00</span>
+                        <asp:RequiredFieldValidator CssClass="validator" ErrorMessage="Este campo es obligatorio" ControlToValidate="txtPrecio" runat="server" />
                     </div>
                     <%--Contenido neto--%>
                     <div class="mb-3">
                         <label for="txtContenido" class="form-label">Contenido neto</label>
                         <asp:TextBox ID="txtContenido" CssClass="form-control" onkeydown="return (event.keyCode >= 48 && event.keyCode <= 57)" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator CssClass="validator" ErrorMessage="Este campo es obligatorio" ControlToValidate="txtContenido" runat="server" />
                     </div>
 
                 </div>
@@ -56,6 +60,7 @@
                     <div class="mb-3">
                         <label for="txtStock" class="form-label">Stock</label>
                         <asp:TextBox ID="txtStock" CssClass="form-control" runat="server" onkeydown="return (event.keyCode >= 48 && event.keyCode <= 57)"></asp:TextBox>
+                        <asp:RequiredFieldValidator CssClass="validator" ErrorMessage="Este campo es obligatorio" ControlToValidate="txtPrecio" runat="server" />
                     </div>
                     <%--Marca--%>
                     <div class="mb-3">
@@ -72,6 +77,7 @@
                     <div class="mb-3">
                         <label class="form-label">Imagen de la bebida</label>
                         <asp:TextBox runat="server" CssClass="form-control" ID="txtImage" />
+                        <asp:RequiredFieldValidator CssClass="validator" ErrorMessage="Este campo es obligatorio" ControlToValidate="txtImage" runat="server" />
                         <asp:Image ID="imgProducto" ImageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBSgPpbL1xA_L4GMvsPnsQ6WyEJnvg-l7IBfl2qreg&s"
                             CssClass="img-fluid mb-3" runat="server" />
                     </div>

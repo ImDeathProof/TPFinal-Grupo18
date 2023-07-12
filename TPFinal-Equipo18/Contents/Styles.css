@@ -99,3 +99,8 @@ carrusel-home {
 .usernamePerfil {
     font-size: 30px;
 }
+
+.validator{
+    color:red;
+    font-size:13px;
+}
