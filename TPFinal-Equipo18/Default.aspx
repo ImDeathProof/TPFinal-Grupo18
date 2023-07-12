@@ -31,7 +31,16 @@
 
             <%-- Leo los articulos --%>
             <%if (listaBebidas == null)
-                { listaBebidas = (List<Dominio.Bebida>)Session["artFiltrado"]; }  %>
+                {
+                    if (Session["artFiltrado"] != null)
+                    {
+                        listaBebidas = (List<Dominio.Bebida>)Session["artFiltrado"];
+                    }
+                    else
+                    {
+                        listaBebidas = (List<Dominio.Bebida>)Session["listaBebidas"];
+                    }
+                }  %>
             <% foreach (Dominio.Bebida bebida in listaBebidas)
                 {
                     if (bebida.Estado == true)

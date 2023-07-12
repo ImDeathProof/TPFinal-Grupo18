@@ -42,7 +42,7 @@ namespace TPFinal_Equipo18
                 if (Session["usuario"] != null)
                 {
                     Session.Remove("usuario");
-                    Response.Redirect("/Default.aspx", false);
+                    Response.Redirect("/Login.aspx", false);
                 }
             }
             catch (Exception ex)
