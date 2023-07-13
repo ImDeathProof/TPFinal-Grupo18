@@ -68,7 +68,13 @@ IdBebida int foreign key references Bebidas(Id),
 Cantidad int not null,
 ImporteTotal money not null
 )
-
+go
+create table Banners(
+    IdBanner int PRIMARY key IDENTITY(1,1),
+    Nombre varchar(300) not null,
+    Fecha DATETIME not null DEFAULT(getdate()),
+    UrlImg varchar(400) not null
+)
 go
 create table CarritoXUsuarios(
 Id int primary key identity(1,1),
@@ -164,4 +170,11 @@ go
 insert into usuarios(NombreUsuario, Contraseña, IdTipoUsser, Nombre, Apellido, Dni, Email, Telefono, FechaNacimiento, IdDomicilio, Estado, Avatar)
 values ('admin','123456',1,'Juan Roman', 'Riquelme', '41239483', 'administrador@almacenBebidas.com', '1521342834','1978-06-24', 1, 1, 'perfil-1')
 go
+--Inserts Banners
+insert into Banners(Nombre, UrlImg)
+values('Black Friday','https://img.freepik.com/vector-gratis/banner-horizontal-viernes-negro-moderno-fondo-trazo-pincel-blanco_1361-3703.jpg?w=2000'),
+('Cyber Monday','https://static.vecteezy.com/system/resources/previews/000/688/545/non_2x/cyber-monday-banner-design-with-neon-lettering-vector.jpg'),
+('San Patricio', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREFoGqc6Cuub3dzTKXMFNgB_Yee8rCxkypkA&usqp=CAU')
+go
 --Consultas
+

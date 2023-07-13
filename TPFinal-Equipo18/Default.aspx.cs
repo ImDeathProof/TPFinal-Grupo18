@@ -23,7 +23,7 @@ namespace TPFinal_Equipo18
                     Session.Add("listaBebidas", negocio.ListarPorTipo("Importado"));
                     listaBebidas = (List<Bebida>)Session["listaBebidas"];
                 }
-                else if(rutaActual == "/Default.aspx/Alcoholica")
+                else if (rutaActual == "/Default.aspx/Alcoholica")
                 {
                     Session.Add("listaBebidas", negocio.ListarPorTipo("Alcoholica"));
                     listaBebidas = (List<Bebida>)Session["listaBebidas"];
@@ -38,6 +38,55 @@ namespace TPFinal_Equipo18
                     Session.Add("listaBebidas", negocio.Listar());
                     listaBebidas = (List<Bebida>)Session["listaBebidas"];
                 }
+
+                BannerNegocio bnegocio = new BannerNegocio();
+                List<Banner> listaBanners = new List<Banner>();
+
+                listaBanners = bnegocio.listar();
+                if (listaBanners != null)
+                {
+                    divCarouselBanners.Visible = true;
+                    Image1.ImageUrl = listaBanners[0].UrlImg;
+                    if (listaBanners.Count>1)
+                    {
+                        Image2.ImageUrl = listaBanners[1].UrlImg;
+                    }
+                    else
+                    {
+                        Image2.Visible = false;
+                    }
+                    if (listaBanners.Count > 2)
+                    {
+                        Image3.ImageUrl = listaBanners[2].UrlImg;
+                    }
+                    else
+                    {
+                        Image3.Visible = false;
+                    }
+                    if (listaBanners.Count > 3)
+                    {
+                        Image4.ImageUrl = listaBanners[3].UrlImg;
+                    }
+                    else
+                    {
+                        Image4.Visible = false;
+                    }
+                    if (listaBanners.Count > 4)
+                    {
+                        Image5.ImageUrl = listaBanners[4].UrlImg;
+                    }
+                    else
+                    {
+                        Image5.Visible = false;
+                    }
+
+
+                }
+                else
+                {
+                    divCarouselBanners.Visible = false;
+                }
+
             }
 
             if (Request.QueryString["Id"] != null)

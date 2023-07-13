@@ -74,6 +74,7 @@
     <Content Include="detallePedido.aspx" />
     <Content Include="EnvioMail.aspx" />
     <Content Include="Error.aspx" />
+    <Content Include="GestionBanners.aspx" />
     <Content Include="GestionPedidos.aspx" />
     <Content Include="GestionProductos.aspx" />
     <Content Include="GestionUsuarios.aspx" />
@@ -129,6 +130,13 @@
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionBanners.aspx.cs">
+      <DependentUpon>GestionBanners.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionBanners.aspx.designer.cs">
+      <DependentUpon>GestionBanners.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionPedidos.aspx.cs">
       <DependentUpon>GestionPedidos.aspx</DependentUpon>
