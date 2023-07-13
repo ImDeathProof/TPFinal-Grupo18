@@ -86,7 +86,7 @@ namespace TPFinal_Equipo18
 
                 negocio.cambiarEstado(id, int.Parse(idEstado));
 
-                Response.Redirect("GestionPedidos.aspx");
+                Response.Redirect("GestionPedidos.aspx",false);
             }
             catch (Exception ex)
             {

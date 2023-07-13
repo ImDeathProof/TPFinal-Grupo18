@@ -22,7 +22,8 @@ namespace TPFinal_Equipo18
             }
 
            
-                pagoTotal =(decimal) Session["MontoTotal"];
+            pagoTotal =(decimal) Session["MontoTotal"];
+            lblMontoTotal.Text = pagoTotal.ToString();
                 
             
 
@@ -33,6 +34,12 @@ namespace TPFinal_Equipo18
            
             try
             {
+                Page.Validate();
+                if(!Page.IsValid)
+                {
+                    return;
+                }
+
                 List<CarritoClase> carritoClases = (List<CarritoClase>)Session["Bebidas"];
                 BebidaNegocio bebidaNegocio= new BebidaNegocio();
 
@@ -55,6 +62,7 @@ namespace TPFinal_Equipo18
                 pedido.MedioPago = 1;
                 pedido.Estado=new EstadoPedido();
                 pedido.Estado.Id = 1;
+                pedido.NumOperacion= txtNumeroOperacion.Text;
                 if (rblEntrega.SelectedValue == "1")
                 {
                     pedido.Entrega = "Entrega a domicilio";

@@ -63,24 +63,20 @@
             <div class="row">
                 <div class="col-md-8">
 
-
-                    <h4>Medios de pago </h4>
-                   <%-- <asp:ScriptManager runat="server" />
-
-                    <asp:UpdatePanel runat="server">
-                        <ContentTemplate>--%>
-
-                            <asp:Label ID="lblMontoTotal" CssClass="form-label" runat="server" Text="El monto total a pagar es de <% pagoTotal %> $ "></asp:Label>
+                    <h4>Medio de pago disponible </h4>             
+                            <asp:Label ID="lblMonto" CssClass="form-label" runat="server" Text="El monto total a pagar es de $ "></asp:Label>
+                             <asp:Label ID="lblMontoTotal" runat="server" Text="Label"></asp:Label>
 
                             <div class="mb-3">
-                                <asp:CheckBox ID="ckbMp" runat="server" Text="Mercado pago" AutoPostBack="true" />
-                                <i></i>
+                                <asp:CheckBox ID="ckbMp" runat="server" Text="Mercado pago" Checked="true" />
+                                <img src="~/Images/Icons/MP" alt="Mercado Pago" />
 
                             </div>
 
                             <div class="mb-3">
                                 <asp:Label ID="lblNumeroPago" runat="server" CssClass="form-label" Text="Ingrese el numero de operacion"></asp:Label>
                                 <asp:TextBox ID="txtNumeroOperacion" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator CssClass="validator" ErrorMessage="Este campo es obligatorio" ControlToValidate="txtNumeroOperacion" runat="server" />
                             </div>
 
                             </div>

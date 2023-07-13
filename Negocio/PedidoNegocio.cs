@@ -56,6 +56,7 @@ namespace Negocio
                 datos.setearParametros("@idMetodoPago",1);
                 datos.setearParametros("@Entrega",nuevo.Entrega);
                 datos.setearParametros("@Estado",nuevo.Estado.Id);
+                datos.setearParametros("@NumOperacion", nuevo.NumOperacion);
                 
                 return datos.ejecutarAccionScalar();
 

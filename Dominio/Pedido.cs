@@ -17,5 +17,6 @@ namespace Dominio
         public EstadoPedido Estado { get; set; }
         public string NombreUsuario { get; set; }
         public string Email { get; set; }
+        public string NumOperacion { get; set; }
     }
 }
