@@ -12,57 +12,65 @@ namespace TPFinal_Equipo18
     public partial class Pagos : System.Web.UI.Page
     {
         public decimal pagoTotal { get; set; }
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!(Session["usuario"] != null))
+
+            if (!(Session["usuario"] == null))
             {
                 Session.Add("mensaje", "Debes loguearte para iniciar el pago ");
                 Response.Redirect("Login.aspx", false);
             }
+            else if (Session["MontoTotal"] != null)
+            {
 
-           
-            pagoTotal =(decimal) Session["MontoTotal"];
-            lblMontoTotal.Text = pagoTotal.ToString();
-                
-            
-
+                if (!IsPostBack)
+                {
+                    pagoTotal = (decimal)Session["MontoTotal"];
+                    lblMontoTotal.Text = pagoTotal.ToString();
+                }
+            }
         }
+
+
+
+
+
 
         protected void btnTerminar_Click(object sender, EventArgs e)
         {
-           
+
             try
             {
                 Page.Validate();
-                if(!Page.IsValid)
+                if (!Page.IsValid)
                 {
                     return;
                 }
 
                 List<CarritoClase> carritoClases = (List<CarritoClase>)Session["Bebidas"];
-                BebidaNegocio bebidaNegocio= new BebidaNegocio();
+                BebidaNegocio bebidaNegocio = new BebidaNegocio();
 
                 foreach (CarritoClase cc in carritoClases)
                 {
                     bebidaNegocio.descontarStock(cc.Bebida.Id, cc.Cantidad);
-                    
+
 
                 }
 
 
 
-                PedidoNegocio negocio= new PedidoNegocio();
+                PedidoNegocio negocio = new PedidoNegocio();
                 Pedido pedido = new Pedido();
                 Usuario usuario = (Usuario)Session["usuario"];
 
-                pedido.usuario=new Usuario();
+                pedido.usuario = new Usuario();
                 pedido.usuario.Id = usuario.Id;
                 pedido.Importe = pagoTotal;
                 pedido.MedioPago = 1;
-                pedido.Estado=new EstadoPedido();
+                pedido.Estado = new EstadoPedido();
                 pedido.Estado.Id = 1;
-                pedido.NumOperacion= txtNumeroOperacion.Text;
+                pedido.NumOperacion = txtNumeroOperacion.Text;
                 if (rblEntrega.SelectedValue == "1")
                 {
                     pedido.Entrega = "Entrega a domicilio";
@@ -71,12 +79,12 @@ namespace TPFinal_Equipo18
                 {
                     pedido.Entrega = " Rertira por sucursal";
                 }
-                
-                int idPedido=negocio.agregar(pedido);
+
+                int idPedido = negocio.agregar(pedido);
 
                 foreach (CarritoClase cc in carritoClases)
                 {
-                    negocio.guardarDetalle(idPedido,cc.Bebida.Id, cc.Cantidad, cc.Precio);
+                    negocio.guardarDetalle(idPedido, cc.Bebida.Id, cc.Cantidad, cc.Precio);
 
                 }
 
@@ -85,7 +93,7 @@ namespace TPFinal_Equipo18
             }
             catch (Exception ex)
             {
-                Session.Add("Error",ex.ToString());
+                Session.Add("Error", ex.ToString());
                 Response.Redirect("Error.aspx");
             }
 

@@ -14,25 +14,32 @@ namespace TPFinal_Equipo18
         public List<DetallePedido> listaDetalle { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (listaDetalle != null)
             {
-                Pedido pedido =(Pedido) Session["VerDetalle"];
-                UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
-                PedidoNegocio pedidoNegocio= new PedidoNegocio();
+                if (!IsPostBack)
+                {
+                    Pedido pedido = (Pedido)Session["VerDetalle"];
+                    UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+                    PedidoNegocio pedidoNegocio = new PedidoNegocio();
 
-                listaDetalle= pedidoNegocio.listarDetalle(pedido.Id);
+                    listaDetalle = pedidoNegocio.listarDetalle(pedido.Id);
 
-                Usuario usuario = usuarioNegocio.BuscarCompleto(pedido.usuario.Id);
-
-
-                lblFeha.Text = pedido.Fecha.ToString();
-                lblNumPedido.Text = pedido.Id.ToString(); 
-                if(usuario.Domicilio!= null)
-                    lblDomicilio.Text = usuario.Domicilio.ToString();
-                lblEmaul.Text = usuario.Email;
-                lblTotal.Text= pedido.Importe.ToString();
+                    Usuario usuario = usuarioNegocio.BuscarCompleto(pedido.usuario.Id);
 
 
+                    lblFeha.Text = pedido.Fecha.ToString();
+                    lblNumPedido.Text = pedido.Id.ToString();
+                    if (usuario.Domicilio != null)
+                        lblDomicilio.Text = usuario.Domicilio.ToString();
+                    lblEmaul.Text = usuario.Email;
+                    lblTotal.Text = pedido.Importe.ToString();
+
+
+                }
+            }
+            else
+            {
+                Response.Redirect("Default.aspx", false);
             }
         }
     }

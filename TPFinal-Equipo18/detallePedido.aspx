@@ -28,7 +28,7 @@
 
         precio total --%>
 
-    <div class="container">
+    <div class="container col-10 border p-3 text-bg-dark border-primary border-2 border-opacity-75">
         <div class="row">
             <div class="col-md-5">
                 <%--Fecha--%>
@@ -57,15 +57,17 @@
                     <asp:Label ID="Label5" runat="server" Text="Productos: " CssClass="form-label"></asp:Label>
                 </div>
 
-                <%foreach (Dominio.DetallePedido item in listaDetalle)
-                    {%>
+                <%if (listaDetalle != null)
+                    {
+                        foreach (Dominio.DetallePedido item in listaDetalle)
+                        {%>
 
                 <div class="mb-3">
-                     <label>Producto</label>
-                     <label><%:item.IdPedido %></label>
-                     <label>Cantidad</label>
-                     <label><%:item.Cantidad %></label>
-                    <label> Precio</label>
+                    <label>Producto</label>
+                    <label><%:item.IdPedido %></label>
+                    <label>Cantidad</label>
+                    <label><%:item.Cantidad %></label>
+                    <label>Precio</label>
                     <label>:<%:item.Precio %></label>
                 </div>
 
@@ -74,7 +76,8 @@
                 <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label>
 
 
-                <% } %>
+                <% }
+                    } %>
 
 
                 <%--Total--%>

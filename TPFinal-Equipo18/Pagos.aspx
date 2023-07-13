@@ -3,9 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2>Completa los ultimos pasos para terminar tu compra</h2>
 
-    <div class="container">
+    <div class="container col-10 border p-3 text-bg-dark border-primary border-2 border-opacity-75">
+        <h2>Completa los ultimos pasos para terminar tu compra</h2>
         <div class="row">
 
             <h4>Formas de entrega </h4>
@@ -59,38 +59,36 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
 
-            </div>
-            <div class="row">
+            <div class="row ">
                 <div class="col-md-8">
 
-                    <h4>Medio de pago disponible </h4>             
-                            <asp:Label ID="lblMonto" CssClass="form-label" runat="server" Text="El monto total a pagar es de $ "></asp:Label>
-                             <asp:Label ID="lblMontoTotal" runat="server" Text="Label"></asp:Label>
+                    <h4>Medio de pago disponible </h4>
+                    <asp:Label ID="lblMonto" CssClass="form-label" runat="server" Text="El monto total a pagar es de $ "></asp:Label>
+                    <asp:Label ID="lblMontoTotal" runat="server" Text=""></asp:Label>
 
-                            <div class="mb-3">
-                                <asp:CheckBox ID="ckbMp" runat="server" Text="Mercado pago" Checked="true" />
-                                <img src="~/Images/Icons/MP" alt="Mercado Pago" />
+                    <div class="mb-3">
+                        <asp:CheckBox ID="ckbMp" runat="server" Text="Mercado pago" Checked="true" />
+                        <img src="~/Images/Icons/MP" alt="Mercado Pago" />
 
-                            </div>
+                    </div>
 
-                            <div class="mb-3">
-                                <asp:Label ID="lblNumeroPago" runat="server" CssClass="form-label" Text="Ingrese el numero de operacion"></asp:Label>
-                                <asp:TextBox ID="txtNumeroOperacion" CssClass="form-control" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator CssClass="validator" ErrorMessage="Este campo es obligatorio" ControlToValidate="txtNumeroOperacion" runat="server" />
-                            </div>
+                    <div class="mb-3">
+                        <asp:Label ID="lblNumeroPago" runat="server" CssClass="form-label" Text="Ingrese el numero de operacion"></asp:Label>
+                        <asp:TextBox ID="txtNumeroOperacion" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator CssClass="validator" ErrorMessage="Este campo es obligatorio" ControlToValidate="txtNumeroOperacion" runat="server" />
+                    </div>
 
-                            </div>
-                   <%--     </ContentTemplate>
-                    </asp:UpdatePanel>--%>
+                </div>
 
-                    <div class="row">
-                        <div class="col 12">
-                            <asp:Button ID="btnTerminar" runat="server" CssClass="btn btn-success" Text="Terminar compra" OnClick="btnTerminar_Click" />
-                            <a href="Carrito.aspx" class="btn btn-danger">Volver</a>
-                        </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <asp:Button ID="btnTerminar" runat="server" CssClass="btn btn-success" Text="Terminar compra" OnClick="btnTerminar_Click" />
+                        <a href="Carrito.aspx" class="btn btn-danger">Volver</a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </asp:Content>
 

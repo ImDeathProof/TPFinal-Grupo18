@@ -152,8 +152,8 @@ insert into Categorias values('Aperitivo',1,1)
 insert into Categorias values('Whisky',1,1)
 go
 --insert Bebidas
-insert into Bebidas values('A11','Fernet ',2000,'Bebida alcoholica elaborada con hierbas',1,1,'https://labebidadetusfiestas.com.ar/37266/fernet-branca-1lt.jpg',3,2,50)
-insert into Bebidas values('A22','Manao ',300,'Gaseosa berreta',1,1,'https://www.argensend.com/wp-content/uploads/2021/09/D_NQ_NP_716200-MLA43739181284_102020-F.webp',3,3,1)
+insert into Bebidas values('A11','Fernet ',2000,'Bebida alcoholica elaborada con hierbas',500,1,'https://labebidadetusfiestas.com.ar/37266/fernet-branca-1lt.jpg',3,2,50)
+insert into Bebidas values('A22','Manao ',300,'Gaseosa berreta',2500,1,'https://www.argensend.com/wp-content/uploads/2021/09/D_NQ_NP_716200-MLA43739181284_102020-F.webp',2,3,1)
 insert into Bebidas values('B33','Terminaitor ',500,'Jugo de estracto de uva',1000,1,'https://s3.amazonaws.com/storage.wobiz.com/138/138495/images/Large/1557322653_c2314b5790046933a89ca07dbc544870.138495.jpeg',4,3,100)
 insert into Bebidas values('JD01','Jack Daniels',25000,'Whisky yanki',1000,1,'https://borrachines.com.ar/wp-content/uploads/2021/11/Jack-Daniels-Old-No.7-Whisky-Destilado-750ml.jpg',5,4,150)
 go
@@ -177,6 +177,5 @@ values('Black Friday','https://img.freepik.com/vector-gratis/banner-horizontal-v
 ('San Patricio', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREFoGqc6Cuub3dzTKXMFNgB_Yee8rCxkypkA&usqp=CAU')
 go
 --Consultas
-alter table banners
-alter COLUMN Fecha datetime null 
+
 

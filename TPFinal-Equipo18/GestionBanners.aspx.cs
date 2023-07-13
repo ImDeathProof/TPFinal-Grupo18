@@ -15,7 +15,18 @@ namespace TPFinal_Equipo18
         public Banner seleccionado { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            Usuario Usuario = new Usuario();
+            if (Session["usuario"] != null)
+            {
+
+                Usuario = (Usuario)Session["usuario"];
+            }
+            else
+            {
+                Response.Redirect("Default.aspx", false);
+            }
+
+            if (!IsPostBack && Usuario.IdTipoUser == Dominio.TipoUsuario.ADMIN)
             {
                 BannerNegocio negocio = new BannerNegocio();
                 ListaBanners = negocio.listar();
@@ -47,6 +58,10 @@ namespace TPFinal_Equipo18
                 {
                     btnModificar.Text = "Modificar";
                 }
+            }
+            else
+            {
+                Response.Redirect("Default.aspx", false);
             }
 
         }
