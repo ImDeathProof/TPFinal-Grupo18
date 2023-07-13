@@ -50,11 +50,10 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("insert into Banners values(Nombre = @Nombre, UrlImg = @UrlImg, Fecha = @Fecha)");
+                datos.setearConsulta("insert into Banners(Nombre, UrlImg, Fecha) values(@Nombre, @UrlImg, getdate()) ");
 
                 datos.setearParametros("@Nombre", Nuevo.Nombre);
                 datos.setearParametros("@UrlImg", Nuevo.UrlImg);
-                datos.setearParametros("@Fecha", Nuevo.Fecha);
 
                 datos.ejecutarAccion();
 

@@ -34,6 +34,7 @@ namespace TPFinal_Equipo18
 
                     lblTotal.Text = precioTotal.ToString();
                 }
+
             }
                    
 

@@ -26,10 +26,26 @@ namespace TPFinal_Equipo18
                 if (Request.QueryString["Id"] != null && !IsPostBack)
                 {
                     seleccionado = negocio.Buscar(int.Parse(Request.QueryString["Id"]));
-                    txtFecha.Text = seleccionado.Fecha.ToString(); ;
+                    txtFecha.Text = seleccionado.Fecha.ToString();
                     txtID.Text = seleccionado.Id.ToString();
                     txtNombre.Text = seleccionado.Nombre;
                     txtLink.Text = seleccionado.UrlImg;
+                }
+                txtID.Visible = true;
+                txtID.Enabled = false;
+                txtFecha.Visible = true;
+                txtFecha.Enabled = false;
+                txtFecha.Text = DateTime.Now.ToString();
+
+                BannerNegocio neg = new BannerNegocio();
+                List<Banner> listaBanners = neg.listar();
+                if (listaBanners.Count < 5)
+                {
+                    btnModificar.Text = "Agregar";
+                }
+                else
+                {
+                    btnModificar.Text = "Modificar";
                 }
             }
 
@@ -46,24 +62,55 @@ namespace TPFinal_Equipo18
 
         }
 
-        protected void tbnModificar_Click(object sender, EventArgs e)
+        protected void btnModificar_Click(object sender, EventArgs e)
         {
-            Banner modificado = new Banner();
+            Banner banner = new Banner();
             BannerNegocio negocio = new BannerNegocio();
-            modificado = negocio.Buscar(int.Parse(Request.QueryString["Id"]));
-
-
-            try
+            if (btnModificar.Text == "Agregar")
             {
-                modificado.Nombre = txtNombre.Text;
-                modificado.UrlImg = txtLink.Text;
-                negocio.Modificar(modificado);
-                Response.Redirect("GestionBanners.aspx", false);
+                try
+                {
+                    banner.Nombre = txtNombre.Text;
+                    banner.UrlImg = txtLink.Text;
+                    negocio.Guardar(banner);
+                    Response.Redirect("GestionBanners.aspx", false);
+                }
+                catch (Exception ex)
+                {
+                    //Session.Add("Error", ex);
+                    throw ex;
+                }
             }
-            catch (Exception ex)
+            else if (btnModificar.Text == "Modificar")
             {
-                Session.Add("Error", ex);
+                banner = negocio.Buscar(int.Parse(Request.QueryString["Id"]));
+                try
+                {
+                    banner.Nombre = txtNombre.Text;
+                    banner.UrlImg = txtLink.Text;
+                    negocio.Modificar(banner);
+                    Response.Redirect("GestionBanners.aspx", false);
+                }
+                catch (Exception ex)
+                {
+                    Session.Add("Error", ex);
+                }
+
             }
         }
+        //protected string GetButtonText()
+        //{
+        //    string nombreBoton = string.Empty;
+        //    BannerNegocio neg = new BannerNegocio();
+        //    List<Banner> listaBanners = neg.listar();
+        //    if (listaBanners.Count < 5)
+        //    {
+        //        return "Agregar";
+        //    }
+        //    else
+        //    {
+        //        return "Modificar";
+        //    }
+        //}
     }
 }

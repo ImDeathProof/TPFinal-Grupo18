@@ -72,7 +72,7 @@ go
 create table Banners(
     IdBanner int PRIMARY key IDENTITY(1,1),
     Nombre varchar(300) not null,
-    Fecha DATETIME not null DEFAULT(getdate()),
+    Fecha datetime null DEFAULT(getdate()),
     UrlImg varchar(400) not null
 )
 go
@@ -177,4 +177,6 @@ values('Black Friday','https://img.freepik.com/vector-gratis/banner-horizontal-v
 ('San Patricio', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREFoGqc6Cuub3dzTKXMFNgB_Yee8rCxkypkA&usqp=CAU')
 go
 --Consultas
+alter table banners
+alter COLUMN Fecha datetime null 
 

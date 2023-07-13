@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container border border-3 border-primary p-3" id="">
+    <div class="container col-8 border p-3 text-bg-dark border-primary border-2 border-opacity-75" id="">
         <div class="row">
             <div class="col-md-6">
                 <div class="mb-3">
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="mb-3">
-                <asp:Button ID="btnRegistrar" Text="Registrar" CssClass="btn btn-success" OnClick="btnRegistrar_Click" runat="server" />
+                <asp:Button ID="btnRegistrar" Text="Registrar" CssClass="btn btn-outline-success mt-1" OnClick="btnRegistrar_Click" runat="server" />
                 <asp:HyperLink NavigateUrl="/LogIn.aspx" runat="server" CssClass="p-3">Ya tengo cuenta</asp:HyperLink>
             </div>
         </div>

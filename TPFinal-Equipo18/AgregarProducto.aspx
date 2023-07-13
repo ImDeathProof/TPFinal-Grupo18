@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container p-3 border">
+    <div class="container col-10 border p-3 text-bg-dark border-primary border-2 border-opacity-75">
 
         <h1>Agregar Producto </h1>
 
@@ -106,18 +106,18 @@
 
             <div class="row">
                 <div class="6">
-                    <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" />
-                    <a href="GestionProductos.aspx" class="btn btn-secondary">Cancelar</a>
+                    <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn btn-outline-primary" OnClick="btnAceptar_Click" />
+                    <a href="GestionProductos.aspx" class="btn btn-outline-secondary">Cancelar</a>
                     <%if (txtEstado.Text == "True")
                         {
                     %>
-                    <asp:Button ID="btnDesactivar" Text="Desactivar" runat="server" CssClass="btn btn-warning" OnClick="btnDesactivar_Click" />
+                    <asp:Button ID="btnDesactivar" Text="Desactivar" runat="server" CssClass="btn btn-outline-warning" OnClick="btnDesactivar_Click" />
                     <%}
                         else
                         {%>
-                    <asp:Button ID="btnActivar" Text="Activar" runat="server" CssClass="btn btn-success" OnClick="btnActivar_Click" />
+                    <asp:Button ID="btnActivar" Text="Activar" runat="server" CssClass="btn btn-outline-success" OnClick="btnActivar_Click" />
                     <%}%>
-                    <asp:Button ID="btnEliminar" Text="Eliminar" runat="server" CssClass="btn btn-danger" OnClick="btnEliminar_Click" />
+                    <asp:Button ID="btnEliminar" Text="Eliminar" runat="server" CssClass="btn btn-outline-danger" OnClick="btnEliminar_Click" />
                 </div>
 
             </div>

@@ -52,7 +52,14 @@
                 <label>Total a pagar: $</label>
                 <asp:Label ID="lblTotal" CssClass="" runat="server" Text=""></asp:Label>
             </div>
+            <div class="row">
+            <div class="col-6">
+                <%--<a href="Pagos.aspx" class="btn btn-primary">Iniciar pago</a>--%>
+                <asp:Button ID="btnIniciarPago" runat="server" CssClass="btn btn-outline-success mt-1" OnClick="btnIniciarPago_Click" Text="Iniciar pago" />
+                <a href="Default.aspx">Volver</a>
+            </div>
 
+        </div>
         </div>
         <div>
             <%}
@@ -62,15 +69,6 @@
             <h3>¡El carrito está vacío!</h3>
             <a href="Default.aspx">Volver al listado</a>
             <%} %>
-        </div>
-
-        <div class="row">
-            <div class="col-6">
-                <%--<a href="Pagos.aspx" class="btn btn-primary">Iniciar pago</a>--%>
-                <asp:Button ID="btnIniciarPago" runat="server" CssClass="btn btn-outline-success mt-1" OnClick="btnIniciarPago_Click" Text="Iniciar pago" />
-                <a href="Default.aspx">Volver</a>
-            </div>
-
         </div>
     </div>
 

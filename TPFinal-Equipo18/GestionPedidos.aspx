@@ -3,11 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
-    <div class="container border p-3">
+    <div class="container col-10 border text-bg-dark border-primary border-2 border-opacity-75">
     <h2>Gestion de pedidos </h2>
         <div class="row">
             <div class="col 10">
-                <asp:GridView ID="dgvPedidos" runat="server" CssClass="table table-dark table-striped"
+                <asp:GridView ID="dgvPedidos" runat="server" CssClass="table table-dark table-striped border text-bg-dark border-primary border-2 border-opacity-75"
                     AutoGenerateColumns="false" OnRowDataBound="dgvPedidos_RowDataBound"
                     OnRowCommand="dgvPedidos_RowCommand"
                     >
