@@ -87,13 +87,7 @@ Id int primary key identity(1,1),
 IdUsuario int foreign key references Usuarios(Id),
 IdCarrito int  foreign key references Carrito(IdCarrito)
 )
-go
-create table Ventas(
-IdVenta int primary key identity(1,1),
-IdUsuario int foreign key references Usuarios(Id),
-ImporteTotal money not null,
-FormaDePago varchar(50) not null
-)
+
 go
 create table MetodosPagos(
 Id int primary key identity(1,1),
@@ -120,7 +114,7 @@ create table DetallePedido(
 Id int primary key identity (1,1),
 IdPedido int not null foreign key references Pedidos(Id),
 IdBebida int not null foreign key references Bebidas(Id),
-Cantidad int not null check (Cantidad>1),
+Cantidad int not null check (Cantidad>0),
 Precio money not null check(Precio>0)
 )
 go

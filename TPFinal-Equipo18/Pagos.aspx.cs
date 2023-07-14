@@ -26,9 +26,9 @@ namespace TPFinal_Equipo18
 
                 if (!IsPostBack)
                 {
+                }
                     pagoTotal = (decimal)Session["MontoTotal"];
                     lblMontoTotal.Text = pagoTotal.ToString();
-                }
             }
         }
 
