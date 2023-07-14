@@ -16,7 +16,7 @@ namespace TPFinal_Equipo18
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!(Session["usuario"] == null))
+            if (Session["usuario"] == null)
             {
                 Session.Add("mensaje", "Debes loguearte para iniciar el pago ");
                 Response.Redirect("Login.aspx", false);
@@ -77,7 +77,7 @@ namespace TPFinal_Equipo18
                 }
                 else
                 {
-                    pedido.Entrega = " Rertira por sucursal";
+                    pedido.Entrega = "Rertira por sucursal";
                 }
 
                 int idPedido = negocio.agregar(pedido);
@@ -88,7 +88,7 @@ namespace TPFinal_Equipo18
 
                 }
 
-                Response.Redirect("Default.aspx", false);
+                Response.Redirect("Perfil.aspx/Pedidos", false);
 
             }
             catch (Exception ex)

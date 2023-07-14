@@ -177,5 +177,3 @@ values('Black Friday','https://img.freepik.com/vector-gratis/banner-horizontal-v
 ('San Patricio', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREFoGqc6Cuub3dzTKXMFNgB_Yee8rCxkypkA&usqp=CAU')
 go
 --Consultas
-
-

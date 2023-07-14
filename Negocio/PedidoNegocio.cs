@@ -22,17 +22,17 @@ namespace Negocio
                 {
                     Pedido aux = new Pedido();
                     aux.Id = (int)datos.Lector["Id"];
-                    aux.usuario= new Usuario();
+                    aux.usuario = new Usuario();
                     aux.usuario.Id = (int)datos.Lector["idUsuario"];
                     aux.Importe = (decimal)datos.Lector["Importe"];
                     aux.Fecha = (DateTime)datos.Lector["Fecha"];
                     aux.MedioPago = (int)datos.Lector["idMetodoPago"];
                     aux.Entrega = (string)datos.Lector["Entrega"];
-                    aux.Estado= new EstadoPedido();
+                    aux.Estado = new EstadoPedido();
                     aux.Estado.Descripcion = (string)datos.Lector["Nombre"];
                     aux.NombreUsuario = (string)datos.Lector["NombreUsuario"];
-                    aux.Email= (string)datos.Lector["Email"];
-                    
+                    aux.Email = (string)datos.Lector["Email"];
+
 
                     lista.Add(aux);
                 }
@@ -50,14 +50,16 @@ namespace Negocio
 
             try
             {
+                //datos.setearProcedimiento("exec SP_AgregarPedido @idUsuario, @Importe, @idMetodoPago, @Fecha, @Entrega, @Estado, @NumOperacion");
                 datos.setearProcedimiento("SP_AgregarPedido");
                 datos.setearParametros("@idUsuario", nuevo.usuario.Id);
-                datos.setearParametros("@Importe",nuevo.Importe);
-                datos.setearParametros("@idMetodoPago",1);
-                datos.setearParametros("@Entrega",nuevo.Entrega);
-                datos.setearParametros("@Estado",nuevo.Estado.Id);
+                datos.setearParametros("@Importe", nuevo.Importe);
+                datos.setearParametros("@idMetodoPago", 1);
+                //datos.setearParametros("@Fecha", DateTime.Today);
+                datos.setearParametros("@Entrega", nuevo.Entrega);
+                datos.setearParametros("@Estado", nuevo.Estado.Id);
                 datos.setearParametros("@NumOperacion", nuevo.NumOperacion);
-                
+
                 return datos.ejecutarAccionScalar();
 
             }
@@ -69,15 +71,15 @@ namespace Negocio
             finally { datos.cerrarConexion(); }
         }
 
-        public void cambiarEstado(int id,int estado)
+        public void cambiarEstado(int id, int estado)
         {
             AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
 
             try
             {
                 datos.setearConsulta("update Pedidos set idEstado= @Estado where Id=@Id");
-                datos.setearParametros("@Estado",estado);
-                datos.setearParametros("@Id",id);
+                datos.setearParametros("@Estado", estado);
+                datos.setearParametros("@Id", id);
 
                 datos.ejecutarAccion();
 
@@ -127,15 +129,15 @@ namespace Negocio
 
         public void guardarDetalle(int idPedido, int idProducto, int cantidad, decimal precio)
         {
-            AccesoDatos.AccesoDatos datos= new AccesoDatos.AccesoDatos();
+            AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
 
             try
             {
                 datos.setearConsulta("insert into DetallePedido (IdPedido,IdBebida,Cantidad,Precio) values(@idPedido,@idProducto,@Cantidad,@Precio)");
-                datos.setearParametros("@idPedido",idPedido);
-                datos.setearParametros("@idProducto",idProducto);
-                datos.setearParametros("@Cantidad",cantidad);
-                datos.setearParametros("@Precio",precio);
+                datos.setearParametros("@idPedido", idPedido);
+                datos.setearParametros("@idProducto", idProducto);
+                datos.setearParametros("@Cantidad", cantidad);
+                datos.setearParametros("@Precio", precio);
 
                 datos.ejecutarAccion();
             }
@@ -149,7 +151,7 @@ namespace Negocio
         public List<DetallePedido> listarDetalle(int Id)
         {
             AccesoDatos.AccesoDatos datos = new AccesoDatos.AccesoDatos();
-            List<DetallePedido> lista= new List<DetallePedido>();
+            List<DetallePedido> lista = new List<DetallePedido>();
 
             try
             {
@@ -159,7 +161,7 @@ namespace Negocio
 
                 while (datos.Lector.Read())
                 {
-                    DetallePedido detalle =new DetallePedido();
+                    DetallePedido detalle = new DetallePedido();
 
                     detalle.Id = (int)datos.Lector["Id"];
                     detalle.IdBebida = (int)datos.Lector["IdBebida"];
