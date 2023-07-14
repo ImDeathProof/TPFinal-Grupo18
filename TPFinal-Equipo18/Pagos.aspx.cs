@@ -11,6 +11,7 @@ namespace TPFinal_Equipo18
 {
     public partial class Pagos : System.Web.UI.Page
     {
+        public Usuario usuario { get; set; }
         public decimal pagoTotal { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -62,7 +63,10 @@ namespace TPFinal_Equipo18
 
                 PedidoNegocio negocio = new PedidoNegocio();
                 Pedido pedido = new Pedido();
-                Usuario usuario = (Usuario)Session["usuario"];
+                UsuarioNegocio Usernegocio = new UsuarioNegocio();
+                Usuario aux = (Usuario)Session["usuario"];
+                usuario= Usernegocio.BuscarCompleto(aux.Id);
+                Session["usuario"] = usuario;
 
                 pedido.usuario = new Usuario();
                 pedido.usuario.Id = usuario.Id;
@@ -86,6 +90,18 @@ namespace TPFinal_Equipo18
                 {
                     negocio.guardarDetalle(idPedido, cc.Bebida.Id, cc.Cantidad, cc.Precio);
 
+                }
+
+                EmailService emailService = new EmailService();
+                emailService.armarCorreo(usuario.Email,"Confirmación de pedido","Gracias por tu compra, estamos preparando tu pedido");
+                try
+                {
+                    emailService.enviarEmail();
+
+                }
+                catch (Exception ex)
+                {
+                    Session.Add("error", ex);
                 }
 
                 Response.Redirect("Perfil.aspx/Pedidos", false);

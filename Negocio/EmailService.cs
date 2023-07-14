@@ -29,6 +29,10 @@ namespace Negocio
             email.To.Add(emailDestino);
             email.Subject = asunto;
             email.IsBodyHtml = true;
+            //if(StringComparer(email.Body, "Gracias por tu compra, estamos preparando tu pedido")
+            //{
+
+            //}
             email.Body = "MENSAJE PARA MAIL";
             //email.Body = cuerpo;
 
