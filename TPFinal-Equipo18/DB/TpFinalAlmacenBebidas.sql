@@ -1,8 +1,14 @@
+USE master
+GO
+DROP DATABASE AlmacenBebidas
+GO
 create database AlmacenBebidas
-go
-create table TipoUsuario(
-Id int primary key identity(1,1),
-Nombre varchar(50) not null
+GO
+USE AlmacenBebidas
+GO
+CREATE TABLE TipoUsuario(
+Id INT PRIMARY KEY identity(1,1),
+Nombre VARCHAR(50) NOT NULL
 )
 go
 create table Domicilio(
