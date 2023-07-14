@@ -13,7 +13,7 @@
                     <div class="col-5 border p-2">
                         <h2>5</h2>
                         <div class="text-center border bg-white">
-                            <asp:Image CssClass="rounded" runat="server" ID="img_Producto" src="https://www.webempresa.com/foro/wp-content/uploads/wpforo/attachments/3200/318277=80538-Sin_imagen_disponible.jpg" alt="IMG Producto" />
+                            <asp:Image CssClass="rounded img-container bg-white" runat="server" ID="img_Producto" ImageUrl="https://www.webempresa.com/foro/wp-content/uploads/wpforo/attachments/3200/318277=80538-Sin_imagen_disponible.jpg" alt="IMG Producto" />
                         </div>
                     </div>
                     <div class="col-7 border">

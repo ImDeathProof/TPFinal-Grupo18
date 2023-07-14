@@ -49,7 +49,7 @@
                 }  %>
             <% foreach (Dominio.Bebida bebida in listaBebidas)
                 {
-                    if (bebida.Estado == true)
+                    if (bebida.Estado == true && bebida.Stock > 0)
                     {
             %>
 
