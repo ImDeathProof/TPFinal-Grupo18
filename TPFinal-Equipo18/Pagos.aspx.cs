@@ -49,6 +49,7 @@ namespace TPFinal_Equipo18
                     return;
                 }
 
+
                 List<CarritoClase> carritoClases = (List<CarritoClase>)Session["Bebidas"];
                 BebidaNegocio bebidaNegocio = new BebidaNegocio();
 
@@ -60,12 +61,11 @@ namespace TPFinal_Equipo18
                 }
 
 
-
                 PedidoNegocio negocio = new PedidoNegocio();
                 Pedido pedido = new Pedido();
                 UsuarioNegocio Usernegocio = new UsuarioNegocio();
                 Usuario aux = (Usuario)Session["usuario"];
-                usuario= Usernegocio.BuscarCompleto(aux.Id);
+                usuario = Usernegocio.BuscarCompleto(aux.Id);
                 Session["usuario"] = usuario;
 
                 pedido.usuario = new Usuario();
@@ -93,7 +93,7 @@ namespace TPFinal_Equipo18
                 }
 
                 EmailService emailService = new EmailService();
-                emailService.armarCorreo(usuario.Email,"Confirmación de pedido","Gracias por tu compra, estamos preparando tu pedido");
+                emailService.armarCorreo(usuario.Email, "Confirmación de pedido", "Gracias por tu compra, estamos preparando tu pedido");
                 try
                 {
                     emailService.enviarEmail();
@@ -106,6 +106,7 @@ namespace TPFinal_Equipo18
 
                 Response.Redirect("Perfil.aspx/Pedidos", false);
 
+                //ScriptManager.RegisterStartupScript(this, GetType(), "ModalScript", "openModal();", true);
             }
             catch (Exception ex)
             {

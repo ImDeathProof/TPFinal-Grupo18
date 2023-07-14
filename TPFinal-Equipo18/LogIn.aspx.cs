@@ -13,14 +13,13 @@ namespace TPFinal_Equipo18
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblMsj.Visible= false;
             if (Session["mensaje"] != null)
             {
+                lblMsj.Visible= true;
                 lblMsj.Text =(string) Session["mensaje"];
             }
-            else
-            {
-                lblMsj.Visible= false;
-            }
+            
 
         }
         protected void btnIngresar_Click(object sender, EventArgs e)
@@ -44,8 +43,8 @@ namespace TPFinal_Equipo18
                 }
                 else
                 {
-                    Session.Add("error", "Mail o Pass incorrecta");
-                    Response.Redirect("Error.aspx");
+                    lblMsj.Visible = true;
+                    lblMsj.Text = "Usuario o contraeña incorrecta.";
                 }
             }
             catch (Exception ex)

@@ -1,8 +1,34 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Pagos.aspx.cs" Inherits="TPFinal_Equipo18.Pagos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script>
+        //function openModal() {
+        //    $('#myModal').modal('show');
+        //}
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <%--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Compra realizada con éxito</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>¡Gracias por tu compra! La transacción se ha realizado correctamente.</p>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>--%>
 
     <div class="container col-10 border p-3 text-bg-dark border-primary border-2 border-opacity-75">
         <h2>Completa los ultimos pasos para terminar tu compra</h2>
@@ -46,7 +72,7 @@
                             { %>
                         <div class="row">
                             <div class="mb-3">
-                                <h3>Retira por sucursal </h3>
+                                <h6>Retira por sucursal </h6>
 
                                 <p>Direccion: Av. Hipólito Yrigoyen 288, B1617 Gral. Pacheco, Provincia de Buenos Aires </p>
 
@@ -67,9 +93,12 @@
                     <asp:Label ID="lblMontoTotal" runat="server" Text=""></asp:Label>
 
                     <div class="mb-3">
+                        <img class="icon-mp" src="Images/Icons/mp.png" alt="Mercado Pago" />
                         <asp:CheckBox ID="ckbMp" runat="server" Text="Mercado pago" Checked="true" />
-                        <img src="~/Images/Icons/MP" alt="Mercado Pago" />
+                        <div>
+                            <a href="https://www.mercadopago.com.ar/" class="btn btn-primary" target="_blank">Pagar con mercado pago </a>
 
+                        </div>
                     </div>
 
                     <div class="mb-3">
@@ -79,16 +108,23 @@
                     </div>
 
                 </div>
+            </div>
 
 
-                <div class="row">
-                    <div class="col-12">
-                        <asp:Button ID="btnTerminar" runat="server" CssClass="btn btn-outline-primary" Text="Terminar compra" OnClick="btnTerminar_Click" />
-                        <a href="Carrito.aspx" class="btn btn-outline-success">Volver</a>
-                    </div>
+            <div class="row">
+                <div class="col-12">
+                    <asp:Button ID="btnTerminar" runat="server" CssClass="btn btn-outline-primary" Text="Terminar compra" OnClick="btnTerminar_Click" data-target="#myModal" />
+                    <a href="Carrito.aspx" class="btn btn-outline-success">Volver</a>
                 </div>
             </div>
         </div>
+
+
+
+
+
+
     </div>
+
 </asp:Content>
 
