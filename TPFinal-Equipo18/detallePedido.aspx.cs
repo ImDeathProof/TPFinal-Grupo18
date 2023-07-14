@@ -14,8 +14,7 @@ namespace TPFinal_Equipo18
         public List<DetallePedido> listaDetalle { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (listaDetalle != null)
-            {
+            
                 if (!IsPostBack)
                 {
                     Pedido pedido = (Pedido)Session["VerDetalle"];
@@ -31,16 +30,14 @@ namespace TPFinal_Equipo18
                     lblNumPedido.Text = pedido.Id.ToString();
                     if (usuario.Domicilio != null)
                         lblDomicilio.Text = usuario.Domicilio.ToString();
+                    else
+                    lblDomicilio.Visible = false;
                     lblEmaul.Text = usuario.Email;
                     lblTotal.Text = pedido.Importe.ToString();
 
 
                 }
-            }
-            else
-            {
-                Response.Redirect("Default.aspx", false);
-            }
+           
         }
     }
 }

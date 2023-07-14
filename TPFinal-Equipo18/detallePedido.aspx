@@ -71,9 +71,8 @@
                     <label>:<%:item.Precio %></label>
                 </div>
 
-                <asp:Label ID="Label7" runat="server" Text="Producto: "></asp:Label>
-                <asp:Label ID="lblProducto" runat="server" Text="Label"></asp:Label>
-                <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label>
+                
+                
 
 
                 <% }
