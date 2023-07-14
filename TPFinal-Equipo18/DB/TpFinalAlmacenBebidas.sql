@@ -141,23 +141,32 @@ go
 insert into MetodosPagos values('Mercado Pago')
 go
 --Insert de Marcas
-insert into Marcas values('Coca Cola',0,1)
-insert into Marcas values('Manaos',0,1)
-insert into Marcas values('Branca',0,1)
-insert into Marcas values('Termidor',0,1)
-insert into Marcas values('Jack Daniels',1,1)
+insert into Marcas values('Coca Cola',0,1),
+('Manaos',1,0),
+('Branca',1,0),
+('Termidor',1,0),
+('Jack Daniels',1,1),
+('Coca-Cola', 1, 0),
+('Pepsi', 1, 0),
+('Red Bull', 1, 1)
 go
 --insert Categorias
-insert into Categorias values('Gaseosa',1,0)
-insert into Categorias values('Vino',1,1)
-insert into Categorias values('Aperitivo',1,1)
-insert into Categorias values('Whisky',1,1)
+insert into Categorias values('Gaseosa',1,0),
+('Vino',1,1),
+('Aperitivo',1,1),
+('Whisky',1,1),
+('Energizante',1,0),
+('Agua', 1, 0)
 go
---insert Bebidas
-insert into Bebidas values('A11','Fernet ',2000,'Bebida alcoholica elaborada con hierbas',500,1,'https://labebidadetusfiestas.com.ar/37266/fernet-branca-1lt.jpg',3,2,50)
-insert into Bebidas values('A22','Manao ',300,'Gaseosa berreta',2500,1,'https://www.argensend.com/wp-content/uploads/2021/09/D_NQ_NP_716200-MLA43739181284_102020-F.webp',2,3,1)
-insert into Bebidas values('B33','Terminaitor ',500,'Jugo de estracto de uva',1000,1,'https://s3.amazonaws.com/storage.wobiz.com/138/138495/images/Large/1557322653_c2314b5790046933a89ca07dbc544870.138495.jpeg',4,3,100)
-insert into Bebidas values('JD01','Jack Daniels',25000,'Whisky yanki',1000,1,'https://borrachines.com.ar/wp-content/uploads/2021/11/Jack-Daniels-Old-No.7-Whisky-Destilado-750ml.jpg',5,4,150)
+--insert Bebidas Codigo
+insert into Bebidas(Codigo, Nombre, Precio, Descripcion, ContenidoNeto, Estado, UrlImg, IdMarca, IdCategoria, Stock) 
+values('A11','Fernet ',2000,'Bebida alcoholica elaborada con hierbas',500,1,'https://labebidadetusfiestas.com.ar/37266/fernet-branca-1lt.jpg',3,3,50),
+('A22','Manao ',300,'Gaseosa berreta',2500,0,'https://www.argensend.com/wp-content/uploads/2021/09/D_NQ_NP_716200-MLA43739181284_102020-F.webp',2,1,10),
+('B33','Terminaitor ',500,'Jugo de estracto de uva',1000,1,'https://s3.amazonaws.com/storage.wobiz.com/138/138495/images/Large/1557322653_c2314b5790046933a89ca07dbc544870.138495.jpeg',4,2,100),
+('JD01','Jack Daniels',25000,'Whisky yanki',1000,1,'https://borrachines.com.ar/wp-content/uploads/2021/11/Jack-Daniels-Old-No.7-Whisky-Destilado-750ml.jpg',5,4,150),
+('001', 'Coca-Cola Clasica', 2.99, 'Refresco carbonatado de cola', 355, 1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuPG_UiU5N_bv03CJFww0jlpyW-dsYFHLRNg&usqp=CAU', 1, 1, 100),
+('002', 'Pepsi Max', 2.49, 'Refresco carbonatado de cola sin azúcar', 330, 0, 'https://secure.ce-tescoassets.com/assets/CZ/913/8594008043913/ShotType1_540x540.jpg', 7, 1, 50),
+('003', 'Red Bull Energy Drink', 3.99, 'Bebida energética', 250, 1, 'https://d3ugyf2ht6aenh.cloudfront.net/stores/861/458/products/340861-ef4bc86b471fc2670315743589613643-640-0.webp', 8, 5, 200)
 go
 --Insert TipoUsuario
 insert into TipoUsuario(Nombre)

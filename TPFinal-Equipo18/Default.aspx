@@ -6,20 +6,20 @@
     <%--CARRUSEL BANNERS--%>
     <div id="divCarouselBanners" runat="server" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <asp:Image ID="Image1" runat="server" ImageUrl="" class="d-block w-100" alt="..."/>
+            <div id="carousel_1" runat="server" class="carousel-item active">
+                <asp:Image ID="Image1" runat="server" ImageUrl="" class="d-block w-100 banner" alt="..." />
             </div>
-            <div class="carousel-item">
-                <asp:Image ID="Image2" runat="server" ImageUrl="" class="d-block w-100" alt="..."/>
+            <div id="carousel_2" runat="server" class="carousel-item">
+                <asp:Image ID="Image2" runat="server" ImageUrl="" class="d-block w-100 banner" alt="..." />
             </div>
-            <div class="carousel-item">
-                <asp:Image ID="Image3" runat="server" ImageUrl="" class="d-block w-100" alt="..."/>
+            <div id="carousel_3" runat="server" class="carousel-item">
+                <asp:Image ID="Image3" runat="server" ImageUrl="" class="d-block w-100 banner" alt="..." />
             </div>
-            <div class="carousel-item">
-                <asp:Image ID="Image4" runat="server" ImageUrl="" class="d-block w-100" alt="..."/>
+            <div id="carousel_4" runat="server" class="carousel-item">
+                <asp:Image ID="Image4" runat="server" ImageUrl="" class="d-block w-100 banner" alt="..." />
             </div>
-            <div class="carousel-item">
-                <asp:Image ID="Image5" runat="server" ImageUrl="" class="d-block w-100" alt="..."/>
+            <div id="carousel_5" runat="server" class="carousel-item">
+                <asp:Image ID="Image5" runat="server" ImageUrl="" class="d-block w-100 banner" alt="..." />
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">

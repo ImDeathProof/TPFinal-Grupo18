@@ -53,6 +53,7 @@ namespace TPFinal_Equipo18
                     }
                     else
                     {
+                        carousel_2.Visible = false;
                         Image2.Visible = false;
                     }
                     if (listaBanners.Count > 2)
@@ -61,6 +62,7 @@ namespace TPFinal_Equipo18
                     }
                     else
                     {
+                        carousel_3.Visible = false;
                         Image3.Visible = false;
                     }
                     if (listaBanners.Count > 3)
@@ -69,6 +71,7 @@ namespace TPFinal_Equipo18
                     }
                     else
                     {
+                        carousel_4.Visible = false;
                         Image4.Visible = false;
                     }
                     if (listaBanners.Count > 4)
@@ -77,6 +80,7 @@ namespace TPFinal_Equipo18
                     }
                     else
                     {
+                        carousel_5.Visible = false;
                         Image5.Visible = false;
                     }
 
