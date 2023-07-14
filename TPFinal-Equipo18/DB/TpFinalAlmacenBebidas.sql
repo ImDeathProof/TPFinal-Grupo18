@@ -1,8 +1,14 @@
+USE master
+GO
+DROP DATABASE AlmacenBebidas
+GO
 create database AlmacenBebidas
-go
-create table TipoUsuario(
-Id int primary key identity(1,1),
-Nombre varchar(50) not null
+GO
+USE AlmacenBebidas
+GO
+CREATE TABLE TipoUsuario(
+Id INT PRIMARY KEY identity(1,1),
+Nombre VARCHAR(50) NOT NULL
 )
 go
 create table Domicilio(
@@ -106,7 +112,8 @@ Importe money not null check(Importe>0),
 Fecha date not null default getdate(),
 idMetodoPago int not null foreign key references MetodosPagos(Id),
 Entrega varchar(100) not null,
-idEstado int not null foreign key references EstadoPedido(Id)
+idEstado int not null foreign key references EstadoPedido(Id),
+NumOperacion varchar(50)
 )
 GO
 create table DetallePedido(
@@ -122,11 +129,12 @@ create procedure SP_AgregarPedido(
 @Importe money,
 @idMetodoPago int,
 @Entrega varchar(100),
-@Estado int
+@Estado int,
+@NumOperacion varchar(50)
 )
 as
 begin
-	insert into Pedidos (idUsuario,Importe,idMetodoPago,Entrega,idEstado) output inserted.Id values(@idUsuario,@Importe,@idMetodoPago,@Entrega,@Estado)
+	insert into Pedidos (idUsuario,Importe,idMetodoPago,Entrega,idEstado,NumOperacion) output inserted.Id values(@idUsuario,@Importe,@idMetodoPago,@Entrega,@Estado,@NumOperacion)
 end
 go
 --Inserts EstadoPedido
