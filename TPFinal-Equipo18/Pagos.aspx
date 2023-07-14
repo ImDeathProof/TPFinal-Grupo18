@@ -83,8 +83,8 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <asp:Button ID="btnTerminar" runat="server" CssClass="btn btn-outline-success" Text="Terminar compra" OnClick="btnTerminar_Click" />
-                        <a href="Carrito.aspx" class="btn btn-outline-danger">Volver</a>
+                        <asp:Button ID="btnTerminar" runat="server" CssClass="btn btn-outline-primary" Text="Terminar compra" OnClick="btnTerminar_Click" />
+                        <a href="Carrito.aspx" class="btn btn-outline-success">Volver</a>
                     </div>
                 </div>
             </div>
