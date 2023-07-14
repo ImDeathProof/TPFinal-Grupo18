@@ -12,6 +12,7 @@ namespace TPFinal_Equipo18
     {
         public List<Bebida> listaFiltrada { get; set; }
         public Usuario user = new Usuario();
+        public int cantArticulos { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -31,6 +32,17 @@ namespace TPFinal_Equipo18
                     linkLogIn.Visible = true;
                     linkRegistro.Visible = true;
                 }
+                if (Session["Bebidas"] != null)
+                {
+                    List<CarritoClase> listaCarrito = new List<CarritoClase>();
+                    listaCarrito = (List<CarritoClase>)Session["Bebidas"];
+                    cantArticulos = listaCarrito.Count;
+                }
+                else
+                {
+                    cantArticulos = 0;
+                }
+                lblCantProductos.Text = cantArticulos.ToString();
             }
         }
 

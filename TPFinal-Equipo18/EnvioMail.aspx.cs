@@ -12,7 +12,7 @@ namespace TPFinal_Equipo18
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblexitoso.Visible = false;
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
@@ -22,7 +22,7 @@ namespace TPFinal_Equipo18
             try
             {
                 emailService.enviarEmail();
-
+                lblexitoso.Visible = true;
             }
             catch (Exception ex)
             {

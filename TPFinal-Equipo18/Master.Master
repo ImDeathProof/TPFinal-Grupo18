@@ -78,7 +78,9 @@
                                         <li class="nav-item">
                                             <a class="nav-link" id="linkPerfil" href="/Perfil.aspx" runat="server">Perfil</a></li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/Carrito.aspx"><i class="bi bi-cart bi-3x"></i></a>
+                                            <a class="nav-link" href="/Carrito.aspx"><i class="bi bi-cart bi-3x"></i>
+                                                <asp:Label Text="" ID="lblCantProductos" runat="server" CssClass="position-absolute translate-middle badge rounded-pill bg-secondary" />
+                                                <span class="visually-hidden">Items en el carrito</span></a>
                                             <%--<button class="btn btn-dark">
                                                 <i class="bi bi-cart bi-3x" href="/Carrito.aspx"></i>
                                             </button>--%>
