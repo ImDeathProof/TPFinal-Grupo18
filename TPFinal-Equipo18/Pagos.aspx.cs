@@ -103,8 +103,9 @@ namespace TPFinal_Equipo18
                 {
                     Session.Add("error", ex);
                 }
-
-                Response.Redirect("Perfil.aspx/Pedidos", false);
+                carritoClases.Clear();
+                Session["Bebidas"] = carritoClases;
+                Response.Redirect("Default.aspx", false);
 
                 //ScriptManager.RegisterStartupScript(this, GetType(), "ModalScript", "openModal();", true);
             }
